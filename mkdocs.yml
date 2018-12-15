@@ -1,2 +1,3 @@
-site_name: My Docs
+site_name: python学习笔记
 theme: readthedocs
+#theme: windmill
