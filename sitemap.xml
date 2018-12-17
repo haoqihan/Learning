@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>None</loc>
-     <lastmod>2018-12-15</lastmod>
+     <loc>http://www.haoqihan.top/</loc>
+     <lastmod>2018-12-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://www.haoqihan.top/1.python笔记/1.python基础/1.python的基本信息/</loc>
+     <lastmod>2018-12-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://www.haoqihan.top/5.算法笔记/基本10大算法/</loc>
+     <lastmod>2018-12-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://www.haoqihan.top/5.算法笔记/数据结构/</loc>
+     <lastmod>2018-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

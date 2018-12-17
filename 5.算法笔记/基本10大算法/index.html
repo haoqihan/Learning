@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>基本10大算法 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u57fa\u672c10\u5927\u7b97\u6cd5";
+    var mkdocs_page_input_path = "5.\u7b97\u6cd5\u7b14\u8bb0\\\u57fa\u672c10\u5927\u7b97\u6cd5.md";
+    var mkdocs_page_url = "/5.\u7b97\u6cd5\u7b14\u8bb0/\u57fa\u672c10\u5927\u7b97\u6cd5/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">基本10大算法</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">什么是算法?</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_2">时间复杂度</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">空间复杂度</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_4">二分查找</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_5">冒泡排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_6">选择排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_7">插入排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_8">快速排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_9">堆排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_10">归并排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_11">希尔排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_12">计数排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_13">桶排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_14">基数排序</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../数据结构/">数据结构</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>5.算法笔记 &raquo;</li>
+        
+      
+    
+    <li>基本10大算法</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/5.算法笔记/基本10大算法.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="_1">什么是算法?</h2>
+<p><strong>算法(Algorithm):</strong>一个计算过程,解决问题的方法</p>
+<h3 id="_2">时间复杂度</h3>
+<ul>
+<li><strong>时间复杂度</strong> :用来评估算法运行效率的一个东西</li>
+<li>一般来说,时间复杂度高的算法比时间复杂度低的算法慢</li>
+<li>常见的时间复杂度(按照效率排序<ul>
+<li>O(1)&lt;O(logn)&lt;O(n)&lt;O(nlogn)&lt;O(n2)&lt;O(n2logn)&lt;O(n3)</li>
+</ul>
+</li>
+<li>不常见的时间复杂度<ul>
+<li>O(n!) O(2n) O(nn)....</li>
+</ul>
+</li>
+<li>如何一眼判断时间复杂度<ul>
+<li><strong>循环减半的过程O(logn)</strong></li>
+<li><strong>几次循环就是n的几次方的复杂度</strong></li>
+</ul>
+</li>
+</ul>
+<pre><code class="python">print('hello World')                # O(1)
+for i in range(n):                  # O(n)
+    print('hello world')
+for i in range(n):                  #O(n²)
+    for j in range(n):
+        print('hello world')
+for i in range(n):                  #O(n³)
+    for j in range(n):
+        for k in range(n):
+            print('hello world')
+
+</code></pre>
+
+<h3 id="_3">空间复杂度</h3>
+<p><strong>空间复杂度:</strong> 用来评估算法内存占用大小的一个式子</p>
+<h2 id="_4">二分查找</h2>
+<p><strong>代码:</strong></p>
+<pre><code class="python"># 普通的查找方式
+def linear_search(data_set,value):
+    for i in range(len(data_set)):          # 时间复杂度是O(n)
+        if data_set[i] == value:
+            return i
+     return 
+</code></pre>
+
+<pre><code class="python"># 二分查找
+# 循环版本
+def bin_search(data_set,value):
+    low = 0
+    high = len(data_set) - 1
+    while low &lt;= high:
+        mid = (low + high) // 2
+        if data_set[mid] == value:          # 时间复杂度O(logn)
+            return mid
+        elif data_set[mid] &gt; value:
+            high = mid-1
+        else:
+            low = mid + 1
+
+# 递归版本
+def bin_search_rec(data_set,value,low,high):
+    if low &lt;= high:
+        mid = (low + high) // 2
+        if data_set[mid] == value:
+            return mid
+        elif data_set[mid] &gt; value:
+            return bin_search_rec(data_set,value,low,mid-1)
+        else:
+            return bin_search_rec(data_set,value,mid+1,high)
+    else:
+        return
+</code></pre>
+
+<h2 id="_5">冒泡排序</h2>
+<p><strong>冒泡排序思路:</strong> 首先,列表两个相邻的数,如果前边的比后边的大,那么交换这两个数,如果不大,那就不需要交换</p>
+<p><strong>代码关键点:</strong> 1.趟  2.无序区 </p>
+<pre><code>```python
+# 冒泡算法 时间复杂度:O(n²)
+def bubble_sort(li):
+    for i in range(len(li)):
+        for j in range(i+1,len(li)):
+            if li[i] &gt; li[j]:
+                li[i], li[j] = li[j], li[i]
+# 冒泡算法优化
+# 如果冒泡排序中执行一趟而没有交换，则列表已经是有序状态，可以直接结束算法
+def bubble_sort(li):
+    for i in range(len(li)):
+        exchange = False
+        for j in range(i+1,len(li)):
+            if li[i] &gt; li[j]:
+                li[i], li[j] = li[j], li[i]
+                exchange = True
+        if not exchange:
+            return   
+```
+</code></pre>
+<h2 id="_6">选择排序</h2>
+<p><strong>选择排序思路:</strong> </p>
+<ul>
+<li>
+<p>一趟遍历记录最小的数放在第一个位置</p>
+</li>
+<li>
+<p>再一趟遍历记录剩余列表中最小的数，继续放置</p>
+</li>
+</ul>
+<p><strong>代码关键点:</strong> 1.无序区 2.最小数的位置</p>
+<pre><code class="python"># 选择排序代码  时间复杂度:O(n²)
+def select_sort(li):
+    for i in range(len(li)):
+        min_loc = i
+        for j in range(i+1,len(li)):
+            if li[j] &lt; li[min_loc]:
+                min_loc = j
+         if min_loc != i:
+            li[i],li[min_loc] = li[min_loc],li[i]
+</code></pre>
+
+<h2 id="_7">插入排序</h2>
+<p><strong>插入排序思路</strong></p>
+<p>​   列表被分为有序区和无序区两部分,最初有序区只有一个元素</p>
+<p>​   每次从无序区选择一个元素,插入到有序区的位置,直到无序区变空</p>
+<pre><code class="python"># 插入排序代码  时间复杂度O(n²)
+def insert_sort(li):
+    for i in range(1,len(li)):
+        tmp = li[i]
+        j = i - 1
+        while j&gt;=0 and tmp &lt; li[j]:
+            li[j+1] = li[j]
+            j -= 1
+        li[j+1] = tmp
+</code></pre>
+
+<h2 id="_8">快速排序</h2>
+<p><strong>快速排序思路</strong></p>
+<p>1.取一个元素p(第一个元素),使元素p归为</p>
+<p>2.列表被p分为两部分,左边比p小,右边比p大</p>
+<p>3..递归完成排序</p>
+<pre><code class="python"># 快速排序   时间复杂度O(nlogn)
+def quick_sort(data,left,right):
+    if left &lt; right:
+        mid = partition(data,left,right)
+        quick_sort(data,left,mid-1)
+        quick_sort(data,mid+1,right)
+def partition(data,left,right):
+    tmp = data[left]
+    while left &lt; right:
+        while left &lt; right and data[right] &gt;= tmp:
+            right -= 1
+        data[left] = data[right]
+        while left &lt; right and data[left] &lt;= tmp:
+            left += 1
+        data[right] = data[left]
+    data[left] = tmp
+    return left
+</code></pre>
+
+<h2 id="_9">堆排序</h2>
+<p><strong>树与二叉树的简介</strong></p>
+<p>树是一种数据结构          比如：目录结构</p>
+<p>树是一种可以递归定义的数据结构</p>
+<p>树是由n个节点组成的集合：</p>
+<ul>
+<li>如果n=0，那这是一棵空树；</li>
+<li>如果n&gt;0，那存在1个节点作为树的根节点，其他节点可以分为m个集合，每个集合本身又是一棵树。</li>
+</ul>
+<p>一些概念:</p>
+<ul>
+<li>
+<p>根节点、</p>
+</li>
+<li>
+<p>叶子节点树的深度（高度）</p>
+</li>
+<li>
+<p>树的度孩子节点/父节点</p>
+</li>
+<li>
+<p>子树</p>
+</li>
+</ul>
+<p><strong>两种特殊二叉树</strong></p>
+<ul>
+<li>
+<p>满二叉:一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是满二叉树。</p>
+</li>
+<li>
+<p>完全二叉树：叶节点只能出现在最下层和次下层，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树。</p>
+</li>
+</ul>
+<p><strong>二叉树的存储方式:</strong></p>
+<ul>
+<li>链式存储方式</li>
+<li>顺序存储方式(列表)</li>
+<li>父节点和左孩子节点的编号下标有什么关系？   2i+1  i:代表下标</li>
+<li>父节点和右孩子节点的编号下标有什么关系？   2i+2</li>
+</ul>
+<p><strong>堆排序</strong></p>
+<p><strong>堆:</strong></p>
+<ul>
+<li>大根堆：一棵完全二叉树，满足任一节点都比其孩子节点大</li>
+</ul>
+<p><img alt="大根堆" src="../../img/大根堆.png" /></p>
+<ul>
+<li>小根堆：一棵完全二叉树，满足任一节点都比其孩子节点小</li>
+</ul>
+<p><img alt="小根堆" src="../../img/小根堆.png" /></p>
+<p><strong>堆的向下调整性质:</strong></p>
+<p>假设:节点的左右子树都是堆，但自身不是堆</p>
+<p>当根节点的左右子树都是堆时，可以通过一次向下的调整来将其变换成一个堆</p>
+<p><strong>堆排序过程:</strong></p>
+<ol>
+<li>建立堆</li>
+<li>得到堆顶元素，为最大元素</li>
+<li>去掉堆顶，将堆最后一个元素放到堆顶，此时可通过一次调整重新使堆有序。</li>
+<li>堆顶元素为第二大元素。</li>
+<li>重复步骤3，直到堆变空。</li>
+</ol>
+<pre><code class="python"># 堆排序代码   时间复杂度O(nlogn)
+def sift(data,low,high):
+    i = low
+    j = 2 * i +1
+    tmp = data[i]
+    while j &lt;= high:
+        if j &lt; high and data[j] &lt; data[j+1]:
+            j += 1
+         if tmp &lt; data[j]:
+            data[i] = data[j]
+            i = j
+            j = 2*i+1
+         else:
+            break
+    data[i] = tmp
+
+def heap_sort(data):
+    n = len(data)
+    for i in range(n//2-1,-1,-1):
+        sift(data,i,n-1)
+    for i in range(n-1,-1,-1):
+        data[0],data[i] = data[i],data[0]
+        sift(data,0,i-1)
+</code></pre>
+
+<p><strong>堆排序--内置模块</strong></p>
+<ul>
+<li>优先队列：一些元素的集合，POP操作每次执行都会从优先队列中弹出最大（或最小）的元素。</li>
+<li>堆——优先队列</li>
+<li>Python内置模块——heapq<ul>
+<li>heapify(x)</li>
+<li>heappush(heap, item)</li>
+<li>heappop(heap)</li>
+</ul>
+</li>
+<li>利用heapq模块实现堆排序</li>
+</ul>
+<pre><code class="python">import heapq
+def heapsort(li): 
+    h = [] 
+    for value in li:   
+        heappush(h, value)
+    return [heappop(h) for i in range(len(h))]
+
+</code></pre>
+
+<h2 id="_10">归并排序</h2>
+<p>假设现在的列表分两段有序，将其合成为一个有序列表,这种操作称为一次归并</p>
+<pre><code class="python"># 归并排序 时间复杂度O(logn) 空间复杂度:O(n)
+def merge(li,low,mid,high):
+    li_tmp = []
+    i = low
+    j = mid + 1
+    while i &lt;= mid and j &lt;= high:
+        if li[i] &lt; li[j]:
+            li_tmp.append(li[i])
+            i += 1
+        else:
+            li_tmp.append(li[j])
+            j += 1
+    while i &lt;= mid:
+        li_tmp.append(li[i])
+        i += 1
+    while j &lt;= high:
+        li_tmp.append(li[j])
+        j += 1
+    for i in  range(len(li_tmp)):
+        li[i+low] = li_tmp[i]
+
+def merge_sort(li,low,high):
+    if low &lt; high:
+        mid = (low + high) // 2
+        merge_sort(li,low,mid)
+        merge_sort(li,mid+1,high)
+        merge(li,low,mid,high)
+</code></pre>
+
+<p><strong>归并排序实现思路:</strong></p>
+<p><img alt="" src="../../img/归并排序.png" /></p>
+<ul>
+<li>分解：将列表越分越小，直至分成一个元素。</li>
+<li>终止条件：一个元素是有序的。</li>
+<li>合并：将两个有序列表归并，列表越来越大</li>
+</ul>
+<p><strong>总结:</strong></p>
+<p>一般情况下，就运行时间而言：快速排序 &lt; 归并排序 &lt; 堆排序</p>
+<p>三种排序算法的缺点：</p>
+<ul>
+<li>快速排序：极端情况下排序效率低</li>
+<li>归并排序：需要额外的内存开销</li>
+<li>堆排序：在快的排序算法中相对较慢</li>
+</ul>
+<p><img alt="" src="../../img/算法总结.png" /></p>
+<h2 id="_11">希尔排序</h2>
+<p><strong>希尔排序思路:</strong></p>
+<ul>
+<li>希尔排序是一种分组插入排序算法</li>
+<li>首先取一个整数d1=n/2，将元素分为d1个组，每组相邻量元素之间距离为d1，在各组内进行直接插入排序</li>
+<li>取第二个整数d2=d1/2，重复上述分组排序过程，直到di=1，即所有元素在同一组内进行直接插入排序。</li>
+<li>希尔排序每趟并不使某些元素有序，而是使整体数据越来越接近有序；最后一趟排序使得所有数据有序</li>
+</ul>
+<pre><code class="python"># 希尔排序 希尔排序的时间复杂度讨论比较复杂，并且和选取的gap序列有关。
+def shell_sort(li):
+    gap = len(li) // 2
+    while gap &gt; 0:
+        for i in range(gap,len(li)):
+            tmp = li[i]
+            j = i-gap
+            while j &gt;= 0 and tmp &lt; li[j]:
+                li[j + gap] = li[j]
+                j -= gap
+            li[j+gap] = tmp
+        gap //= 2
+
+</code></pre>
+
+<h2 id="_12">计数排序</h2>
+<p>现在有一个列表，已知列表中的数范围都在0到100之间。设计算法在O(n)时间复杂度内将列表进行排序。</p>
+<p>创建一个列表，用来统计每个数出现的次数</p>
+<pre><code class="python">def count_sort(li,max_num):
+    count = [0 for i in range(max_num+1)]
+    for num in li:
+        count[num] += 1
+    i = 0
+    for num , m in enumerate(count):
+        for j in range(m):
+            li[i] = num
+            i += 1
+li = [1,2,3,4,5,8,6,3,2,1,4]
+count_sort(li,8)
+print(li)
+</code></pre>
+
+<h2 id="_13">桶排序</h2>
+<ul>
+<li>在计数排序中，如果元素的范围比较大（比如在1到1亿之间），如何改造算法？</li>
+<li>桶排序(Bucket Sort)：首先将元素分在不同的桶中，在对每个桶中的元素排序。</li>
+<li>桶排序的表现取决于数据的分布。也就是需要对不同数据排序时采取不同的分桶策略。</li>
+<li>平均情况时间复杂度：O(n+k)</li>
+<li>最坏情况时间复杂度：O(n2k)</li>
+<li>空间复杂度：O(nk)</li>
+</ul>
+<h2 id="_14">基数排序</h2>
+<ul>
+<li>多关键字排序：加入现在有一个员工表，要求按照薪资排序，年龄相同的员工按照年龄排序。</li>
+<li>先按照年龄进行排序，再按照薪资进行稳定的排序。</li>
+<li>对32,13,94,52,17,54,93排序，是否可以看做多关键字排序？</li>
+</ul>
+<pre><code class="python"># 基数排序  
+# 时间复杂度 O(kn)
+# 空间复杂度:O(k+n)
+# k表示数字位数
+def list_to_bucket(li, i):
+    buckets = [[] for _ in range(10)]
+    for val in li:
+        digit = val // (10 ** i) % 10
+        buckets[digit].append(val)
+    return buckets
+
+def bucket_to_list(buckets):
+    li = []
+    for bucket in buckets:
+        for val in bucket:
+            li.append(val)
+    return li
+
+def radix_sort(li):
+    max_val = max(li) 
+    i = 0
+    while 10 ** i &lt;= max_val:
+        li = bucket_to_list(list_to_bucket(li, i))
+        i += 1
+    return li
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../数据结构/" class="btn btn-neutral float-right" title="数据结构">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../1.python笔记/1.python基础/1.python的基本信息/" class="btn btn-neutral" title="python基本信息"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../1.python笔记/1.python基础/1.python的基本信息/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../数据结构/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
