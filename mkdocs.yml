@@ -1,3 +1,9 @@
-site_name: python学习笔记
+# 标题
+site_name: 学习笔记
+site_url: http://www.haoqihan.top
+
+# github网址
+repo_url: https://github.com/haoqihan/learning/  
+# 主题
 theme: readthedocs
-#theme: windmill
+# theme: windmill

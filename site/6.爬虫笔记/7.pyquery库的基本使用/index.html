@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>7.pyquery库的基本使用 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "7.pyquery\u5e93\u7684\u57fa\u672c\u4f7f\u7528";
+    var mkdocs_page_input_path = "6.\u722c\u866b\u7b14\u8bb0\\7.pyquery\u5e93\u7684\u57fa\u672c\u4f7f\u7528.md";
+    var mkdocs_page_url = "/6.\u722c\u866b\u7b14\u8bb0/7.pyquery\u5e93\u7684\u57fa\u672c\u4f7f\u7528/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.re模块的使用/">2.re模块的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.urllib库详解/">3.urllib库详解</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">7.pyquery库的基本使用</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#pyquery">pyquery库的基本使用</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_1">基本使用</a></li>
+        
+            <li><a class="toctree-l4" href="#url">url初始化</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">文件初始化</a></li>
+        
+            <li><a class="toctree-l4" href="#css">基本css选择器</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">查找元素</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_5">遍历</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_6">获取信息</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dom">DOM操作</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_7">伪类选择器</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>6.爬虫笔记 &raquo;</li>
+        
+      
+    
+    <li>7.pyquery库的基本使用</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/6.爬虫笔记/7.pyquery库的基本使用.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="pyquery">pyquery库的基本使用</h3>
+<h4 id="_1">基本使用</h4>
+<pre><code class="python">from pyquery import PyQuery as py
+doc = py(html)
+print(doc('p'))# 也可以:.p1或#p1
+</code></pre>
+
+<h4 id="url">url初始化</h4>
+<pre><code class="python">doc = py(url='http://www.baidu.com')
+print(doc('head'))
+</code></pre>
+
+<h4 id="_2">文件初始化</h4>
+<pre><code class="python">doc = py(filename='demo.html')
+print(doc('head'))
+</code></pre>
+
+<h4 id="css">基本css选择器</h4>
+<pre><code class="python">doc = py(html)
+print(doc('#list_1 .a1 ' ))
+</code></pre>
+
+<h4 id="_3">查找元素</h4>
+<h5 id="_4">子元素</h5>
+<ul>
+<li>
+<p>所有的</p>
+<ul>
+<li><code>python
+    doc = py(html)
+    item = doc('#list_1')
+    print(item.find('a'))</code></li>
+</ul>
+</li>
+<li>
+<p>直接的</p>
+<ul>
+<li><code>python
+    doc = py(html)
+    item = doc('#list_1')
+    print(item.children())</code></li>
+</ul>
+</li>
+<li>
+<p>子元素筛选</p>
+<ul>
+<li><code>python
+    item = doc('#list_1')
+    print(item.children('.a1'))</code></li>
+</ul>
+</li>
+</ul>
+<p>父元素</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.parent())
+</code></pre>
+
+<p>祖先节点</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.parents())
+</code></pre>
+
+<p>对父节点在进一次筛选</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.parent('.r1'))
+</code></pre>
+
+<p>兄弟节点</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.siblings())
+</code></pre>
+
+<p>对兄弟元素进行筛选</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.siblings('.a1'))
+</code></pre>
+
+<h3 id="_5">遍历</h3>
+<p>单个元素</p>
+<pre><code class="python">item = doc('#list_1')
+print(item)
+</code></pre>
+
+<p>返回迭代器</p>
+<pre><code class="python">item = doc('#list_1').items()
+print(item)
+</code></pre>
+
+<h3 id="_6">获取信息</h3>
+<p>获取属性</p>
+<pre><code class="python">item = doc('#list_1 a')
+print(item.attr('href'))
+print(item.attr.href)
+</code></pre>
+
+<p>获取文本</p>
+<pre><code class="python">item = doc('#list_1 a') print(item.text())
+</code></pre>
+
+<p>获取html内容</p>
+<pre><code class="python">item = doc('#list_1') print(item.html())
+</code></pre>
+
+<h3 id="dom">DOM操作</h3>
+<p>addClass和removeClass</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.remove_class('p1')) :删除p1
+print(item.add_class('p1')):添加p1
+</code></pre>
+
+<p>attr和css</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.attr('name','link'))
+print(item.css('font_size','14px'))
+</code></pre>
+
+<p>remove:把中间a标签全部删除</p>
+<pre><code class="python">item = doc('#list_1')
+print(item.text())
+print(item.find('a').remove())
+print(item.text())
+</code></pre>
+
+<h3 id="_7">伪类选择器</h3>
+<pre><code class="python">doc = py(html) print(doc('p:first-child')) # 获取第一个
+print(doc('p:last-child'))# 获取最后一个
+print(doc('p:nth-child(2)'))# 获取第二个
+print(doc('p:gt(1)')) # 获取比1大的所有元素
+print(doc('p:nth-child(2n)')) # 获取偶数的
+print(doc('p:contains(xxx)')) #查看包含xxx文本的所有内容
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../scrapy框架/" class="btn btn-neutral float-right" title="Scrapy框架">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../6.selenium的基本使用/" class="btn btn-neutral" title="6.selenium的基本使用"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../6.selenium的基本使用/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../scrapy框架/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

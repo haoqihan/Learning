@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>2.re模块的使用 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "2.re\u6a21\u5757\u7684\u4f7f\u7528";
+    var mkdocs_page_input_path = "6.\u722c\u866b\u7b14\u8bb0\\2.re\u6a21\u5757\u7684\u4f7f\u7528.md";
+    var mkdocs_page_url = "/6.\u722c\u866b\u7b14\u8bb0/2.re\u6a21\u5757\u7684\u4f7f\u7528/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">2.re模块的使用</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">常用的使用方法</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.urllib库详解/">3.urllib库详解</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.pyquery库的基本使用/">7.pyquery库的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>6.爬虫笔记 &raquo;</li>
+        
+      
+    
+    <li>2.re模块的使用</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/6.爬虫笔记/2.re模块的使用.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="_1">常用的使用方法</h3>
+<ul>
+<li>re.S:匹配换行符</li>
+<li>
+<p>re.match(正则,带匹配的字符串):尝试从起始位置匹配一个模式,没有返回None</p>
+<ul>
+<li>group:匹配结果</li>
+<li>span : 匹配的位置</li>
+</ul>
+</li>
+<li>
+<p>re.search :匹配所有能匹配到的,并返回第一个</p>
+</li>
+<li>re.sub(正则,要替换的字符串,'字符串') :</li>
+<li>re.findall(正则,字符串)</li>
+<li>re.compile():将正则字符串,编译成一个正则对象</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3.urllib库详解/" class="btn btn-neutral float-right" title="3.urllib库详解">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../1.爬虫的基本原理/" class="btn btn-neutral" title="1.爬虫的基本原理"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../1.爬虫的基本原理/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../3.urllib库详解/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
