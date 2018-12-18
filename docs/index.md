@@ -26,12 +26,6 @@
 - dev_addr: 本地调试的监听地址和端口
 - markdown_extensions: 一些扩展功能
 
-```python
-import requests
-res = requests.get('http://www.baidu.com')
-print(res.text)
-```
-
 
 
 
