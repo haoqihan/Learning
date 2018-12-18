@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>3.urllib库详解 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "3.urllib\u5e93\u8be6\u89e3";
+    var mkdocs_page_input_path = "6.\u722c\u866b\u7b14\u8bb0\\3.urllib\u5e93\u8be6\u89e3.md";
+    var mkdocs_page_url = "/6.\u722c\u866b\u7b14\u8bb0/3.urllib\u5e93\u8be6\u89e3/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.re模块的使用/">2.re模块的使用</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">3.urllib库详解</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#urllib">urllib库详解</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#pythonhttp">python内置的HTTP请求库</a></li>
+        
+            <li><a class="toctree-l4" href="#_1">基本用法</a></li>
+        
+            <li><a class="toctree-l4" href="#_2">获取图片并自动保存</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">设置超时问题</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">响应</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">请求</a></li>
+        
+            <li><a class="toctree-l4" href="#_6">代理</a></li>
+        
+            <li><a class="toctree-l4" href="#_7">异常处理</a></li>
+        
+            <li><a class="toctree-l4" href="#url">URL解析</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../7.pyquery库的基本使用/">7.pyquery库的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>6.爬虫笔记 &raquo;</li>
+        
+      
+    
+    <li>3.urllib库详解</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/6.爬虫笔记/3.urllib库详解.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="urllib">urllib库详解</h2>
+<h4 id="pythonhttp"><strong>python内置的HTTP请求库</strong></h4>
+<ul>
+<li>Urllib.request()   请求模块</li>
+<li>urllib.error    异常处理模块</li>
+<li>urllib.parse    url解析模块</li>
+<li>urllib.robotparser robots.txt 解析模块</li>
+</ul>
+<h4 id="_1"><strong>基本用法</strong></h4>
+<p>GET请求(实例)</p>
+<pre><code class="python">import urllib.request
+res = urllib.request.urlopen('http://www.baidu.com')
+print(res.read().decode())
+</code></pre>
+
+<p>POST请求(例子)</p>
+<pre><code class="python">import urllib.parse
+import urllib.request
+data = bytes(urllib.parse.urlencode({'name':'hello'}),encoding='utf-8')
+res = urllib.request.urlopen('http://httpbin.org/post',data=data)
+print(res.read().decode())
+</code></pre>
+
+<h4 id="_2">获取图片并自动保存</h4>
+<pre><code class="python">from urllib import request
+request.urlretrieve(url='图片地址',filename='文件地址')
+</code></pre>
+
+<h4 id="_3"><strong>设置超时问题</strong></h4>
+<p>正常</p>
+<pre><code class="python">import urllib.request
+res = urllib.request.urlopen('http://httpbin.org/get',timeout=1)
+print(res.read())
+</code></pre>
+
+<p>错误</p>
+<pre><code class="python">import socket
+import urllib.request
+import urllib.error
+try:
+    res = urllib.request.urlopen('http://httpbin.org/get',timeout=0.1)
+except urllib.error.URLError as e:
+    if isinstance(e.reason,socket.timeout):
+        print('time out')
+</code></pre>
+
+<h4 id="_4"><strong>响应</strong></h4>
+<pre><code class="python"># 响应类型:&lt;class 'http.client.HTTPResponse'&gt;
+# 状态码和响应头
+import urllib.request
+res = urllib.request.urlopen('http://www.baidu.com')
+print(res.status)  # 状态码
+print(res.getheaders()) # 全部响应头
+print(res.getheader('Server'))
+print(res.read().decode('utf-8'))  # 获取响应体内容
+</code></pre>
+
+<h4 id="_5">请求</h4>
+<pre><code class="python">import urllib.request
+request = urllib.request.Request('http://www.baidu.com') # 生成一个对象
+res = urllib.request.urlopen(request)
+print(res)
+
+# 增加参数和使用post请求
+from urllib import request,parse
+url = 'http://www.httpbin.org/post'
+headers = {
+    'User-Agent':'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+    'Host':'httpbin.org'
+}
+dic = {
+   'name':'Germey'
+
+}
+data = bytes(parse.urlencode(dic),encoding='utf8')
+req = request.Request(url=url,data=data,headers=headers,method='POST')
+res = request.urlopen(req)
+print(res)
+
+# header也可以使用这样
+req.add_header('User-Agent','Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',)
+
+</code></pre>
+
+<h4 id="_6"><strong>代理</strong></h4>
+<pre><code class="python">from urllib import request
+proxy_header = request.ProxyHandler({
+    'http':'http://127.0.0.1:8899',
+    'https':'https://127.0.0.1:8899',
+})
+opener = request.build_opener(proxy_header)
+res = opener.open('http://www.baidu.com')
+print(res.read())
+</code></pre>
+
+<h4 id="_7"><strong>异常处理</strong></h4>
+<pre><code class="python">from urllib import request,error
+try:
+    res = request.urlopen('http://www.baidu222.top/11')
+    print(res.read())
+except error.HTTPError as e:
+    print(e.reason,e.code,e.headers)
+except error.URLError as e:
+    print(e.reason)
+else:
+    print('xxxx')
+</code></pre>
+
+<h4 id="url"><strong>URL解析</strong></h4>
+<ul>
+<li>协议类型:scheme='http/https'</li>
+<li>allow_fragments:#号后的内容存放在哪里</li>
+<li>urlunparse:将内容上面返回的内容进行拼接的</li>
+<li>urljoin:对两个url进行拼接,以后面的url为标准,有就覆盖,没有就用前面的</li>
+<li>import urllib.robotparser :查看那些路径是可以访问的,那些事不可以访问的</li>
+</ul>
+<pre><code class="python">from urllib.parse import urlparse
+result = urlparse('https://blog.csdn.net/leejeff/article/details/52935706')
+print(result,type(result))
+# ParseResult(scheme='https', netloc='blog.csdn.net', path='/leejeff/article/details/52935706', params='', query='', fragment='') &lt;class 'urllib.parse.ParseResult'&gt;
+</code></pre>
+
+<h2 id="_8"></h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../4.requests的基本使用方法/" class="btn btn-neutral float-right" title="4.requests的基本使用方法">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../2.re模块的使用/" class="btn btn-neutral" title="2.re模块的使用"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../2.re模块的使用/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../4.requests的基本使用方法/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
