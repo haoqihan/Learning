@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>5.shell编程 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "5.shell\u7f16\u7a0b";
+    var mkdocs_page_input_path = "4.linux\u7b14\u8bb0\\5.shell\u7f16\u7a0b.md";
+    var mkdocs_page_url = "/4.linux\u7b14\u8bb0/5.shell\u7f16\u7a0b/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/2.数据类型/">2.数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/3.深浅拷贝和流程控制/">3.深浅拷贝和流程控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/4.文件操作/">4.文件操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/5.编码,小数据池,运算符的优先级/">5.编码,小数据池,运算符的优先级</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/6.异常处理/">6.异常处理</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">2.函数部分</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/1.函数的基本信息/">1.函数的基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/2.三大器(装饰器,迭代器,生成器)/">2.三大器(装饰器,迭代器,生成器)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/3.关键字,内置函数,匿名函数和递归函数(偏函数)/">3.关键字,内置函数,匿名函数和递归函数(偏函数)</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">3.面对对象</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/1.面对对象基本知识/">1.面对对象基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/2.面对对象的基本使用/">2.面对对象的基本使用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/3.面对对象的魔法方法/">3.面对对象的魔法方法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/4.设计模式/">4.设计模式</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">4.网络编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/1.网络编程的基本知识/">1.网络编程的基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/2.各类网络协议/">2.各类网络协议</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">5.并发编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/1.进程/">1.进程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/2.线程/">2.线程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/3.协程/">3.协程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/4.IO模型/">4.IO模型</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">6.django基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/1.基本命令/">1.基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/2.路由系统/">2.路由系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/3.视图系统/">3.视图系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/4.模板系统/">4.模板系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/5.中间件/">5.中间件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/6.模型层/">6.模型层</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/7.表单/">7.表单</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">7.Flask基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/1.flask基础知识/">1.flask基础知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/2.Flask和HTTP/">2.Flask和HTTP</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/3.模板/">3.模板</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/4.表单/">4.表单</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/5.数据库/">5.数据库</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/6.电子邮件/">6.电子邮件</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">8.模块总结</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/1.异步模块(celery和asyncio)/">1.异步模块(celery和asyncio)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/2.API模块(REST framework 和 Flask REST API)/">2.API模块(REST framework 和 Flask REST API)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/3.基本常用模块/">3.基本常用模块</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.前端笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/1.html笔记/">1.html笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/2.css笔记/">2.css笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/3.javascript笔记/">3.javascript笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/4.jquery笔记/">4.jquery笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/5.VUE笔记/">5.VUE笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/6.es6笔记/">6.es6笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.数据库笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/1.mysql数据库/">1.mysql数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/2.redis数据库/">2.redis数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/3.MangoDB数据库/">3.MangoDB数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/4.memcached数据库/">4.memcached数据库</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.linux笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.linux的基本命令/">1.linux的基本命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.linux各种文件的安装/">2.linux各种文件的安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.nginx的使用/">3.nginx的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">5.shell编程</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/2.re模块的使用/">2.re模块的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/3.urllib库详解/">3.urllib库详解</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/7.pyquery库的基本使用/">7.pyquery库的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">9.数据分析</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../9.数据分析/1.numpy模块/">1.numpy模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9.数据分析/2.matplotlib库/">2.matplotlib库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9.数据分析/3.Pandas库的基本使用/">3.Pandas库的基本使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">奇淫巧技</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/1.vim的使用笔记/">1.vim的使用笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/2.Makdown笔记/">2.Makdown笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/3.git笔记/">3.git笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/4.jupyter的使用/">4.jupyter的使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>4.linux笔记 &raquo;</li>
+        
+      
+    
+    <li>5.shell编程</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/4.linux笔记/5.shell编程.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../5.算法笔记/基本10大算法/" class="btn btn-neutral float-right" title="基本10大算法">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../4.docker的使用/" class="btn btn-neutral" title="4.docker的使用"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../4.docker的使用/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../5.算法笔记/基本10大算法/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

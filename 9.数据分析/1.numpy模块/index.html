@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>1.numpy模块 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "1.numpy\u6a21\u5757";
+    var mkdocs_page_input_path = "9.\u6570\u636e\u5206\u6790\\1.numpy\u6a21\u5757.md";
+    var mkdocs_page_url = "/9.\u6570\u636e\u5206\u6790/1.numpy\u6a21\u5757/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/2.数据类型/">2.数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/3.深浅拷贝和流程控制/">3.深浅拷贝和流程控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/4.文件操作/">4.文件操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/5.编码,小数据池,运算符的优先级/">5.编码,小数据池,运算符的优先级</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/6.异常处理/">6.异常处理</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">2.函数部分</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/1.函数的基本信息/">1.函数的基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/2.三大器(装饰器,迭代器,生成器)/">2.三大器(装饰器,迭代器,生成器)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/3.关键字,内置函数,匿名函数和递归函数(偏函数)/">3.关键字,内置函数,匿名函数和递归函数(偏函数)</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">3.面对对象</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/1.面对对象基本知识/">1.面对对象基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/2.面对对象的基本使用/">2.面对对象的基本使用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/3.面对对象的魔法方法/">3.面对对象的魔法方法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/4.设计模式/">4.设计模式</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">4.网络编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/1.网络编程的基本知识/">1.网络编程的基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/2.各类网络协议/">2.各类网络协议</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">5.并发编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/1.进程/">1.进程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/2.线程/">2.线程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/3.协程/">3.协程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/4.IO模型/">4.IO模型</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">6.django基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/1.基本命令/">1.基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/2.路由系统/">2.路由系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/3.视图系统/">3.视图系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/4.模板系统/">4.模板系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/5.中间件/">5.中间件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/6.模型层/">6.模型层</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/7.表单/">7.表单</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">7.Flask基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/1.flask基础知识/">1.flask基础知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/2.Flask和HTTP/">2.Flask和HTTP</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/3.模板/">3.模板</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/4.表单/">4.表单</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/5.数据库/">5.数据库</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/6.电子邮件/">6.电子邮件</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">8.模块总结</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/1.异步模块(celery和asyncio)/">1.异步模块(celery和asyncio)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/2.API模块(REST framework 和 Flask REST API)/">2.API模块(REST framework 和 Flask REST API)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/3.基本常用模块/">3.基本常用模块</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.前端笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/1.html笔记/">1.html笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/2.css笔记/">2.css笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/3.javascript笔记/">3.javascript笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/4.jquery笔记/">4.jquery笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/5.VUE笔记/">5.VUE笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/6.es6笔记/">6.es6笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.数据库笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/1.mysql数据库/">1.mysql数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/2.redis数据库/">2.redis数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/3.MangoDB数据库/">3.MangoDB数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/4.memcached数据库/">4.memcached数据库</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.linux笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/1.linux的基本命令/">1.linux的基本命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/2.linux各种文件的安装/">2.linux各种文件的安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/3.nginx的使用/">3.nginx的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/5.shell编程/">5.shell编程</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/2.re模块的使用/">2.re模块的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/3.urllib库详解/">3.urllib库详解</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/7.pyquery库的基本使用/">7.pyquery库的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">9.数据分析</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">1.numpy模块</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ndarray">ndarray对象的属性</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ndarray_1">ndarray的元素类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ndarray_2">ndarray数组的创建方式</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">数组的索引和切片</a></li>
+    
+
+    <li class="toctree-l3"><a href="#ndarray_3">ndarray数组的运算</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">一元函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_3">二元函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_4">数据的存储</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#1csv">1.csv文件</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_5">多维数据的存取</a></li>
+    
+
+    <li class="toctree-l3"><a href="#numpy">NumPy的便捷文件存取</a></li>
+    
+
+    <li class="toctree-l3"><a href="#numpy_1">NumPy的随机函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_6">统计函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_7">梯度函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_8">绘制图像</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_9">图像的变换</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_10">图像的手绘效果</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.matplotlib库/">2.matplotlib库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3.Pandas库的基本使用/">3.Pandas库的基本使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">奇淫巧技</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/1.vim的使用笔记/">1.vim的使用笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/2.Makdown笔记/">2.Makdown笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/3.git笔记/">3.git笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/4.jupyter的使用/">4.jupyter的使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>9.数据分析 &raquo;</li>
+        
+      
+    
+    <li>1.numpy模块</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/9.数据分析/1.numpy模块.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong>NumPy基本知识</strong></p>
+<p><strong>Numpy是一个开源的Python科学计算基础库</strong></p>
+<ul>
+<li>
+<p>一个强大的N维数组对象ndarray</p>
+</li>
+<li>
+<p>广播功能函数</p>
+</li>
+<li>
+<p>整合C/C++/Fortran代码的工具</p>
+</li>
+<li>
+<p>线性代数,傅里叶变换,随机数生成等功能</p>
+</li>
+</ul>
+<p>NumPy是SciPy,Pandas等数据处理或科学计算库的基础</p>
+<p>ndarray是一个多维数组对象,由两部分组成</p>
+<ul>
+<li>
+<p>实际数据</p>
+</li>
+<li>
+<p>描述这些数据的元数据(数据维度,数据类型等)</p>
+</li>
+</ul>
+<p>ndarray数组一般要求所有元素类型相同,数组下标从0开始</p>
+<p><strong>轴(axis)</strong>:保存数据的维度,<strong>秩(rank):</strong>轴的数量</p>
+<h3 id="ndarray">ndarray对象的属性</h3>
+<ul>
+<li>ndim :秩,即轴的数量或维度的数量 </li>
+<li>.shape :ndarray对象的尺度,对于矩阵,n行m列 </li>
+<li>.size :ndarray对象元素的个数,相当于shape中的n * m dtype : ndarray对象的元素属性 </li>
+<li>.itemsize :ndarray对象中每个元素的大小,以字节为单位 </li>
+</ul>
+<h3 id="ndarray_1">ndarray的元素类型</h3>
+<ul>
+<li>bool 布尔类型,True或False </li>
+<li>intc 与C语言中的类型一致,一般是int32或int64 </li>
+<li>intp 用于索引的整数,与c语言中的ssize_t一致,int32或int64 </li>
+<li>int8 字节长度的整数,取值[-128,17] </li>
+<li>int16 16位长度的整数,取值范围[-32768,32767] </li>
+<li>int 32 32位长度的整数,取值范围[-2^31,2^31-1] </li>
+<li>int 64 64位长度的整数,取值范围[-2^641,2^64-1] </li>
+<li>uint8 8位无符号整数,取值:[0:255] </li>
+<li>uint16 16位无符号整数,取值:[0:65535] </li>
+<li>uint32 32位无符号整数,取值:[0:2^32 - 1] </li>
+<li>uint64 64位无符号整数,取值:[0:2^ 64 - 1] </li>
+<li>float16 16位半精度浮点数,1位符号位,5位指数,10位尾数 </li>
+<li>float32 32位半精度浮点数,1位符号位,8位指数,23位尾数 </li>
+<li>float64 64位半精度浮点数,1位符号位,11位指数,52位尾数 </li>
+<li>complex64 复数类型,实部和虚部都是32位浮点数 </li>
+<li>complex128 复数类型,实部和虚部都是64位浮点数 </li>
+<li>复数类型 = 实部(.real) + j虚部(.imag)</li>
+</ul>
+<h3 id="ndarray_2">ndarray数组的创建方式</h3>
+<ul>
+<li>从python中的列表,元祖等数据类型创建ndarray数组</li>
+<li>使用NumPy中函数创建ndarray数组,如:arange,ones,zeros</li>
+<li>从字节流(raw bytes) 中创建ndarray数组</li>
+<li>从文件中读取特定格式,创建ndarray数组</li>
+</ul>
+<p><strong>1.从python中的列表,元祖等数据类型创建ndarray数组</strong></p>
+<ul>
+<li>从列表类型创建 </li>
+<li>从元祖类型创建 </li>
+<li>从列表和元祖混合类型创建 </li>
+</ul>
+<p>2.使用NumPy中函数创建ndarray数组,如:arange,ones,zeros等</p>
+<ul>
+<li>np.arange(n) 类似range函数,返回ndarray类型,元素从0到n-1 </li>
+<li>np.ones(shape) 根据shape生成一个全1数组,shape是元祖类型 </li>
+<li>np.zeros(shape) 根据shape生成一个全0数组,shape是元祖类型 </li>
+<li>np.full(shape,val) 根据shape生成一个数组,每个元素的值都是val </li>
+<li>np.eye(n) 创建一个正方n * n单位矩阵,对角线为1,其余为0 </li>
+<li>np.ones_like(a) 根据数组a的形状生成一个全1数组 </li>
+<li>np.zeros_like(a) 根据数组a的形状生成一个全0数组 </li>
+<li>np.full_like(a,val) 根据数组a的形状生成一个数组,每个元素都是val </li>
+<li>np.linspace() 根据起止数据等间距地填充数据,形成数组 </li>
+<li>np.concatenate() 将2个或多个数组合并成一个新的数组 </li>
+</ul>
+<p><strong>3.ndarray数组的维度变换</strong></p>
+<ul>
+<li>.reshape(shape) 不改变数组元素,返回一个shape形状的数组,原数组不变 </li>
+<li>.resize(shape) 与.resshape() 功能一致,但修改原数组 </li>
+<li>.swapaxes(ax1,ax2) 将数组n个维度进行调换 </li>
+<li>.flatten() 对数组进行将维,返回折叠后的一堆数组,原数组不变 </li>
+</ul>
+<p><strong>4.ndarray数组类型变换</strong></p>
+<ul>
+<li>new_a = a.astype(new_type) astype()方法一定会创建新的数组,原始数据的一个拷贝,即使两个类型一致 </li>
+</ul>
+<p><strong>5.ndarray数据向列表转换</strong></p>
+<ul>
+<li>ls = a.tolist() </li>
+</ul>
+<h3 id="_1">数组的索引和切片</h3>
+<p><strong>一维数组的索引和切片:与python的列表类似</strong></p>
+<pre><code class="python">a = np.array([9,8,7,6,5,4])
+print(a[2])
+print(a[1:4:2])  起始 终止 步长
+</code></pre>
+
+<p><strong>多维数组的索引和切片</strong></p>
+<pre><code>a = np.arange(24).reshape((2,3,4))
+print(a)
+# a[1,2,3]
+# a[-1,-2,-3]
+# a[:,1,-3]
+print(a[:,1:3:1,:])
+</code></pre>
+
+<h3 id="ndarray_3">ndarray数组的运算</h3>
+<ul>
+<li>数组与标量之间的运算</li>
+<li>数组与标量之间的运算作用于数组的每个元素</li>
+</ul>
+<pre><code>计算a与元素平均值的商
+a = np.arange(24).reshape((2,3,4))
+a = a / a.mean()
+</code></pre>
+
+<h3 id="_2">一元函数</h3>
+<p><strong>对ndarray中的数据执行元素级运算的函数</strong></p>
+<ul>
+<li>no.abs(x)np.fabs(x) 计算数组各元素的绝对值 </li>
+<li>np.sqrt(x) 计算数组各个元素的平方根 </li>
+<li>np.square(x) 计算各个元素的平方 </li>
+<li>np.log(x) np.log10(x) np.log2(x) 计算数组各元素的自然对数,10底对数和2底对数 </li>
+<li>np.ceil(x) np.floor(x) 计算数组各元素的ceiling值或floor值 </li>
+<li>np.rint(x) 计算数组各元素的四舍五入值 np.modf(x) 将数组各元素的小数和整数部分以两个独立数组形式返回 </li>
+<li>np.cos(x) np.cosh(x) np.sin(x) np.sinh(x) np.tan(x) np.tanh(x) 计算数组各元素的指数值 </li>
+<li>np.exp(x) 计算数组各元素的指数值 </li>
+<li>np.sign(x) 计算数组各元素的符号值,1(+),0,1(-) </li>
+</ul>
+<h3 id="_3">二元函数</h3>
+<ul>
+<li>"+ - * / ** " 两个数组各元素进行对应运算</li>
+<li>np.maximum(x,y) np.fmax() 元素级的最大值/最小值计算 </li>
+<li>np.minimum(x,y) np.fmin() </li>
+<li>np.mod(x,y) 元素级的模运算 np.copsign(x,y) 将数组y中个元素值的符号赋值给数组x对应元素 </li>
+<li>"&gt; &lt; &gt;= &lt;= == != " 算数比较,产生布尔型数组 </li>
+</ul>
+<pre><code>np.arange(10)
+print(np.ones((2,3,4)))
+print(np.full((3,3),9))
+np.zeros((3,6),dtype=np.int32)
+np.eye(5)
+a = np.linspace(1,10,4,endpoint=False)
+b = np.linspace(1,10,4)
+xx = np.concatenate((a,b))
+print(xx)
+</code></pre>
+
+<pre><code>def npSum():
+    a = np.array([0,1,2,3,4,5])
+    b = np.array([9,8,7,6,5,4])
+    c = a**2 + b**3
+    return c
+print(npSum())
+</code></pre>
+
+<pre><code>a = np.array([[0,1,2,3,4],[9,8,7,6,5]])
+print(a.ndim)
+print(a.shape)
+print(a.size)
+print(a.dtype)
+print(a.itemsize)
+</code></pre>
+
+<h3 id="_4">数据的存储</h3>
+<h4 id="1csv"><strong>1.csv文件</strong></h4>
+<p><strong>写入文件:np.savetxt(frame,array,fmt="%.18e",delimiter=None)</strong></p>
+<ul>
+<li>frame:文件,字符串或产生器,可以是.gz或.bz2的压缩文件 </li>
+<li>array:存入文件的数组 </li>
+<li>fmt: 写入文件的格式,例如:%d %.2f %.18e </li>
+<li>delimiter: 分割字符串,默认是任何空格 </li>
+</ul>
+<pre><code>a = np.arange(100).reshape(5,20)
+np.savetxt('a.csv',a,fmt='%.1f',delimiter=',')
+</code></pre>
+
+<p><strong>读取文件:np.loadtxt(frame,dtype=np.float,delimiter=None,unpack=False)</strong></p>
+<ul>
+<li>frame:文件,字符串或产生器,可以是.gz或.bz2的压缩文件 </li>
+<li>dtype:数据类型,可选 </li>
+<li>delimiter: 分割字符串,默认是任何空格 </li>
+<li>unpack :如果True,读入属性将分别写入不同变量 </li>
+</ul>
+<pre><code>b = np.loadtxt('a.csv',delimiter=',')
+b = np.loadtxt('a.csv',dtype=np.int,delimiter=',')
+</code></pre>
+
+<p><strong>csv的局限性</strong></p>
+<ul>
+<li>csv只能有效存储一维和二维数组 </li>
+<li>np.savetxt() np.loadtxt() 只能有效存取一维和二维数组 </li>
+</ul>
+<h3 id="_5">多维数据的存取</h3>
+<p><strong>创建文件:a.tofile(frame,sep="",format="%s")</strong></p>
+<ul>
+<li>frame:文件,字符串 </li>
+<li>sep: 数据分割字符串,如果是空串,写入文件为二进制 </li>
+<li>format :写入数据的格式 </li>
+</ul>
+<pre><code>a = np.arange(100).reshape(5,10,2)
+a.tofile(&quot;b.dat&quot;,sep=&quot;,&quot;,format=&quot;%d&quot;)
+</code></pre>
+
+<pre><code>a = np.arange(100).reshape(5,10,2)
+a.tofile(&quot;b.dat&quot;,format=&quot;%d&quot;)
+</code></pre>
+
+<p><strong>读取文件:np.fromfile(frame,dtype=float,count=-1,sep="")</strong></p>
+<ul>
+<li>frame:文件,字符串 </li>
+<li>dtype: 读取数据类型 </li>
+<li>count:读取元素个数,-1表示读入整个文件 </li>
+<li>sep : 数据分割字符串,如果是空串,读取文件为二进制 </li>
+</ul>
+<p><strong>该方法需要读取时知道存入文件时数组的维度和元素类型</strong></p>
+<ul>
+<li>a.tofile() 和 np.fromfile() 需要配合使用 可以通过元数据文件来存储额外信息 </li>
+</ul>
+<pre><code>c = np.fromfile(&quot;b.dat&quot;,dtype=np.int,sep='').reshape(5,10,2)
+</code></pre>
+
+<h3 id="numpy">NumPy的便捷文件存取</h3>
+<p><strong>np.save(fname,array) 或 np.savez(fname,array)</strong></p>
+<ul>
+<li>frame:文件名,以.npy为扩展名,压缩扩展名为.npz array 数组变量 </li>
+</ul>
+<p><strong>np.load(fname)</strong></p>
+<ul>
+<li>frame:文件名,以.npy为扩展名,压缩扩展名为.npz </li>
+</ul>
+<pre><code>存储文件
+a = np.arange(100).reshape(5,10,2)
+np.save(&quot;a.npz&quot;,a)
+</code></pre>
+
+<pre><code> 获取文件
+b = np.load(&quot;a.npy&quot;)
+</code></pre>
+
+<h3 id="numpy_1">NumPy的随机函数</h3>
+<p><strong>Numpy的random子库</strong></p>
+<p><strong>np.random的随机函数</strong></p>
+<ul>
+<li>rand(d0,d1,...dn) 根据d0-dn创建随机数数组,浮点[0,1] 均匀分布 </li>
+<li>randn(d0,d1,...dn) 根据d0-dn创建随机数组,标准正态分布 </li>
+<li>randint(low,[high,shape])根据shape创建随机整数或整数数组,范围是[low,high] </li>
+<li>seed(s) 随机数种子,s是给定的种子值 </li>
+</ul>
+<pre><code>a = np.random.rand(3,4,5)
+b = np.random.rand(3,4,5)
+c = np.random.randint(100,200,(3,4))
+</code></pre>
+
+<p><strong>随机函数2</strong></p>
+<ul>
+<li>shuffle(a) 根据数组a的第一轴进行随机排列,改变数组x</li>
+<li>permutation(a) 根据啊的第一轴产生一个新非乱序数组,不改变数组x</li>
+<li>choices(a[,size,replace,p]) 从一维数组a中以概率p抽取元素,形成size形状数组replace表示是否可以重用元素,默认为False</li>
+</ul>
+<pre><code>import numpy as np
+a = np.random.randint(100,200,(3,4))
+np.random.shuffle(a)
+np.random.permutation(a)
+</code></pre>
+
+<pre><code>a = np.random.randint(100,200,(8))
+np.random.choice(a,(3,2))
+np.random.choice(a,(3,2),replace=False)
+np.random.choice(a,(3,2),p=a/np.sum(a))
+</code></pre>
+
+<p><strong>随机函数3</strong></p>
+<ul>
+<li>np.random.uniform(low,hgh,size) 产生具有均匀分布的数组,low为起始值,high为结束值,size形状</li>
+<li>np.random.normal(loc,scale,size) 产生具有正态分布的数组,loc均值,seale标准差,size形状</li>
+<li>np.random.poisson(lam,size) 产生具有泊松分布的数组,lam随机事件发生率,size形状</li>
+</ul>
+<pre><code>u = np.random.uniform(0,10,(3,4))
+n = np.random.normal(10,5,(3,4))
+</code></pre>
+
+<h3 id="_6">统计函数</h3>
+<p><strong>统计函数1</strong></p>
+<ul>
+<li>sum(a,axis=None) 根据给定轴axis计算数组a相关元素之和,axis整数或元组 </li>
+<li>mean(a,axis=None) 根据给定轴axis计算数组a相关元素的期望,axis整数或元祖 </li>
+<li>average(a,axis=None,weights=None) 根据给定轴axis计算数组a相关元素的加权平均值 </li>
+<li>std(a,axis=None) 根据给定轴axis计算数组a相关元素的标准差 </li>
+<li>var(a,axis=None) 根据给定轴axis计算数组a相关元素的方差 </li>
+</ul>
+<pre><code>a = np.arange(15).reshape(3,5)
+np.sum(a)
+np.mean(a,axis=1)
+np.average(a,axis=0,weights=[10,5,1])
+np.std(a)
+np.var(a)
+</code></pre>
+
+<p><strong>统计函数2</strong></p>
+<ul>
+<li>min(a) max(a) 计算数组a中元素最小值,最大值 </li>
+<li>argmin(a) argmax(a) 计算数组a中最小值,最大值的将一维后下标 </li>
+<li>unravel_index(index,shape) 根据shape将一维下标index转换成多维下标 </li>
+<li>ptp(a) 计算数组a元素中最大值和最小值的差 </li>
+<li>median(a) 计算数组a中元素的中位数(中值) </li>
+</ul>
+<h3 id="_7"><strong>梯度函数</strong></h3>
+<ul>
+<li>np.gradient(f) 计算数组f中元素的梯度,当f为多维时,返回每个维度梯度 </li>
+<li>梯度:连续值之间的变化率,即斜率</li>
+<li>XY坐标轴连续三个X坐标对应的Y轴值:a,b,c其中,b的梯度是(c-a)/2</li>
+</ul>
+<pre><code>import numpy as np
+a = np.random.randint(0,20,(5))
+np.gradient(a)
+</code></pre>
+
+<pre><code>c = np.random.randint(0,50,(3,5))
+np.gradient(c)
+</code></pre>
+
+<h3 id="_8">绘制图像</h3>
+<p><strong>PLL库</strong></p>
+<ul>
+<li>PLL库是一个具有强大图像处理能力的第三方库 </li>
+</ul>
+<pre><code>from PIL import Image
+import numpy as np
+im = np.array(Image.open('./1.jpg'))
+print(im.shape,im.dtype)
+</code></pre>
+
+<h3 id="_9">图像的变换</h3>
+<ul>
+<li>读入图像后,或得像素RGB值,修改后保存为新的文件</li>
+</ul>
+<pre><code>from PIL import Image
+import numpy as np
+a = np.array(Image.open('./1.jpg').convert('L'))
+print(a.shape,a.dtype)
+# b = 255 - a    变灰
+# b = (100/255)*a+150  # 区间变换
+b = 255*(a/255)**2   # 像素平方
+im = Image.fromarray(b.astype('uint8'))
+im.save('./2.jpg')
+</code></pre>
+
+<h3 id="_10">图像的手绘效果</h3>
+<p><strong>手绘效果的几个特征</strong></p>
+<ul>
+<li>黑白灰色</li>
+<li>边界线条较重</li>
+<li>形同或相近色彩趋于白色</li>
+<li>略有光源效果</li>
+</ul>
+<pre><code>from PIL import Image
+import numpy as np
+
+a = np.array(Image.open('./3.jpg').convert('L')).astype('float')
+depth = 40         # 0 - 100
+grad = np.gradient(a)    # 取图像灰度的梯度值
+grad_x,grad_y = grad     # 分别取图像横纵图像的梯度值
+grad_x = grad_x*depth /100
+grad_y = grad_y * depth/100
+A = np.sqrt(grad_x**2,grad_y**2+1.)
+uni_x = grad_x/A
+uni_y = grad_y / A
+uni_z = 1./A
+
+vec_el = np.pi/2.2            # 光源的俯视角度 弧度值
+vec_az = np.pi/4.              #  光源方位的角度,弧度值
+dx = np.cos(vec_el)*np.cos(vec_az)    # 光源对x轴的影响
+dy = np.cos(vec_el)*np.sin(vec_az)    # 光源对y轴的影响
+dz = np.sin(vec_el)                   # 光源对z轴的影响
+
+b = 255*(dx*uni_x + dy*uni_y + dz*uni_z)     # 光源归一化
+b = b.clip(0,255)
+im = Image.fromarray(b.astype('uint8'))     # 重构图像
+im.save('./5.jpg')
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../2.matplotlib库/" class="btn btn-neutral float-right" title="2.matplotlib库">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../6.爬虫笔记/scrapy框架/" class="btn btn-neutral" title="Scrapy框架"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../6.爬虫笔记/scrapy框架/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../2.matplotlib库/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
