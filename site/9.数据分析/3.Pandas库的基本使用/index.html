@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>3.Pandas库的基本使用 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "3.Pandas\u5e93\u7684\u57fa\u672c\u4f7f\u7528";
+    var mkdocs_page_input_path = "9.\u6570\u636e\u5206\u6790\\3.Pandas\u5e93\u7684\u57fa\u672c\u4f7f\u7528.md";
+    var mkdocs_page_url = "/9.\u6570\u636e\u5206\u6790/3.Pandas\u5e93\u7684\u57fa\u672c\u4f7f\u7528/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/2.数据类型/">2.数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/3.深浅拷贝和流程控制/">3.深浅拷贝和流程控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/4.文件操作/">4.文件操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/5.编码,小数据池,运算符的优先级/">5.编码,小数据池,运算符的优先级</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/6.异常处理/">6.异常处理</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">2.函数部分</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/1.函数的基本信息/">1.函数的基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/2.三大器(装饰器,迭代器,生成器)/">2.三大器(装饰器,迭代器,生成器)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/3.关键字,内置函数,匿名函数和递归函数(偏函数)/">3.关键字,内置函数,匿名函数和递归函数(偏函数)</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">3.面对对象</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/1.面对对象基本知识/">1.面对对象基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/2.面对对象的基本使用/">2.面对对象的基本使用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/3.面对对象的魔法方法/">3.面对对象的魔法方法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/4.设计模式/">4.设计模式</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">4.网络编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/1.网络编程的基本知识/">1.网络编程的基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/2.各类网络协议/">2.各类网络协议</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">5.并发编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/1.进程/">1.进程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/2.线程/">2.线程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/3.协程/">3.协程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/4.IO模型/">4.IO模型</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">6.django基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/1.基本命令/">1.基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/2.路由系统/">2.路由系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/3.视图系统/">3.视图系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/4.模板系统/">4.模板系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/5.中间件/">5.中间件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/6.模型层/">6.模型层</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/7.表单/">7.表单</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">7.Flask基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/1.flask基础知识/">1.flask基础知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/2.Flask和HTTP/">2.Flask和HTTP</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/3.模板/">3.模板</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/4.表单/">4.表单</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/5.数据库/">5.数据库</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/6.电子邮件/">6.电子邮件</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">8.模块总结</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/1.异步模块(celery和asyncio)/">1.异步模块(celery和asyncio)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/2.API模块(REST framework 和 Flask REST API)/">2.API模块(REST framework 和 Flask REST API)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/3.基本常用模块/">3.基本常用模块</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.前端笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/1.html笔记/">1.html笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/2.css笔记/">2.css笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/3.javascript笔记/">3.javascript笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/4.jquery笔记/">4.jquery笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/5.VUE笔记/">5.VUE笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/6.es6笔记/">6.es6笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.数据库笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/1.mysql数据库/">1.mysql数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/2.redis数据库/">2.redis数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/3.MangoDB数据库/">3.MangoDB数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/4.memcached数据库/">4.memcached数据库</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.linux笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/1.linux的基本命令/">1.linux的基本命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/2.linux各种文件的安装/">2.linux各种文件的安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/3.nginx的使用/">3.nginx的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../4.linux笔记/5.shell编程/">5.shell编程</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/2.re模块的使用/">2.re模块的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/3.urllib库详解/">3.urllib库详解</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/7.pyquery库的基本使用/">7.pyquery库的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">9.数据分析</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.numpy模块/">1.numpy模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../2.matplotlib库/">2.matplotlib库</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">3.Pandas库的基本使用</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#pandas">Pandas库的基本介绍</a></li>
+    
+
+    <li class="toctree-l3"><a href="#series">Series类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#series_1">Series类型的基本操作</a></li>
+    
+
+    <li class="toctree-l3"><a href="#dataframe">DataFrame类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#pandas_1">pandas的数据类型操作</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">算数运算法则</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">数据的排序</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_3">数据的基本统计和分析函数</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_4">数据的累计统计分析</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">奇淫巧技</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/1.vim的使用笔记/">1.vim的使用笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/2.Makdown笔记/">2.Makdown笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/3.git笔记/">3.git笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇淫巧技/4.jupyter的使用/">4.jupyter的使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>9.数据分析 &raquo;</li>
+        
+      
+    
+    <li>3.Pandas库的基本使用</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/9.数据分析/3.Pandas库的基本使用.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="pandas"><strong>Pandas库的基本介绍</strong></h3>
+<p>Pandas是python第三方库,提供高性能易用数据类型和分析工具</p>
+<ul>
+<li>两个数据类型:Series 和 DataFrame</li>
+<li>基本操作,运算操作,特征类操作,关联类操作</li>
+</ul>
+<pre><code>import pandas as pd
+d = pd.Series(range(20))
+d.cumsum()
+</code></pre>
+
+<h3 id="series">Series类型</h3>
+<p>Series类型由一组数据及与之相关的数据索引组成</p>
+<p>Series类型由如下类型创建</p>
+<ul>
+<li>python列表</li>
+<li>标量值</li>
+<li>python字典</li>
+<li>ndarray</li>
+<li>其他函数</li>
+</ul>
+<pre><code>import numpy as np
+b = pd.Series(2,index=['a','b','c','d'])
+c = pd.Series({'a':1,'b':2})
+d = pd.Series({'a':1,'b':2,'c':3},index=['c','a','b','d'])
+e = pd.Series(np.arange(4))
+f = pd.Series(np.arange(5),index=np.arange(9,4,-1))
+</code></pre>
+
+<h3 id="series_1">Series类型的基本操作</h3>
+<pre><code>import pandas as pd
+b = pd.Series([9,8,7,6],index=['a','b','c','d'])
+b.index
+b.values
+b['b']
+b[1]
+b[[1,2]]
+b[:3]
+b[b&gt;b.median()]
+np.exp(b)
+b.get('d')
+b.name = '对象'
+b.index.name='索引对象'
+</code></pre>
+
+<h3 id="dataframe">DataFrame类型</h3>
+<p><strong>DataFrame类型由共用相同索引的一组列组成:是一个二维的带标签的数组</strong></p>
+<pre><code>d = pd.DataFrame(np.arange(10).reshape(2,5))
+dt = {'one':pd.Series([1,2,3,4],index=['a','b','c','d']),'two':pd.Series([6,7,8,9],index=['a','b','c','d'])}
+pd.DataFrame(dt,index=['b','c','d'])
+d1 = {'one':[1,2,3,4],'two':[6,7,8,9]}
+pd.DataFrame(d1,index=['a','b','c','d'],columns=['one'])
+d[0] # 获取列
+d.ix[0] # 获取行
+d[1][1]
+</code></pre>
+
+<h3 id="pandas_1">pandas的数据类型操作</h3>
+<p>增加或重排:重新索引 删除:drop</p>
+<p>重新索引: .reindex()能够改变或重拍Series和DataFrame</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">index,columns</td>
+<td>新的行列自定义索引</td>
+</tr>
+<tr>
+<td align="left">fill_value</td>
+<td>重新索引中,用于填充缺失位置的值</td>
+</tr>
+<tr>
+<td align="left">method</td>
+<td>填充方法,ffill当前值向前填充,bfill向后填充</td>
+</tr>
+<tr>
+<td align="left">limit</td>
+<td>最大填充量</td>
+</tr>
+<tr>
+<td align="left">copy</td>
+<td>默认True,生成新的对象,False时,新旧想等不复制</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.append(idx)</td>
+<td>连接另一个Index对象,产生新的index对象</td>
+</tr>
+<tr>
+<td>diff(idx)</td>
+<td>计算差集,产生一个新的index对象</td>
+</tr>
+<tr>
+<td>intersection(idx)</td>
+<td>计算交集</td>
+</tr>
+<tr>
+<td>.union(idx)</td>
+<td>计算并集</td>
+</tr>
+<tr>
+<td>delete(loc)</td>
+<td>删除loc位置的元素</td>
+</tr>
+<tr>
+<td>insert(loc,e)</td>
+<td>在loc位置增加一个元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">算数运算法则</h3>
+<p>算数运算根据行列索引,补齐后运算,运算默认产生浮点数</p>
+<p>补齐时缺项填充NaN</p>
+<p>二维和一维和零维间为广播运算</p>
+<p>采用+-* /符号进行的二元运算产生新的对象</p>
+<p>方法形式的运算</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.add(d,)</td>
+<td>类型间加法运算,可选参数</td>
+</tr>
+<tr>
+<td>.sub(d,)</td>
+<td>类型间减法运算,可选参数</td>
+</tr>
+<tr>
+<td>.mul(d,)</td>
+<td>类型间乘法运算,可选参数</td>
+</tr>
+<tr>
+<td>.div(d,)</td>
+<td>类型间除法运算,可选参数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">数据的排序</h3>
+<ul>
+<li>.sort_index()方法在指定轴上根据索引进行排序,默认是升序</li>
+<li>.sort_index(axis=0,ascending=True</li>
+<li>.sort_values()方法在指定轴根据数值进行排序,默认升序</li>
+<li>Series.sort_values(axis=0,ascending=True)</li>
+<li>DataFrame.sort_values(by,axis=0,ascending=True)<ul>
+<li>by:axis轴上的某个索引或索引列表</li>
+</ul>
+</li>
+</ul>
+<pre><code>import pandas as pd
+import numpy as np
+b = pd.DataFrame(np.arange(20).reshape(4,5),index=['c','a','d','b'])
+b.sort_index(axis=1,ascending=False)
+</code></pre>
+
+<h3 id="_3">数据的基本统计和分析函数</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sum()</td>
+<td>计算数据的总和,按0轴计算</td>
+</tr>
+<tr>
+<td>count()</td>
+<td>非NaN值的数量</td>
+</tr>
+<tr>
+<td>.mean().median()</td>
+<td>计算数据的算数平均值,算数中位数</td>
+</tr>
+<tr>
+<td>.var(),.std()</td>
+<td>计算数据的方差,标准差</td>
+</tr>
+<tr>
+<td>.min() .max()</td>
+<td>计算数据的最小值,最大值</td>
+</tr>
+<tr>
+<td><strong>适用于Series类型</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.argmin().argmax()</td>
+<td>计算数据最大值,最小值所在位置的索引位置(自动索引)</td>
+</tr>
+<tr>
+<td>.idxmin().idxmax()</td>
+<td>计算数据最大值,最小值所在位置的索引(自定义索引)</td>
+</tr>
+<tr>
+<td><strong>针对全部的</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>describe():针对0轴(各列)的统计汇总</strong></p>
+<h3 id="_4">数据的累计统计分析</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cumsum()</td>
+<td>依次给出前1,2,3,4...n个数的和</td>
+</tr>
+<tr>
+<td>cumprod()</td>
+<td>依次给出前1,2,3,4...n个数的积</td>
+</tr>
+<tr>
+<td>cummax()</td>
+<td>依次给出前1,2,3,.,5...n个数的最大值</td>
+</tr>
+<tr>
+<td>cummin()</td>
+<td>依次给出前1,2,3,.,5...n个数的最小值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>适用于Series和DataFrame类型,滚动计算(窗口计算)</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rolling(w).sum</td>
+<td>依次计算相邻w个元素的和</td>
+</tr>
+<tr>
+<td>.rolling(w).mean()</td>
+<td>依次计算相邻w个元素的算数平均值</td>
+</tr>
+<tr>
+<td>.rolling(w).var()</td>
+<td>依次计算相邻w个元素的方差</td>
+</tr>
+<tr>
+<td>.rolling(w).std()</td>
+<td>依次计算相邻w个元素的标准差</td>
+</tr>
+<tr>
+<td>.rolling(w).min().max()</td>
+<td>依次计算相邻w个元素的最小值和最大值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据的相关分析</strong>
+两个事物,表示为x和y,如何判断他们之间的存在相关性?</p>
+<p><strong>相关性</strong>
+x增大,y增大,两个变量正相关<br />
+x增大,y减小,两个变量负相关<br />
+x增大,y无视,两个变量不相关</p>
+<p>.cov():计算协方差矩阵<br />
+.corr() 计算相关系数矩阵,Pearson,Spearman,Kendall等系数</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../奇淫巧技/1.vim的使用笔记/" class="btn btn-neutral float-right" title="1.vim的使用笔记">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../2.matplotlib库/" class="btn btn-neutral" title="2.matplotlib库"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../2.matplotlib库/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../奇淫巧技/1.vim的使用笔记/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
