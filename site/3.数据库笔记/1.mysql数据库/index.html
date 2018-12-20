@@ -288,6 +288,42 @@
     <a class="current" href="./">1.mysql数据库</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#mysql">mysql数据库基本命令</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mysql_1">mysql的数据类型</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">完整性约束</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">外键变种的三种关系</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_3">单表查询</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_4">多表查询</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_5">视图</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_6">触发器</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_7">存储过程</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_8">事务</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_9">索引</a></li>
+    
+
+    <li class="toctree-l3"><a href="#pymysql">pymysql的使用</a></li>
+    
+
     </ul>
                 </li>
                 <li class="">
@@ -411,23 +447,38 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">奇淫巧技</span>
+    <span class="caption-text">LeetCode刷题之路</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../奇淫巧技/1.vim的使用笔记/">1.vim的使用笔记</a>
+    <a class="" href="../../LeetCode刷题之路/1.两数之和/">1.两数之和</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../奇淫巧技/2.Makdown笔记/">2.Makdown笔记</a>
+    <a class="" href="../../LeetCode刷题之路/7.整数翻转/">7.整数翻转</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">奇技淫巧</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../奇技淫巧/1.vim的使用笔记/">1.vim的使用笔记</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../奇淫巧技/3.git笔记/">3.git笔记</a>
+    <a class="" href="../../奇技淫巧/2.Makdown笔记/">2.Makdown笔记</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../奇淫巧技/4.jupyter的使用/">4.jupyter的使用</a>
+    <a class="" href="../../奇技淫巧/3.git笔记/">3.git笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇技淫巧/4.jupyter的使用/">4.jupyter的使用</a>
                 </li>
     </ul>
 	    </li>
@@ -471,7 +522,1017 @@
           <div role="main">
             <div class="section">
               
-                
+                <h3 id="mysql">mysql数据库基本命令</h3>
+<p><strong>数据库的增删改查</strong></p>
+<ul>
+<li><strong>增</strong><ul>
+<li>create database  数据库名称;</li>
+</ul>
+</li>
+<li><strong>删</strong><ul>
+<li>drop database 库名;</li>
+</ul>
+</li>
+<li><strong>改</strong><ul>
+<li>alter database 库名  更改的内容;</li>
+</ul>
+</li>
+<li>查<ul>
+<li>show create database 库名;查看当前创建的数据库</li>
+<li>show databases; 查看所有的数据库</li>
+<li>select database();查看所在的数据库</li>
+</ul>
+</li>
+</ul>
+<p><strong>表的增删改查</strong></p>
+<p><strong>use 库名;进入这个库</strong></p>
+<ul>
+<li><strong>增</strong><ul>
+<li>create table 表名(字段名 类型 约束);</li>
+</ul>
+</li>
+<li><strong>删</strong><ul>
+<li>drop table 表名;</li>
+</ul>
+</li>
+<li>改<ul>
+<li>alter table 表名 modify 字段名 类型;</li>
+<li>增加字段 alter table 表名 add 字段名;</li>
+</ul>
+</li>
+<li>查<ul>
+<li>show create table 表名;查看表的详细信息</li>
+<li>show tables;查看这个数据库先所有的表</li>
+<li>desc 表名;查看这个表里面所有的字段</li>
+</ul>
+</li>
+</ul>
+<p><strong>记录的增删改查</strong></p>
+<ul>
+<li>
+<p>增</p>
+<ul>
+<li>insert into 表名(字段名) values (内容);</li>
+</ul>
+</li>
+<li>
+<p><strong>删</strong></p>
+<ul>
+<li>delete from 表名;这个是清空,里面的自增不会去除</li>
+<li>truncate 表名;删除所有的内容</li>
+</ul>
+</li>
+<li>
+<p>改</p>
+<ul>
+<li>update 表名 set name="xxx" where 条件;</li>
+<li>update 表名 set 要修改的内容;</li>
+</ul>
+</li>
+<li>
+<p>查</p>
+<ul>
+<li>select 字段名 from 表名;</li>
+<li>select 字段1,字段2,字段3 from 表名;</li>
+<li>select * from 表名;查看所有内容;</li>
+</ul>
+</li>
+</ul>
+<h3 id="mysql_1">mysql的数据类型</h3>
+<p><strong>数据类型:</strong>定义列中可以存储什么数据以及该数据实际怎样存储的基本规则，其用于以下几个目的</p>
+<ul>
+<li>允许限制可存储在列中的数据</li>
+<li>允许在内部更有效的存储数据</li>
+<li>允许变换排序顺序（作为数值数据类型，数值才能正确排序）</li>
+</ul>
+<p><strong>一.字符串数据类型</strong></p>
+<p>该类型为最常用的数据类型，用来存储串（比如名字、地址等）；有两种串类型，分别是定长串和变长串 </p>
+<p><strong>定长串：</strong>接受长度固定的字符串，其长度实在创建表时指定的；定长列不允许多余指定的字符数目，它们分配的存储空间与指定的一样多（比如char） </p>
+<p><strong>变长串：</strong>存储可变长度的文本，有些变长数据类型具有最大定长，有些是完全变长的，不论哪种，指定的数据得到保存即可（灵活） </p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>0-255字节</td>
+<td>定长字符串</td>
+</tr>
+<tr>
+<td>varchar</td>
+<td>0-65535字节</td>
+<td>变长字符串</td>
+</tr>
+<tr>
+<td>tinyblog</td>
+<td>0-255字节</td>
+<td>不超过255个字符的二进制字符串</td>
+</tr>
+<tr>
+<td>tinytext</td>
+<td>0-255字节</td>
+<td>短文本字符串</td>
+</tr>
+<tr>
+<td>blob</td>
+<td>0-65535字节</td>
+<td>二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td>text</td>
+<td>0-65535字节</td>
+<td>长文本数据</td>
+</tr>
+<tr>
+<td>mediumblob</td>
+<td>0-16777215字节</td>
+<td>二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td>mediumtext</td>
+<td>0-16777215字节</td>
+<td>中等长度文本数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>二.数值类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>范围(有符号)</th>
+<th>无符号</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tinyint</td>
+<td>1字节</td>
+<td>(-128,127)</td>
+<td>(0,255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td>smallint</td>
+<td>2字节</td>
+<td>(-32768,32767)</td>
+<td>(0,35535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>mediumint</td>
+<td>3字节</td>
+<td>(-8 388 608，8 388 607)</td>
+<td>(0，16 777 215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>int或integer</td>
+<td>4字节</td>
+<td>(-2 147 483 648，2 147 483 647)</td>
+<td>(0，4 294 967 295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>8 字节</td>
+<td>(-9 233 372 036 854 775 808，9 223 372 036 854 775 807)</td>
+<td>(0，18 446 744 073 709 551 615)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4字节</td>
+<td>(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td>0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td>单精度 浮点数值</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8字节</td>
+<td>(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td>0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td>双精度 浮点数值</td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td>依赖于M和D的值</td>
+<td>依赖于M和D的值</td>
+<td>小数值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>三.日期和时间类型</strong></p>
+<p>表示时间值的日期和时间类型为DATETIME、DATE、TIMESTAMP、TIME和YEAR。 </p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小(字节)</th>
+<th>范围</th>
+<th>格式</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td>3</td>
+<td>1000-01-01/9999-12-31</td>
+<td>YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td>time</td>
+<td>3</td>
+<td>-838:59:59'/'838:59:59'</td>
+<td>HH:MM:SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td>year</td>
+<td>1</td>
+<td>1901/2155</td>
+<td>YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>8</td>
+<td>1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>4</td>
+<td>1970-01-01 00:00:00/2038结束时间是第 <strong>2147483647</strong> 秒，北京时间 <strong>2038-1-19 11:14:07</strong>，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td>YYYYMMDD HHMMSS</td>
+<td>混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+<p><strong>四.枚举和集合</strong></p>
+<ul>
+<li><strong>enum</strong> 单选只能在给定的范围内选一个值,如sex男和male女</li>
+<li><strong>set</strong> 多选 在给定的范围内可以选择一个或一个以上的值(爱好1,爱好2)</li>
+</ul>
+<h3 id="_1">完整性约束</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>not  null</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>default</td>
+<td>默认值</td>
+</tr>
+<tr>
+<td>unique</td>
+<td>设置唯一</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>主键</td>
+</tr>
+<tr>
+<td>auto_increment</td>
+<td>自增</td>
+</tr>
+<tr>
+<td>foreign key</td>
+<td>外键</td>
+</tr>
+<tr>
+<td>unsigned</td>
+<td>无符号</td>
+</tr>
+<tr>
+<td>zerofill</td>
+<td>使用0填充</td>
+</tr>
+<tr>
+<td>on delete cascade</td>
+<td>同步删除</td>
+</tr>
+<tr>
+<td>on update cascade</td>
+<td>同步更新</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2"><strong>外键变种的三种关系</strong></h3>
+<ul>
+<li>一对一</li>
+<li>一对多</li>
+<li>多对多</li>
+</ul>
+<h3 id="_3">单表查询</h3>
+<p><strong>语法:</strong>select 字段1,字段2 from 表名</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from 表</td>
+<td>要找的表</td>
+</tr>
+<tr>
+<td>where</td>
+<td>指定约束条件</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>1.比较运算符 :&gt;,&lt;,&gt;=,&lt;=,!=</li>
+<li>2.between 80 and 100 :值在80到100之间</li>
+<li>3.in(80,90,100):值是80,90或100</li>
+<li>4.like 'xiaomagepattern': pattern可以是%或者_。%小时任意多字符，_表示一个字符</li>
+<li>5.逻辑运算符：在多个条件直接可以使用逻辑运算符 and or not</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>group by</strong></th>
+<th><strong>分组</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>having</strong></td>
+<td><strong>过滤</strong></td>
+</tr>
+<tr>
+<td><strong>select</strong></td>
+<td><strong>选择</strong></td>
+</tr>
+<tr>
+<td><strong>distinct</strong></td>
+<td><strong>去重</strong></td>
+</tr>
+<tr>
+<td><strong>order  by</strong></td>
+<td><strong>排序</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>asc:正序  小------&gt;大</li>
+<li>DESC:倒序   大------&gt;小</li>
+<li>limit :限制结果的显示条数<ul>
+<li>第一个是:起始位置</li>
+<li>第二个是:显示的条数</li>
+</ul>
+</li>
+</ul>
+<p><strong>聚合函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max()</td>
+<td>求最大值</td>
+</tr>
+<tr>
+<td>min()</td>
+<td>求最小值</td>
+</tr>
+<tr>
+<td>avg()</td>
+<td>求平均值</td>
+</tr>
+<tr>
+<td>sum()</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>count()</td>
+<td>求总个数</td>
+</tr>
+<tr>
+<td>group_concat(name):</td>
+<td>查找这个组里所有的名字</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">多表查询</h3>
+<ol>
+<li>select   字段  from 表1 inner | left |right  join 表2 on 表1.字段  = 表2.字段<ul>
+<li>inner 是只连接匹配的行</li>
+<li>right:外键之右连接:优先显示右半部分</li>
+<li>left:外键之左连接:优先显示左半部分</li>
+<li>union:连接left和right:可以显示全部信息</li>
+</ul>
+</li>
+<li>符合条件的连接查询<ul>
+<li>on:后面加两个表的比较条件</li>
+</ul>
+</li>
+<li>子查询<ul>
+<li>子查询是将一个查询语句嵌套在另一个查询语句中 </li>
+<li>内层查询语句的查询结果,可以为外层查询语句提供条件 </li>
+<li>子查询中可以包含:in ,not,any,all,exists和not exists </li>
+<li>EXISTS:判断的是真和假,有内容为真,没有就是假 </li>
+</ul>
+</li>
+</ol>
+<h3 id="_5">视图</h3>
+<p><strong>1.视图的定义:</strong></p>
+<p>​       视图是虚拟表或逻辑表，它被定义为具有连接的SQL SELECT查询语句。因为数据库视图与数据库表类似，它由行和列组成，因此可以根据数据库表查询数据。其内容由查询定义。
+       但是，视图并不在数据库中以存储的数据值集形式存在，行和列数据来自由定义视图的查询所引用的表，并且在引用视图时动态生成。简单的来说视图是由其定义结果组成的表；</p>
+<p><strong>2.视图优点</strong></p>
+<p>​          1、数据库视图允许简化复杂查询，通过数据库视图，您只需使用简单的SQL语句，而不是使用具有多个连接的复杂的SQL语句。
+          2、安全性。一般是这样做的:创建一个视图，定义好该视图所操作的数据。之后将用户权限与视图绑定。这样的方式是使用到了一个特性：grant语句可以针对视图进行授予权限。</p>
+<p><strong>3.视图的缺点</strong></p>
+<p>1、性能：从数据库视图查询数据可能会很慢，特别是如果视图是基于其他视图创建的。</p>
+<p>2、表依赖关系：将根据数据库的基础表创建一个视图。每当更改与其相关联的表的结构时，都必须更改视图。</p>
+<p><strong>4.创建视图</strong></p>
+<p><strong>语法:</strong> create view 视图名称 as sql语句</p>
+<pre><code class="sql">create view teacher_view as select tid from teacher where tname='李平老师';
+select cname from course where teacher_id = (select tid from teacher_view);
+</code></pre>
+
+<p><strong>5.使用视图</strong></p>
+<pre><code> 往真实表中插入一条数据，查看一下视图，发现视图表也会跟着更新
+ insert into course(cname,teacher_id) values('张三丰',2);
+ 更新一下数据，发现视图的数据也会跟着更新
+ update course set cname='王五';
+ 不能修改视图的数据
+</code></pre>
+
+<p><strong>6.修改视图</strong></p>
+<pre><code>语法：ALTER VIEW 视图名称 AS SQL语句
+alter view teacher_view as select * from course where cid&gt;3;
+</code></pre>
+
+<p><strong>7.删除视图</strong></p>
+<pre><code>语法：DROP VIEW 视图名称
+DROP VIEW teacher_view
+</code></pre>
+
+<h3 id="_6">触发器</h3>
+<p><strong>触发器:</strong>触发器是一个特殊的存储过程，它是MySQL在insert、update、delete的时候自动执行的代码块。</p>
+<p><strong>1.创建触发器</strong></p>
+<pre><code class="sql"># 插入前
+CREATE TRIGGER tri_before_insert_tb1 BEFORE INSERT ON tb1 FOR EACH ROW
+BEGIN
+    ...
+END
+
+# 插入后
+CREATE TRIGGER tri_after_insert_tb1 AFTER INSERT ON tb1 FOR EACH ROW
+BEGIN
+    ...
+END
+
+# 删除前
+CREATE TRIGGER tri_before_delete_tb1 BEFORE DELETE ON tb1 FOR EACH ROW
+BEGIN
+    ...
+END
+
+# 删除后
+CREATE TRIGGER tri_after_delete_tb1 AFTER DELETE ON tb1 FOR EACH ROW
+BEGIN
+    ...
+END
+
+# 更新前
+CREATE TRIGGER tri_before_update_tb1 BEFORE UPDATE ON tb1 FOR EACH ROW
+BEGIN
+    ...
+END
+
+# 更新后
+CREATE TRIGGER tri_after_update_tb1 AFTER UPDATE ON tb1 FOR EACH ROW
+BEGIN
+    ...
+END
+</code></pre>
+
+<pre><code class="sql"># 创建用户表
+create table user(
+    id int primary key auto_increment,
+    name varchar(20) not null,
+    reg_time datetime, # 注册用户的时间
+    affirm enum('yes','no') # no表示该用户执行失败
+);
+
+#创建日志表
+create table userLog(
+    id int primary key auto_increment,
+    u_name varchar(20) not null,
+    u_reg_time datetime # 注册用户的时间
+);
+
+# 创建触发器 delimiter 默认情况下，delimiter是分号 触发器名称应遵循命名约定[trigger time]_[table name]_[trigger event]
+delimiter //
+create trigger after_user_insert after insert on user for each row
+begin
+    if new.affirm = 'yes' then
+        insert into userLog(u_name,u_reg_time) values(new.name,new.reg_time);
+    end if;
+
+end //
+delimiter ;
+
+
+#往用户表中插入记录，触发触发器，根据if的条件决定是否插入数据
+insert into user(name,reg_time,affirm) values ('张三',now(),'yes'),('李四',now(),'yes'),('王五',now(),'no');
+</code></pre>
+
+<p><strong>注意:</strong>请注意，在为INSERT定义的触发器中，可以仅使用NEW关键字。不能使用OLD关键字。但是，在为DELETE定义的触发器中，没有新行，因此您只能使用OLD关键字。在UPDATE触发器中，OLD是指更新前的行，而NEW是更新后的行</p>
+<p><strong>2.使用触发器</strong></p>
+<p>触发器无法由用户直接调用,而只能由于对表的[增删改查]操作被动引起的</p>
+<p><strong>3.删除触发器</strong></p>
+<pre><code>drop trigger trigger_userLog;
+</code></pre>
+
+<h3 id="_7">存储过程</h3>
+<p><strong>一.存储过程的定义</strong></p>
+<p><strong>存储过程</strong>是把一段代码封装起来，当要执行这一段代码的时候，可以通过调用该存储过程来实现（经过第一次编译后再次调用不需要再次编译，比一个个执行sql语句效率高）</p>
+<p><strong>二.存储过程的优点</strong></p>
+<ol>
+<li>通常存储过程有助于提高应用程序的性能。当创建，存储过程被编译之后，就存储在数据库中。 但是，MySQL实现的存储过程略有不同。 MySQL存储过程按需编译。 在编译存储过程之后，MySQL将其放入缓存中。 MySQL为每个连接维护自己的存储过程高速缓存。 如果应用程序在单个连接中多次使用存储过程，则使用编译版本，否则存储过程的工作方式类似于查询。</li>
+<li>存储过程有助于减少应用程序和数据库服务器之间的流量，因为应用程序不必发送多个冗长的SQL语句，而只能发送存储过程的名称和参数。</li>
+<li>存储的程序对任何应用程序都是可重用的和透明的。 存储过程将数据库接口暴露给所有应用程序，以便开发人员不必开发存储过程中已支持的功能。</li>
+<li>存储的程序是安全的。 数据库管理员可以向访问数据库中存储过程的应用程序授予适当的权限，而不向基础数据库表提供任何权限。</li>
+</ol>
+<p><strong>三.存储过程的缺点</strong></p>
+<ol>
+<li>如果使用大量存储过程，那么使用这些存储过程的每个连接的内存使用量将会大大增加。 此外，如果您在存储过程中过度使用大量逻辑操作，则CPU使用率也会增加，因为数据库服务器的设计不当于逻辑运算</li>
+<li>存储过程的构造使得开发具有复杂业务逻辑的存储过程变得更加困难。</li>
+<li>很难调试存储过程。只有少数数据库管理系统允许您调试存储过程。不幸的是，MySQL不提供调试存储过程的功能。</li>
+<li>开发和维护存储过程并不容易。开发和维护存储过程通常需要一个不是所有应用程序开发人员拥有的专业技能。这可能会导致应用程序开发和维护阶段的问题。</li>
+</ol>
+<p><strong>四.一个简单的mysql存储过程示例</strong></p>
+<pre><code>delimiter //
+ create procedure b1()
+   begin
+   select *  from blog;
+   end //
+delimiter ;
+</code></pre>
+
+<p><strong>解释:</strong></p>
+<ol>
+<li>第一个命令是delimiter //，它与存储过程语法无关。 delimter语句将标准分隔符 - 分号(;)更改为：//。 在这种情况下，分隔符从分号(;)更改为双斜杠//。为什么我们必须更改分隔符？ 因为我们想将存储过程作为整体传递给服务器，而不是让mysql工具一次解释每个语句。 在END关键字之后，使用分隔符//来指示存储过程的结束。 最后一个命令(DELIMITER;)将分隔符更改回分号(;)。 </li>
+<li>.使用create procedure语句创建一个新的存储过程。在create procedure语句之后指定存储过程的名称。在这个示例中，存储过程的名称为：b1，并把括号放在存储过程的名字之后。 </li>
+<li>begin和end之间的部分称为存储过程的主体。将声明性SQL语句放在主体中以处理业务逻辑。 在这个存储过程中，我们使用一个简单的select语句来查询blog表中的数据。 </li>
+</ol>
+<pre><code>mysql中调用存储过程 
+call b1()
+
+在python中基于pymysql调用
+cursor.callproc('b1') 
+print(cursor.fetchall())
+</code></pre>
+
+<p><strong>五.声明变量</strong></p>
+<p>要在存储过程中声明变量，可以使用delclare语句，如下 </p>
+<pre><code>DECLARE variable_name datatype(size) DEFAULT default_value;
+</code></pre>
+
+<ol>
+<li>在DECLARE关键字后面要指定变量名。变量名必须遵循MySQL表列名称的命名规则 </li>
+<li>指定变量的数据类型及其大小。变量可以有任何MySQL数据类型，如INT，VARCHAR，DATETIME等。 </li>
+<li>当声明一个变量时，它的初始值为NULL。但是可以使用DEFAULT关键字为变量分配默认值 </li>
+</ol>
+<pre><code>delimiter //
+ create procedure b2()
+   begin
+   DECLARE n int DEFAULT 1;
+   set n  = 5;
+   select *  from blog where id = n;
+   end //
+delimiter ;
+
+# mysql中调用存储过程
+call b2();
+</code></pre>
+
+<p><strong>六.存储过程传参</strong></p>
+<p>在现实应用中，开发的存储过程几乎都需要参数。这些参数使存储过程更加灵活和有用。 在MySQL中，参数有三种模式：IN，OUT或INOUT。 </p>
+<p><strong>IN</strong> - 是默认模式。在存储过程中定义IN参数时，调用程序必须将参数传递给存储过程。 另外，IN参数的值被保护。这意味着即使在存储过程中更改了IN参数的值，在存储过程结束后仍保留其原始值。换句话说，存储过程只使用IN参数的副本。 </p>
+<p><strong>OUT</strong> - 可以在存储过程中更改OUT参数的值，并将其更改后新值传递回调用程序。请注意，存储过程在启动时无法访问OUT参数的初始值。 </p>
+<p><strong>INOUT</strong> - INOUT参数是IN和OUT参数的组合。这意味着调用程序可以传递参数，并且存储过程可以修改INOUT参数并将新值传递回调用程序。 </p>
+<p>在存储过程中定义参数的语法如下 </p>
+<pre><code>MODE param_name param_type(param_size)
+</code></pre>
+
+<p>根据存储过程中参数的目的，MODE可以是IN，OUT或INOUT。 param_name是参数的名称。参数的名称必须遵循MySQL中列名的命名规则。 在参数名之后是它的数据类型和大小。和变量一样，参数的数据类型可以是任何有效的MySQL数据类型 </p>
+<p>如果存储过程有多个参数，则每个参数由逗号(,)分隔。 </p>
+<pre><code># 1.in
+delimiter //
+ create procedure b3(
+     in blogName varchar(30)
+ )
+   begin
+   select *  from blog where NAME = blogName;
+   end //
+delimiter ;
+
+#mysql中调用存储过程
+call b3('第5篇');
+
+#python中调用存储过程
+cursor.callproc('b3',args = ('第5篇')); 
+
+
+# 2.out
+delimiter //
+ create procedure b4(
+     in year int,
+     out count  int
+ )
+   begin
+       SELECT COUNT(1) into count  FROM blog GROUP BY DATE_FORMAT(sub_time,'%Y') having max(DATE_FORMAT(sub_time,'%Y')) = year ;
+       set count = 6;
+   end //
+delimiter ;
+
+call b4(2016,@count);
+select @count;
+
+#out只能当返回值
+
+
+ # 3.inout
+
+delimiter //
+ create procedure b5(
+     inout n1 int
+ )
+   begin
+    select * from blog where id &gt; n1;
+   end //
+delimiter ;
+
+#mysql中调用
+set @n = 3;
+call b5(@n);
+select @n;
+
+#在python中基于pymysql调用
+cursor.callproc('b5',(4))
+print(cursor.fetchall()) #查询select的查询结果
+
+cursor.execute('select @n1') 
+print(cursor.fetchall())
+# inout:既可以传入又可以返回
+</code></pre>
+
+<h3 id="_8">事务</h3>
+<p>1、什么是事务：数据库中的事务是指逻辑上的一组操作，这组操作要么都执行成功，要么都不执行成功。 </p>
+<p>2、事务的管理：默认情况下Mysql会自动管理事务，一条SQL语句独占一个事务。 </p>
+<p><strong>事务的四大特性</strong> </p>
+<ul>
+<li><strong>原子性:</strong>是指事务是一个不可分割的整体,事务中的操作要么就全部发生,要么都不成功</li>
+<li><strong>一致性:</strong>事务处理前后数据的完整性必须保持一致,<strong>完整性</strong>是指一个数据在某个时间点完全满足数据库中的约束要求</li>
+<li><strong>隔离性:</strong>是指多个用户访问一个数据库时,一个用户的事务处理不能被其他用户的事务所干扰,多个并发事务之间相互隔离</li>
+<li><strong>持久性:</strong>是指一个事务一旦被提交,他对数据库中的数据改变是永久的</li>
+</ul>
+<p>举例说明:</p>
+<pre><code>create table user2(
+id int primary key auto_increment,
+name char(32),
+balance int
+);
+
+insert into user2(name,balance)
+values
+('wsb',1000),
+('egon',1000),
+('ysb',1000);
+
+
+#原子操作
+start transaction;
+update user2 set balance=900 where name='wsb'; #买支付100元
+update user2 set balance=1010 where name='egon'; #中介拿走10元
+update user2 set balance=1090 where name='ysb'; #卖家拿到90元
+commit;
+
+#出现异常，回滚到初始状态
+start transaction;
+update user2 set balance=900 where name='wsb'; #买支付100元
+update user2 set balance=1010 where name='egon'; #中介拿走10元
+uppdate user2 set balance=1090 where name='ysb'; #卖家拿到90元,出现异常没有拿到
+rollback;
+
+</code></pre>
+
+<p>下面是操作：<strong>当p_return_code为1时，表示异常，立马回滚。当为2时，出现警告，立马回滚原始状态。0表示成功</strong> </p>
+<pre><code>delimiter //
+create PROCEDURE b6(
+    OUT p_return_code tinyint
+)
+BEGIN 
+    DECLARE exit handler for sqlexception 
+    BEGIN 
+        -- ERROR 
+        set p_return_code = 1; 
+        rollback; 
+    END; 
+
+    DECLARE exit handler for sqlwarning 
+    BEGIN 
+        -- WARNING 
+        set p_return_code = 2; 
+        rollback; 
+    END; 
+
+    START TRANSACTION; 
+        insert into blog(name,sub_time) values('yyy',now());
+    COMMIT; 
+
+    -- SUCCESS 
+    set p_return_code = 0; #0代表执行成功
+
+END //
+delimiter ;
+
+set @res=123;
+call b6(@res);
+select @res;
+</code></pre>
+
+<h3 id="_9">索引</h3>
+<p><strong>一.索引的介绍</strong></p>
+<p>数据库中专门用于帮助用户快速查找数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置吗，然后直接获取。</p>
+<p><strong>二.索引的作用</strong></p>
+<p>约束和加速查找</p>
+<p><strong>三.常见的几种索引</strong></p>
+<ul>
+<li>普通索引</li>
+<li>唯一索引</li>
+<li>主键索引</li>
+<li>联合索引<ul>
+<li>联合主键索引</li>
+<li>联合唯一索引</li>
+<li>联合普通索引</li>
+</ul>
+</li>
+</ul>
+<p><strong>无索引</strong>： 从前往后一条一条查询</p>
+<p><strong>有索引</strong>：创建索引的本质，就是创建额外的文件（某种格式存储，查询的时候，先去格外的文件找，定好位置，然后再去原始表中直接查询。但是创建索引越多，会对硬盘也是有损耗。</p>
+<p><strong>建立索引的目的</strong>：</p>
+<ul>
+<li>a.额外的文件保存特殊的数据结构</li>
+<li>b.查询快，但是插入更新删除依然慢</li>
+<li>c.创建索引之后，必须命中索引才能有效</li>
+</ul>
+<p><strong>索引的种类</strong></p>
+<p>hash索引和BTree索引</p>
+<ul>
+<li>hash类型的索引：查询单条快，范围查询慢</li>
+<li>btree类型的索引：b+树，层数越多，数据量指数级增长（我们就用它，因为innodb默认支持它）</li>
+</ul>
+<p><strong>索引的实现原理</strong></p>
+<p><strong>数据库索引</strong>，是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。<strong>索引的实现通常使用B树及其变种B+树</strong>。 </p>
+<p>为表设置索引要付出<strong>代价</strong>的</p>
+<ul>
+<li>一是增加了数据库的存储空间,</li>
+<li>二是在插入和修改数据的时候要花费较多的时间(因为索引也要随之变动)</li>
+</ul>
+<p><strong>普通索引</strong></p>
+<p><strong>作用:仅有一个加速查找</strong></p>
+<pre><code>创建表+普通索引
+create table userinfo(
+                   nid int not null auto_increment primary key,
+                   name varchar(32) not null,
+                   email varchar(64) not null,
+                   index ix_name(name)
+               );
+</code></pre>
+
+<pre><code>普通索引
+create index 索引的名字 on 表名(列名)
+</code></pre>
+
+<pre><code>删除索引
+drop index 索引的名字 on 表名
+</code></pre>
+
+<pre><code>查看索引
+show index from 表名
+</code></pre>
+
+<p><strong>唯一索引</strong></p>
+<p><strong>唯一索引的两个功能:加速查找和唯一约束(可含null)</strong></p>
+<pre><code>创建表和唯一索引
+create table userinfo(
+                   id int not null auto_increment primary key,
+                   name varchar(32) not null,
+                   email varchar(64) not null,
+                   unique  index  ix_name(name)
+               );
+</code></pre>
+
+<pre><code>唯一索引
+create unique index 索引名 on 表名(列名)
+</code></pre>
+
+<pre><code>删除唯一索引
+drop index 索引名 on 表名;
+</code></pre>
+
+<p><strong>主键索引</strong></p>
+<p><strong>主键索引的两个功能:加速查找和唯一约束(可含null)</strong></p>
+<pre><code> 创建表和主键索引
+ create table userinfo(
+
+                   id int not null auto_increment primary key,
+                   name varchar(32) not null,
+                   email varchar(64) not null,
+                   unique  index  ix_name(name)
+           )
+          or
+
+create table userinfo(
+                   id int not null auto_increment,
+                   name varchar(32) not null,
+                   email varchar(64) not null,
+                   primary key(nid),
+                   unique  index  ix_name(name)
+         )
+</code></pre>
+
+<pre><code>创建主键索引
+alter table 表名 add primary key(列名);
+</code></pre>
+
+<pre><code>删除主键索引
+alter table 表名 drop primary key;
+alter table 表名  modify  列名 int, drop primary key;
+</code></pre>
+
+<p><strong>组合索引</strong></p>
+<p>组合索引是将n个列组合成一个索引</p>
+<pre><code>联合普通索引
+create index 索引名 on 表名(列名1,列名2);
+</code></pre>
+
+<p><strong>四.索引名词</strong></p>
+<pre><code>覆盖索引:在索引文件中直接获取数据
+select name from userinfo where name = 'alex50000';
+索引合并:把多个单例索引合并使用
+select * from  userinfo where name = 'alex13131' and id = 13131;
+</code></pre>
+
+<p><strong>五.索引的注意事项</strong></p>
+<pre><code>(1)避免使用select *
+(2)count(1)或count(列) 代替count(*)
+(3)创建表时尽量使用char代替varchar
+(4)表的字段顺序固定长度的字段优先
+(5)组合索引代替多个单列索引（经常使用多个条件查询时）
+(6)尽量使用短索引 （create index ix_title on tb(title(16));特殊的数据类型 text类型）
+(7)使用连接（join）来代替子查询
+(8)连表时注意条件类型需一致
+(9)索引散列（重复少）不适用于建索引，例如：性别不合适
+</code></pre>
+
+<p><strong>六.执行计划</strong></p>
+<p>explain + 查询SQL - 用于显示SQL执行信息参数，根据参考信息可以进行SQL优化 </p>
+<pre><code>参数说明
+select_type：
+     查询类型
+         SIMPLE          简单查询
+         PRIMARY         最外层查询
+         SUBQUERY        映射为子查询
+         DERIVED         子查询
+         UNION           联合
+         UNION RESULT    使用联合的结果
+
+table：正在访问的表名            
+type：查询时的访问方式
+      性能：all &lt; index &lt; range &lt; index_merge &lt; ref_or_null &lt; ref &lt; eq_ref &lt; system/const
+       ALL             全表扫描，对于数据表从头到尾找一遍
+       select * from userinfo;
+        特别的：如果有limit限制，则找到之后就不在继续向下扫描
+        select * from userinfo where email = 'alex112@oldboy'
+        select * from userinfo where email = 'alex112@oldboy' limit 1;
+        虽然上述两个语句都会进行全表扫描，第二句使用了limit，则找到一个后就不再继续扫描。
+
+INDEX ： 全索引扫描，对索引从头到尾找一遍
+         select nid from userinfo;
+
+RANGE： 对索引列进行范围查找
+      select *  from userinfo where name &lt; 'alex';
+      PS:
+          between and
+           in
+           &gt;   &gt;=  &lt;   &lt;=  操作
+           注意：!= 和 &gt; 符号
+
+INDEX_MERGE：  合并索引，使用多个单列索引搜索
+     select *  from userinfo where name = 'alex' or nid in (11,22,33);
+REF： 根据索引查找一个或多个值
+    select *  from userinfo where name = 'alex112';
+
+EQ_REF： 连接时使用primary key 或 unique类型
+     select userinfo2.id,userinfo.name from userinfo2 left join tuserinfo on userinfo2.id = userinfo.id;
+
+CONST：常量
+           表最多有一个匹配行,因为仅有一行,在这行的列值可被优化器剩余部分认为是常数,const表很快,因为它们只读取一次。
+     select id from userinfo where id = 2 ;
+
+SYSTEM：系统
+      表仅有一行(=系统表)。这是const联接类型的一个特例。
+      select * from (select id from userinfo where id = 1) as A;
+
+possible_keys：可能使用的索引
+
+key：真实使用的
+
+key_len：　　MySQL中使用索引字节长度
+
+rows： mysql估计为了找到所需的行而要读取的行数 ------ 只是预估值
+
+extra：
+      该列包含MySQL解决查询的详细信息
+      “Using index”
+       此值表示mysql将使用覆盖索引，以避免访问表。不要把覆盖索引和index访问类型弄混了。
+“Using where”
+    这意味着mysql服务器将在存储引擎检索行后再进行过滤，许多where条件里涉及索引中的列，当（并且如果）它读取索引时，就能被存储引擎检验，因此不是所有带where子句的查询都会显示“Using where”。有时“Using where”的出现就是一个暗示：查询可受益于不同的索引。
+“Using temporary”
+       这意味着mysql在对查询结果排序时会使用一个临时表。
+“Using filesort”
+       这意味着mysql会对结果使用一个外部索引排序，而不是按索引次序从表里读取行。mysql有两种文件排序算法，这两种排序方式都可以在内存或者磁盘上完成，explain不会告诉你mysql将使用哪一种文件排序，也不会告诉你排序会在内存里还是磁盘上完成。
+“Range checked for each record(index map: N)”
+    这个意味着没有好用的索引，新的索引将在联接的每一行上重新估算，N是显示在possible_keys列中索引的位图，并且是冗余的
+</code></pre>
+
+<p><strong>七.慢日志记录</strong></p>
+<p>开启慢查询日志，可以让MySQL记录下查询超过指定时间的语句，通过定位分析性能的瓶颈，才能更好的优化数据库系统的性能。 </p>
+<pre><code>(1) 进入MySql 查询是否开了慢查询
+         show variables like 'slow_query%';
+         参数解释：
+             slow_query_log 慢查询开启状态  OFF 未开启 ON 为开启
+        slow_query_log_file 慢查询日志存放的位置（这个目录需要MySQL的运行帐号的可写权限，一般设置为MySQL的数据存放目录）
+
+（2）查看慢查询超时时间
+       show variables like 'long%';
+       ong_query_time 查询超过多少秒才记录   默认10秒 
+
+（3）开启慢日志（1）（是否开启慢查询日志，1表示开启，0表示关闭。）
+           set global slow_query_log=1;
+（4）再次查看
+              show variables like '%slow_query_log%';
+
+（5）开启慢日志（2）：（推荐）
+         在my.cnf 文件中
+         找到[mysqld]下面添加：
+           slow_query_log =1
+   　　　　 slow_query_log_file=C:\mysql-5.6.40-winx64\data\localhost-slow.log
+    　　　  long_query_time = 1
+
+    参数说明：
+        slow_query_log 慢查询开启状态  1 为开启
+        slow_query_log_file 慢查询日志存放的位置
+        long_query_time 查询超过多少秒才记录   默认10秒 修改为1秒
+</code></pre>
+
+<p><strong>分页功能</strong></p>
+<pre><code>（1）只有上一页和下一页
+        做一个记录：记录当前页的最大id或最小id
+        下一页：
+        select * from userinfo where id&gt;max_id limit 10;
+
+        上一页：
+        select * from userinfo where id&lt;min_id order by id desc limit 10;
+
+(2) 中间有页码的情况
+           select * from userinfo where id in(
+               select id from (select * from userinfo where id &gt; pre_max_id limit (cur_max_id-pre_max_id)*10) as A order by A.id desc limit 10
+           );    
+</code></pre>
+
+<h3 id="pymysql"><strong>pymysql的使用</strong></h3>
               
             </div>
           </div>
