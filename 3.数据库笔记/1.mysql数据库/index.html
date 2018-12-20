@@ -321,7 +321,13 @@
     <li class="toctree-l3"><a href="#_9">索引</a></li>
     
 
+    <li class="toctree-l3"><a href="#_10">数据库引擎</a></li>
+    
+
     <li class="toctree-l3"><a href="#pymysql">pymysql的使用</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_11">数据库的锁</a></li>
     
 
     </ul>
@@ -1532,7 +1538,132 @@ extra：
            );    
 </code></pre>
 
+<h3 id="_10">数据库引擎</h3>
+<p>数据库中的表也应该有不同的类型,表的类型不一样,对应的mysql不同的存取机制,表类型又称为存储引擎</p>
+<p><img alt="" src="../../img/存储引擎.png" /></p>
+<p><strong>mysql支持的存储引擎</strong></p>
+<pre><code>show engines\G;查看所有支持的引擎
+show variables like 'storage_engine%'; 查看正在使用的存储引擎
+create table t1(id int)engine=innodb;# 指定表类型/存储引擎 默认不写就是innodb
+</code></pre>
+
+<p><strong>1.innoDB存储引擎</strong></p>
+<p>支持事务,其设计目标主要面向联机事务处理(OLTP)的应用,其特点是行锁的设计,支持外键,并支持类似oracle的非锁定读,即默认读取操作不会产生锁,从mysql5.58版本开始是默认的存储引擎</p>
+<p><strong>2.MylSAM存储引擎</strong></p>
+<p>不支持事务,表锁设计,支持全文索引,主要面向一些OLAP数据库应用,在mysql5.58版本之前是默认的存储引擎,(除 Windows 版本外 )数据库系统 与文件系统一个很大的不同在于对事务的支持,MyISAM 存储引擎是不支持事务的。究其根 本,这也并不难理解。用户在所有的应用中是否都需要事务呢?在数据仓库中,如果没有 ETL 这些操作,只是简单地通过报表查询还需要事务的支持吗?此外,MyISAM 存储引擎的 另一个与众不同的地方是,它的缓冲池只缓存(cache)索引文件,而不缓存数据文件,这与 大多数的数据库都不相同。 </p>
+<p><strong>3.NDB存储引擎</strong></p>
+<p>NDB 存储引擎是一个集群存储引擎,类似于 Oracle 的 RAC 集群,不过与 Oracle RAC 的 share everything 结构不同的是,其结构是 share nothing 的集群架构,因此能提供更高级别的 高可用性。NDB 存储引擎的特点是数据全部放在内存中(从 5.1 版本开始,可以将非索引数 据放在磁盘上),因此主键查找(primary key lookups)的速度极快,并且能够在线添加 NDB 数据存储节点(data node)以便线性地提高数据库性能。由此可见,NDB 存储引擎是高可用、 高性能、高可扩展性的数据库集群系统,其面向的也是 OLTP 的数据库应用类型。 </p>
+<p><strong>4、Memory 存储引擎</strong> </p>
+<p>正如其名,Memory 存储引擎中的数据都存放在内存中,数据库重 启或发生崩溃,表中的数据都将消失。它非常适合于存储 OLTP 数据库应用中临时数据的临时表,也可以作为 OLAP 数据库应用中数据仓库的维度表。Memory 存储引擎默认使用哈希 索引,而不是通常熟悉的 B+ 树索引。 </p>
+<p>5.<strong>Infobright 存储引擎</strong> </p>
+<p>第三方的存储引擎。其特点是存储是按照列而非行的,因此非常 适合 OLAP 的数据库应用。其官方网站是 <a href="http://www.infobright.org/,%E4%B8%8A%E9%9D%A2%E6%9C%89%E4%B8%8D%E5%B0%91%E6%88%90%E5%8A%9F%E7%9A%84%E6%95%B0%E6%8D%AE">http://www.infobright.org/,上面有不少成功的数据</a> 仓库案例可供分析。 </p>
+<p><strong>6、NTSE 存储引擎</strong> </p>
+<p>网易公司开发的面向其内部使用的存储引擎。目前的版本不支持事务, 但提供压缩、行级缓存等特性,不久的将来会实现面向内存的事务支持 </p>
+<p><strong>7、BLACKHOLE</strong> </p>
+<p>黑洞存储引擎，可以应用于主备复制中的分发主库。</p>
 <h3 id="pymysql"><strong>pymysql的使用</strong></h3>
+<pre><code class="python">import pymysql
+
+1.连接  host:数据库地址  port:端口 user:用户名 password:密码 db:数据库 charset:指定类型
+conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='', db='db8', charset='utf8')
+
+
+ 2.创建游标
+cursor = conn.cursor()
+
+防止注入
+sql = &quot;select * from userinfo where username='%s' and pwd='%s'&quot; 
+cursor.execute(sql,[user,pwd])
+
+增
+
+一条
+sql = &quot;insert into userinfo(username,pwd,) values(xx,oo)&quot; 
+cursor.execute(sql)
+多条
+cursor.executemany(sql,[(),(),()])
+
+删
+sql = &quot;delete from userinfo where id = 2&quot;
+cursor.execute(sql)
+
+改
+sql = &quot;update userinfo set userinfo=%s where id = 2&quot;
+cursor.execute(sql,username)
+
+查
+fetchone():获取下一行数据，第一次为首行；
+fetchall():获取所有行数据源
+fetchmany(4):获取4行数据
+
+sql = 'select * from userinfo'
+cursor.execute(sql)
+
+ 查询第一行的数据
+row = cursor.fetchone()
+
+移动指针
+cursor.scroll(1,mode='relative')  # 相对当前位置移动
+cursor.scroll(2,mode='absolute') # 相对绝对位置移动
+第一个值为移动的行数，整数为向下移动，负数为向上移动，mode指定了是相对当前位置移动，还是相对于首行移动
+
+# 关闭连接，游标和连接都要关闭
+cursor.close()
+conn.close()
+复制代码
+</code></pre>
+
+<h3 id="_11"><strong>数据库的锁</strong></h3>
+<p><strong>表级别锁</strong>(table-level)</p>
+<p>表级别的锁定是mysql个存储引擎中最大颗粒度的锁定机制,该锁定最大的特点就是实现逻辑非常简单,带来的系统负面影响最小,所以获取锁和释放锁都非常快,由于表级锁一次会将整个表都锁住,所以可以很好的避免死锁的问题</p>
+<p>使用表级锁的主要是:myiSAM,MEMORY,CSV等一些非事务型存储引擎</p>
+<p><strong>行级锁</strong>(row-level)</p>
+<p>行级锁最大的特点就是锁定对象的颗粒度很小,也是目前各大数据库管理软件所实现的锁定颗粒度最小的,由于颗粒度很小,所以发生多锁定字段争用的概率也是最小的,能够给予应用程序尽可能大的并发处理能力而提高一些需要高并发应用系统的整体性能</p>
+<p>虽然在并发处理上有很大的优势,但是行级索引也因此带来很多的弊端,由于锁定资源的颗粒度很小,所以每次获取和释放锁需要做的事情也多了,因此带来的消耗也就大了,行级锁很容易带来死锁</p>
+<p>使用行级锁的主要是innoDB存储引擎</p>
+<p><strong>3.页级锁定</strong>(page-level)</p>
+<p>页级锁定是mysql中比较独特的一种锁定级别,在其他的数据库管理中不是太常见,页级锁定的特点:<strong>锁定颗粒度介于行级锁和表级锁之间的</strong>,所以获取锁定所需要的开销以及所能够提供的并发处理能力也是介于上面两者之间的,</p>
+<p>使用页级锁定的主要是berkeleyDB存储引擎</p>
+<p><strong>总结</strong></p>
+<p><strong>表级锁:</strong>开销小.加锁快,不会出现死锁;锁定粒度大,发生锁冲突的概率最高,并发度最低</p>
+<p><strong>行级锁</strong>:开销大,加锁慢,会出现死锁,锁定粒度最小,发生锁冲突概率最低,并发程度最高</p>
+<p><strong>页面锁:</strong>开锁和加锁时间介于表锁和行锁之间,会出现死锁;锁定粒度介于表锁和行锁之间,并发一般</p>
+<p><strong>应用</strong></p>
+<p>三个锁之间各有各的特点,如果从锁的角度来说,表级锁更适合查询为主,只有少量按索引条件更新数据的应用 ,如web应用;航迹锁更适用于有大量按索引条件,并发更新少量不同数据,同时又有并发查询的应用,如一些在线事务处理(OLTP)系统</p>
+<p><strong>MYSQL表级锁有两种模式</strong></p>
+<ol>
+<li>表共享读锁(Table Read Lock) 对mylSAM表进行读取操作时不会阻塞其他用户对同一表的写操作</li>
+<li>表独占写锁(Table write Lock) 对MylSAM表的写操作,则会阻塞对其他用户对同一表的读写操作</li>
+</ol>
+<p>innoDB和MyiSAM锁最大的不同</p>
+<ul>
+<li>支持事务</li>
+<li>采用了行级锁</li>
+</ul>
+<p><strong>事务的四大特性(简称ACID)</strong></p>
+<ul>
+<li><strong>原子性(Atomicity)</strong>:事务是一个原子操作单位,其对数据的修改,要么全部都执行,要么全都不执行</li>
+<li><strong>一致性(Consistent)</strong>:在事务开始和完成时,数据必须保持一致状态</li>
+<li><strong>隔离性(Islation):</strong>数据库系统提供一定的隔离机制,保证事务在不受外部并发操作影响的情况的"独立"环境执行</li>
+<li><strong>持久性(Durable)</strong>:事务完成之后,他对于数据的修改是永久性的,即使出现系统故障也能够保持</li>
+</ul>
+<p><strong>并发事务处理带来的问题</strong></p>
+<ul>
+<li><strong>更新丢失</strong>当两个或多个事务选择同一行,由于每个事务都不知道其他事务的存在,就会发生丢失更新问题,最后的更新还会覆盖由其他事务所做的更新</li>
+<li><strong>脏读:</strong>一个事务正在对一条记录做修改,在这个事务完成并提交前,这条记录就处在不一致的状态,这时另一个事务也来读取同一条记录,如果不控制的话,第二个事务读取数据并做了一些处理,就会产生未提交的数据依赖关系,这种现象就被称为<strong>脏读</strong></li>
+<li><strong>不可重复读</strong>一个事务在读取某些数据后的某个时间,再次读取以前读过的数据,却发现其读出的数据已经发生了改变,或某些记录已经被删除了,这种现象叫不可重复读</li>
+<li><strong>幻读</strong>:一个事务按相同的查询条件重新读取以前检索过的数据,却发现其他事务插入了满足其查询条件的新数据,这种现象称为幻读</li>
+</ul>
+<pre><code>表锁
+Lock tables orders read local, order_detail read local;
+Select sum(total) from orders;
+Select sum(subtotal) from order_detail;
+Unlock tables;
+
+行锁
+共享锁（S）：SELECT * FROM table_name WHERE ... LOCK IN SHARE MODE。
+排他锁（X)：SELECT * FROM table_name WHERE ... FOR UPDATE。
+</code></pre>
               
             </div>
           </div>
