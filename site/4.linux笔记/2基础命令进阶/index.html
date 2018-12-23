@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>2基础命令进阶 - 学习笔记</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "2\u57fa\u7840\u547d\u4ee4\u8fdb\u9636";
+    var mkdocs_page_input_path = "4.linux\u7b14\u8bb0\\2\u57fa\u7840\u547d\u4ee4\u8fdb\u9636.md";
+    var mkdocs_page_url = "/4.linux\u7b14\u8bb0/2\u57fa\u7840\u547d\u4ee4\u8fdb\u9636/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> 学习笔记</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">mkdocs 的基本使用</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1.python笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">1.python基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">1.python的基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/2.数据类型/">2.数据类型</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/3.深浅拷贝和流程控制/">3.深浅拷贝和流程控制</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/4.文件操作/">4.文件操作</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/5.编码,小数据池,运算符的优先级/">5.编码,小数据池,运算符的优先级</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/1.python基础/6.异常处理/">6.异常处理</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">2.函数部分</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/1.函数的基本信息/">1.函数的基本信息</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/2.三大器(装饰器,迭代器,生成器)/">2.三大器(装饰器,迭代器,生成器)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/2.函数部分/3.关键字,内置函数,匿名函数和递归函数(偏函数)/">3.关键字,内置函数,匿名函数和递归函数(偏函数)</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">3.面对对象</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/1.面对对象基本知识/">1.面对对象基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/2.面对对象的基本使用/">2.面对对象的基本使用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/3.面对对象的魔法方法/">3.面对对象的魔法方法</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/3.面对对象/4.设计模式/">4.设计模式</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">4.网络编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/1.网络编程的基本知识/">1.网络编程的基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/4.网络编程/2.各类网络协议/">2.各类网络协议</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">5.并发编程</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/1.进程/">1.进程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/2.线程/">2.线程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/3.协程/">3.协程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/5.并发编程/4.IO模型/">4.IO模型</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">6.django基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/1.基本命令/">1.基本命令</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/2.路由系统/">2.路由系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/3.视图系统/">3.视图系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/4.模板系统/">4.模板系统</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/5.中间件/">5.中间件</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/6.模型层/">6.模型层</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/6.django基础/7.表单/">7.表单</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">7.Flask基础</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/1.flask基础知识/">1.flask基础知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/2.Flask和HTTP/">2.Flask和HTTP</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/3.模板/">3.模板</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/4.表单/">4.表单</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/5.数据库/">5.数据库</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/7.Flask基础/6.电子邮件/">6.电子邮件</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">8.模块总结</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/1.异步模块(celery和asyncio)/">1.异步模块(celery和asyncio)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/2.API模块(REST framework 和 Flask REST API)/">2.API模块(REST framework 和 Flask REST API)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../1.python笔记/8.模块总结/3.基本常用模块/">3.基本常用模块</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2.前端笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/1.html笔记/">1.html笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/2.css笔记/">2.css笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/3.javascript笔记/">3.javascript笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/4.jquery笔记/">4.jquery笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/5.VUE笔记/">5.VUE笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../2.前端笔记/6.es6笔记/">6.es6笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3.数据库笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/1.mysql数据库/">1.mysql数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/2.redis数据库/">2.redis数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/3.MangoDB数据库/">3.MangoDB数据库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../3.数据库笔记/4.memcached数据库/">4.memcached数据库</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4.linux笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../1.linux的基本命令/">1.linux的基本命令</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">2基础命令进阶</a>
+    <ul class="subnav">
+            
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../3linux各种文件的安装/">3linux各种文件的安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.nginx的使用/">4.nginx的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../5.shell编程/">5.shell编程</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">5.算法笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/基本10大算法/">基本10大算法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/数据结构/">数据结构</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../5.算法笔记/算法题/">算法题</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">6.爬虫笔记</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/1.爬虫的基本原理/">1.爬虫的基本原理</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/2.re模块的使用/">2.re模块的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/3.urllib库详解/">3.urllib库详解</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/4.requests的基本使用方法/">4.requests的基本使用方法</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/5.bs4模块的基本使用/">5.bs4模块的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/6.selenium的基本使用/">6.selenium的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/7.pyquery库的基本使用/">7.pyquery库的基本使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.面试总结</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../8.面试总结/1.面试总结/">1.面试总结</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">9.数据分析</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../9.数据分析/1.numpy模块/">1.numpy模块</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9.数据分析/2.matplotlib库/">2.matplotlib库</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../9.数据分析/3.Pandas库的基本使用/">3.Pandas库的基本使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">LeetCode刷题之路</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../LeetCode刷题之路/1.两数之和/">1.两数之和</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../LeetCode刷题之路/7.整数翻转/">7.整数翻转</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">奇技淫巧</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../奇技淫巧/1.vim的使用笔记/">1.vim的使用笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇技淫巧/2.Makdown笔记/">2.Makdown笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇技淫巧/3.git笔记/">3.git笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../奇技淫巧/4.jupyter的使用/">4.jupyter的使用</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">学习笔记</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>4.linux笔记 &raquo;</li>
+        
+      
+    
+    <li>2基础命令进阶</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/4.linux笔记/2基础命令进阶.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong>ip相关</strong></p>
+<ul>
+<li>ifconfig :查询,设置网卡和ip等参数<ul>
+<li>eth0 网卡的代号</li>
+<li>lo 回环地址loopback</li>
+<li>inet IPv4的Ip地址</li>
+<li>netmask 子网掩码</li>
+<li>broadcast 广播地址</li>
+<li>RX/TX 流量发/收情况 tx是发送（transport），rx是接收(receive)</li>
+<li>packets 数据包数</li>
+<li>errors 数据包错误数</li>
+<li>dropped 数据包有问题被丢弃的数量</li>
+<li>collisions 数据包碰撞情况，数值太多代表网络状况差</li>
+</ul>
+</li>
+<li>ifup,ifdown 脚本命令,更简单的方式启动关闭网络<ul>
+<li>ipup + 网卡名</li>
+<li>ipdown + 网卡名</li>
+<li># 编辑网卡配置文件 vim /etc/sysconfig/network-scripts/ifcfg-eth0</li>
+<li># 修改配置参数 ONBOOT=yes</li>
+</ul>
+</li>
+</ul>
+<p><strong>查看版本信息</strong></p>
+<ul>
+<li>cat /etc/redhat-release :查看版本信息</li>
+<li>uname -r 查看内核版本号</li>
+<li>uname -m 查看系统多少位</li>
+<li>uname -a 查看内核全部信息</li>
+</ul>
+<p><strong>用户管理和文件权限</strong></p>
+<ul>
+<li>用户管理<ul>
+<li>添加用户<ul>
+<li>useradd 用户名 :添加用户</li>
+<li>passwd 用户名: 增加密码</li>
+</ul>
+</li>
+<li>切换用户<ul>
+<li>su - 用户名</li>
+<li>su命令中间的-号很重要，意味着完全切换到新的用户，即环境变量信息也变更为新用户的信息</li>
+</ul>
+</li>
+<li>查看当前用户<ul>
+<li>whoami</li>
+</ul>
+</li>
+<li>退出用户<ul>
+<li>logout</li>
+<li>ctrl + d</li>
+</ul>
+</li>
+<li>创建用户组<ul>
+<li>grpupadd 组名</li>
+</ul>
+</li>
+<li>删除用户<ul>
+<li>-f 强制删除用户</li>
+<li>-r 同事删除用户以及家目录</li>
+<li>userdel -r 用户名</li>
+</ul>
+</li>
+<li>sudo命令<ul>
+<li>语法<ul>
+<li>sudo 【选项】【参数】</li>
+<li>-b：在后台执行指令；</li>
+<li>-h：显示帮助；</li>
+<li>-H：将HOME环境变量设为新身份的HOME环境变量；</li>
+<li>-k：结束密码的有效期限，也就是下次再执行sudo时便需要输入密码；。</li>
+<li>-l：列出目前用户可执行与无法执行的指令；</li>
+<li>-p：改变询问密码的提示符号；</li>
+<li>-s<shell>：执行指定的shell；</li>
+<li>-u&lt;用户&gt;：以指定的用户作为新的身份。若不加上此参数，则预设以root作为新的身份；</li>
+<li>-v：延长密码有效期限5分钟；</li>
+<li>-V ：显示版本信息。</li>
+</ul>
+</li>
+<li>编辑/etc/sudoers文件,写入 用户名 ALL=(ALL) ALL # 允许chaoge在任何地方，执行任何命令</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>文件权限</strong></p>
+<ul>
+<li>
+<p>图片</p>
+<ul>
+<li>
+<p><img alt="img" src="../../img/文件权限.jpg" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>文件类型</p>
+<ul>
+<li>- 一般文件</li>
+<li>d 文件夹</li>
+<li>l 软连接（快捷方式）</li>
+<li>b 块设备，存储媒体文件为主</li>
+<li>c 代表键盘,鼠标等设备</li>
+</ul>
+</li>
+<li>
+<p>文件权限</p>
+<ul>
+<li>r read可读</li>
+<li>w write写入，编辑</li>
+<li>x executable 可以执行</li>
+</ul>
+</li>
+<li>
+<p>查看用户权限命令</p>
+<ul>
+<li>id 用户名</li>
+</ul>
+</li>
+<li>
+<p>需改权限属性</p>
+<ul>
+<li>修改属主<ul>
+<li>chown 属主名 文件名</li>
+</ul>
+</li>
+<li>修改属组<ul>
+<li>chgrp 属组名 文件名</li>
+</ul>
+</li>
+<li>文件权限<ul>
+<li>r ---- &gt; 4</li>
+<li>w ------&gt; 2</li>
+<li>x -------&gt;1</li>
+</ul>
+</li>
+<li>修改权限命令<ul>
+<li>chmod [身份]　　 [参数] 　　[文件]</li>
+<li>u(user)　　 +(添加)</li>
+<li>g(group)　 -(减去)</li>
+<li>o(other)　　=(赋值)</li>
+<li>a(all)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>软连接</strong></p>
+<ul>
+<li>ln -s 目标文件 软连接名</li>
+</ul>
+<p><strong>PS1变量</strong></p>
+<ul>
+<li>inux命令提示符由PS1环境变量控制<ul>
+<li>参数<ul>
+<li>可以自行调整全局变量/etc/profile文件用于永久生效 PS1='[\u@\h \W\t]\$'</li>
+<li>\d　　日期</li>
+<li>\H　　完整主机名</li>
+<li>\h　　主机名第一个名字</li>
+<li>\t　　时间24小时制HHMMSS\T　　时间12小时制</li>
+<li>\A　　时间24小时制HHMM</li>
+<li>\u　　当前用户账号名</li>
+<li>\v　　BASH的版本\w　　完整工作目录</li>
+<li>\W　　利用basename取得工作目录名</li>
+<li>#　　下达的第几个命令</li>
+<li>\$　　提示字符，root为#，普通用户为$</li>
+<li>PS1 &gt; 变量名</li>
+<li>$PS1 &gt; 查看变量内容</li>
+<li>PS1=新内容 重新赋值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在/etc/profile下增加 export PS1=[你要显示的格式,可永久修改]</li>
+</ul>
+<p><strong>tar解压命令</strong></p>
+<ul>
+<li>语法<ul>
+<li>tar(选项)(参数)</li>
+<li>-A或--catenate：新增文件到以存在的备份文件；</li>
+<li>-B：设置区块大小；</li>
+<li>-c或--create：建立新的备份文件；</li>
+<li>-C &lt;目录&gt;：这个选项用在解压缩，若要在特定目录解压缩，可以使用这个选项。</li>
+<li>-d：记录文件的差别；</li>
+<li>-x或--extract或--get：从备份文件中还原文件；</li>
+<li>-t或--list：列出备份文件的内容；</li>
+<li>-z或--gzip或--ungzip：通过gzip指令处理备份文件；</li>
+<li>-Z或--compress或--uncompress：通过compress指令处理备份文件；</li>
+<li>-f&lt;备份文件&gt;或--file=&lt;备份文件&gt;：指定备份文件；</li>
+<li>-v或--verbose：显示指令执行过程；</li>
+<li>-r：添加文件到已经压缩的文件；</li>
+<li>-u：添加改变了和现有的文件到已经存在的压缩文件；</li>
+<li>-j：支持bzip2解压文件；</li>
+<li>-v：显示操作过程；</li>
+<li>-l：文件系统边界设置；</li>
+<li>-k：保留原有文件不覆盖；</li>
+<li>-m：保留文件不被覆盖；</li>
+<li>-w：确认压缩文件的正确性；</li>
+<li>-p或--same-permissions：用原来的文件权限还原文件；</li>
+<li>-P或--absolute-names：文件名使用绝对名称，不移除文件名称前的“/”号；</li>
+<li>-N &lt;日期格式&gt; 或 --newer=&lt;日期时间&gt;：只将较指定日期更新的文件保存到备份文件里；</li>
+<li>--exclude=&lt;范本样式&gt;：排除符合范本样式的文件。</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>tar -zxvf Python-3.7.0b3.tgz #解压</li>
+<li>tar -czvf oldboy.txt.tar.gz oldboy.txt #压缩oldboy.txt</li>
+<li>上述命令等于 tar -cvf oldboy.tar oldboy.txt</li>
+<li>gzip oldboy.tar</li>
+<li>tar -cf all_pic.tar *.jpg #压缩当前目录所有jpg结尾的文件</li>
+<li>tar -xjf xx.tar.bz2　　#解压缩bz2结尾的文件</li>
+</ul>
+</li>
+</ul>
+<p><strong>gzip命令(压缩)</strong></p>
+<ul>
+<li>语法<ul>
+<li>-d或--decompress或----uncompress：解开压缩文件；</li>
+<li>-f或——force：强行压缩文件。</li>
+<li>-h或——help：在线帮助；</li>
+<li>-l或——list：列出压缩文件的相关信息；</li>
+<li>-L或——license：显示版本与版权信息；</li>
+<li>-r或——recursive：递归处理，将指定目录下的所有文件及子目录一并处理；</li>
+<li>-v或——verbose：显示指令执行过程；</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>压缩当前目录所有文件为.gz文件</li>
+<li>gzip *</li>
+<li>把上例中每个压缩的文件解压，并列出详细的信息</li>
+<li>gzip -dv *</li>
+<li>显示压缩文件的信息，并不解压</li>
+<li>gzip -l *</li>
+<li>压缩一个tar备份文件，扩展名是tar.gz</li>
+<li>tar -cf my.tar my_first.py</li>
+<li>gzip -r my.tar</li>
+</ul>
+</li>
+</ul>
+<p><strong>netstat命令</strong></p>
+<ul>
+<li>netstat命令用来打印Linux中网络系统的状态信息，可让你得知整个Linux系统的网络情况。</li>
+<li>语法:<ul>
+<li>netstat [选项]</li>
+<li>-t或--tcp：显示TCP传输协议的连线状况；</li>
+<li>-u或--udp：显示UDP传输协议的连线状况；</li>
+<li>-n或--numeric：直接使用ip地址，而不通过域名服务器；</li>
+<li>-l或--listening：显示监控中的服务器的Socket；</li>
+<li>-p或--programs：显示正在使用Socket的程序识别码和程序名称；</li>
+<li>-a或--all：显示所有连线中的Socket；</li>
+</ul>
+</li>
+</ul>
+<p><strong>ps命令</strong></p>
+<ul>
+<li>ps 命令用于查看系统中的进程状态，格式为“ps [参数]”。</li>
+<li>参数<ul>
+<li>-a 显示所有进程</li>
+<li>-u 用户以及其他详细信息</li>
+<li>-x 显示没有控制终端的进程</li>
+</ul>
+</li>
+</ul>
+<p><strong>Kill命令</strong></p>
+<ul>
+<li>kill命令用来删除执行中的程序或工作。kill可将指定的信息送至程序。</li>
+<li>选项<ul>
+<li>-a：当处理当前进程时，不限制命令名和进程号的对应关系；</li>
+<li>-l &lt;信息编号&gt;：若不加&lt;信息编号&gt;选项，则-l参数会列出全部的信息名称；</li>
+<li>-p：指定kill 命令只打印相关进程的进程号，而不发送任何信号；</li>
+<li>-s &lt;信息名称或编号&gt;：指定要送出的信息；</li>
+<li>-u：指定用户。</li>
+</ul>
+</li>
+<li>9种信号<ul>
+<li>HUP     1    终端断线</li>
+<li>INT     2    中断（同 Ctrl + C）</li>
+<li>QUIT    3    退出（同 Ctrl + \）</li>
+<li>TERM   15    终止</li>
+<li>KILL    9    强制终止</li>
+<li>CONT   18    继续（与STOP相反， fg/bg命令）</li>
+<li>STOP   19    暂停（同 Ctrl + Z）</li>
+</ul>
+</li>
+<li>实例<ul>
+<li>先用ps查找进程，然后用kill杀掉：</li>
+<li>ps -ef | grep vim</li>
+<li>root      3268  2884  0 16:21 pts/1    00:00:00 vim install.log</li>
+<li>root      3370  2822  0 16:21 pts/0    00:00:00 grep vim</li>
+<li>kill 3268</li>
+</ul>
+</li>
+</ul>
+<p><strong>killall命令</strong></p>
+<ul>
+<li>通常来讲，复杂软件的服务程序会有多个进程协同为用户提供服务，如果逐个去结束这 些进程会比较麻烦，此时可以使用 killall 命令来批量结束某个服务程序带有的全部进程。</li>
+<li>例子<ul>
+<li>例如nginx启动后有2个进程 killall nginx</li>
+</ul>
+</li>
+</ul>
+<p><strong>SELinux功能</strong></p>
+<ul>
+<li>大多数ssh连接不上虚拟机，都是因为防火墙和selinux阻挡了</li>
+<li>永久关闭<ul>
+<li>1.修改配置文件，永久生效关闭selinux</li>
+<li>cp /etc/selinux/config /etc/selinux/config.bak #修改前备份</li>
+<li>2.修改方式可以vim编辑,找到</li>
+<li># This file controls the state of SELinux on the system.</li>
+<li># SELINUX= can take one of these three values:</li>
+<li>#     enforcing - SELinux security policy is enforced.</li>
+<li>#     permissive - SELinux prints warnings instead of enforcing.</li>
+<li>#     disabled - No SELinux policy is loaded.</li>
+<li>SELINUX=disabled</li>
+<li>3.用sed替换</li>
+<li>sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config</li>
+<li>4.检查状态</li>
+<li>grep "SELINUX=disabled" /etc/selinux/config</li>
+<li>#出现结果即表示修改成功</li>
+</ul>
+</li>
+<li>临时关闭selinux(命令行修改，重启失效)：<ul>
+<li>getenforce #获取selinux状态</li>
+<li>#修改selinux状态</li>
+<li>setenforce</li>
+<li>usage:  setenforce [ Enforcing | Permissive | 1 | 0 ]</li>
+<li>数字0 表示permissive，给出警告，不会阻止，等同disabled</li>
+<li>数字1表示enforcing，表示开启</li>
+</ul>
+</li>
+</ul>
+<p><strong>iptables防火墙</strong></p>
+<ul>
+<li>centos7默认已经使用firewall作为防火墙了</li>
+<li>1.关闭防火墙</li>
+<li>systemctl status firewalld #查看防火墙状态</li>
+<li>systemctl stop firewalld    #关闭防火墙</li>
+<li>systemctl disable firewalld#关闭防火墙开机启动</li>
+<li>systemctl is-enabled firewalld.service#检查防火墙是否启动</li>
+</ul>
+<p><strong>linux中文显示</strong></p>
+<ul>
+<li>1.修改配置文件/etc/locale.conf</li>
+<li>LANG="zh_CN.UTF-8"</li>
+<li>2.更改后查看系统语言变量:locale</li>
+</ul>
+<p><strong>df 命令</strong></p>
+<ul>
+<li>语法:<ul>
+<li>-h或--human-readable：以可读性较高的方式来显示信息；</li>
+<li>-k或--kilobytes：指定区块大小为1024字节；</li>
+<li>-T或--print-type：显示文件系统的类型；</li>
+<li>--help：显示帮助；</li>
+<li>--version：显示版本信息</li>
+</ul>
+</li>
+</ul>
+<p><strong>tree</strong></p>
+<ul>
+<li>tree命令以树状图列出目录的内容。</li>
+<li>-a：显示所有文件和目录；</li>
+<li>-A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；</li>
+<li>-C：在文件和目录清单加上色彩，便于区分各种类型；</li>
+<li>-d：先是目录名称而非内容；</li>
+<li>-D：列出文件或目录的更改时间；</li>
+<li>-f：在每个文件或目录之前，显示完整的相对路径名称；</li>
+<li>-F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上"*"，"/"，"@"，"|"号；</li>
+<li>-g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；</li>
+<li>-i：不以阶梯状列出文件和目录名称；</li>
+<li>-l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称；</li>
+<li>-l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；</li>
+<li>-n：不在文件和目录清单加上色彩；</li>
+<li>-N：直接列出文件和目录名称，包括控制字符；</li>
+<li>-p：列出权限标示；</li>
+<li>-P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；</li>
+<li>-q：用“？”号取代控制字符，列出文件和目录名称；</li>
+<li>-s：列出文件和目录大小；</li>
+<li>-t：用文件和目录的更改时间排序；</li>
+<li>-u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；</li>
+<li>-x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。</li>
+<li>tree参数</li>
+</ul>
+<p><strong>DNS配置</strong></p>
+<ul>
+<li>配置文件<ul>
+<li>cat /etc/resolv.conf#dns</li>
+</ul>
+</li>
+<li>服务器地址<ul>
+<li>nameserver 223.5.5.5</li>
+<li>nameserver 119.29.29.29</li>
+</ul>
+</li>
+<li>nslookup命令<ul>
+<li>nslookup命令是常用域名查询工具，就是查DNS信息用的命令。</li>
+<li>例子:nslookup <a href="http://www.oldboyedu.com">www.oldboyedu.com</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>计划任务crond服务</strong></p>
+<ul>
+<li>语法<ul>
+<li>-e：编辑该用户的计时器设置；</li>
+<li>-l：列出该用户的计时器设置；</li>
+<li>-r：删除该用户的计时器设置；</li>
+<li>-u&lt;用户名称&gt;：指定要设定计时器的用户名称。</li>
+</ul>
+</li>
+<li>格式<ul>
+<li>分钟(0-59)　小时(0-23)　日期(1-31)　月份(1-12)　星期(0-6,0代表星期天)　 命令</li>
+</ul>
+</li>
+<li>软件包管理<ul>
+<li>yum命令<ul>
+<li>参数<ul>
+<li>yum(选项)(参数)</li>
+<li>-h：显示帮助信息；</li>
+<li>-y：对所有的提问都回答“yes”；</li>
+<li>-c：指定配置文件；</li>
+<li>-q：安静模式；</li>
+<li>-v：详细模式；</li>
+<li>-d：设置调试等级（0-10）；</li>
+<li>-e：设置错误等级（0-10）；</li>
+<li>-R：设置yum处理一个命令的最大等待时间；</li>
+<li>-C：完全从缓存中运行，而不去下载或者更新任何头文件。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>yum源配置<ul>
+<li>yum的目录<ul>
+<li>cd /etc/yum.repos.d/</li>
+</ul>
+</li>
+<li>
+<ol>
+<li><a href="https://opsx.alibaba.com/mirror">https://opsx.alibaba.com/mirror</a> 找到这个网站，然后找到centos7的帮助有第一和第二步操作</li>
+</ol>
+</li>
+<li>3.清空yum缓存并且生成新的yum缓存<ul>
+<li>yum clean all</li>
+<li>yum makecache</li>
+</ul>
+</li>
+<li>4.安装软件扩展源<ul>
+<li>yum install -y epel-release</li>
+</ul>
+</li>
+<li>yum命令<ul>
+<li>yum repolist all 列出所有仓库</li>
+<li>yum list all 列出仓库所有软件包</li>
+<li>yum info 软件包名 查看软件包信息</li>
+<li>yum install 软件包名 安装软件包</li>
+<li>yum reinstall 软件包名 重新安装软件包</li>
+<li>yum update 软件包名 升级软件包</li>
+<li>yum remove 软件包名 移除软件包</li>
+<li>yum clean all 清楚所有仓库缓存</li>
+<li>yum check-update 检查可以更新的软件包</li>
+<li>yum grouplist 查看系统中已安装的软件包</li>
+<li>yum groupinstall 软件包组 安装软件包组</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>/etc下的linux目录知识</strong></p>
+<ul>
+<li>/etc：<ul>
+<li>这个目录用来存放所有的系统管理所需要的配置文件和子目录。</li>
+</ul>
+</li>
+<li># 网卡配置文件<ul>
+<li>/etc/sysconfig/network-script/ifcfg-eth0</li>
+</ul>
+</li>
+<li># 修改机器名以及网卡，网管等配置<ul>
+<li>/etc/sysconfig/network</li>
+</ul>
+</li>
+<li># linux的dns客户端配置文件，实现域名和ip的互相解析<ul>
+<li>/etc/resolv.conf</li>
+</ul>
+</li>
+<li># 本地dns解析文件,设定ip和域名的对应解析,开发测试最常用的临时域名解析<ul>
+<li>/etc/hosts/</li>
+</ul>
+</li>
+<li># 系统全局环境变量永久生效的配置文件,如PATH等<ul>
+<li>/etc/profile</li>
+</ul>
+</li>
+<li># 用户的环境变量<ul>
+<li>~/.bash_profile</li>
+<li>~/.bashrc</li>
+</ul>
+</li>
+<li># 存放可执行程序的目录，大多是系统管理命令<ul>
+<li>/usr/sbin</li>
+</ul>
+</li>
+<li># 存放用户自编译安装软件的目录  &gt; 等同于C:\Program files （windows）<ul>
+<li>/usr/local</li>
+</ul>
+</li>
+<li># 关于处理器的信息,还可以top指令查看<ul>
+<li>/proc/cpuinfo</li>
+</ul>
+</li>
+<li># 查看内存信息，还可以free -m<ul>
+<li>/proc/meminfo</li>
+</ul>
+</li>
+<li>Linux下安装程序的方法<ul>
+<li>rpm -ivh 包名.rpm　　需要手动解决依赖关系</li>
+<li>yum install 包名          yum自动处理依赖关系</li>
+<li>编译安装（源码安装）</li>
+</ul>
+</li>
+</ul>
+<p><strong>安装Lrzsz</strong></p>
+<ul>
+<li>#安装此软件，即可拖拽上传下载linux代码到windows</li>
+<li>yum install lrzsz</li>
+<li>sz</li>
+<li>rz</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3linux各种文件的安装/" class="btn btn-neutral float-right" title="3linux各种文件的安装">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../1.linux的基本命令/" class="btn btn-neutral" title="1.linux的基本命令"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/haoqihan/learning/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../1.linux的基本命令/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../3linux各种文件的安装/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
