@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>http://www.haoqihan.top/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>http://www.haoqihan.top/1.python笔记/1.python基础/1.python的基本信息/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
@@ -62,11 +57,6 @@
     </url>
     <url>
      <loc>http://www.haoqihan.top/1.python笔记/3.面对对象/3.面对对象的魔法方法/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>http://www.haoqihan.top/1.python笔记/3.面对对象/4.设计模式/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -136,6 +126,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://www.haoqihan.top/1.python笔记/6.django基础/8.ORM/</loc>
+     <lastmod>2018-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://www.haoqihan.top/1.python笔记/7.Flask基础/1.flask基础知识/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
@@ -176,11 +171,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/1.python笔记/8.模块总结/3.基本常用模块/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>http://www.haoqihan.top/2.前端笔记/1.html笔记/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
@@ -201,12 +191,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/2.前端笔记/5.VUE笔记/</loc>
+     <loc>http://www.haoqihan.top/2.前端笔记/5.es6笔记/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/2.前端笔记/6.es6笔记/</loc>
+     <loc>http://www.haoqihan.top/2.前端笔记/6.VUE笔记/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -226,8 +216,8 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/3.数据库笔记/4.memcached数据库/</loc>
-     <lastmod>2018-12-23</lastmod>
+     <loc></loc>
+     
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -251,12 +241,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/4.linux笔记/4.nginx的使用/</loc>
+     <loc>http://www.haoqihan.top/4.linux笔记/5.nginx的使用/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/4.linux笔记/5.shell编程/</loc>
+     <loc>http://www.haoqihan.top/4.linux笔记/6.shell编程/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -267,11 +257,6 @@
     </url>
     <url>
      <loc>http://www.haoqihan.top/5.算法笔记/数据结构/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>http://www.haoqihan.top/5.算法笔记/算法题/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -316,11 +301,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://www.haoqihan.top/8.面试总结/1.面试总结/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>http://www.haoqihan.top/9.数据分析/1.numpy模块/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
@@ -332,16 +312,6 @@
     </url>
     <url>
      <loc>http://www.haoqihan.top/9.数据分析/3.Pandas库的基本使用/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>http://www.haoqihan.top/LeetCode刷题之路/1.两数之和/</loc>
-     <lastmod>2018-12-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>http://www.haoqihan.top/LeetCode刷题之路/7.整数翻转/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -362,6 +332,11 @@
     </url>
     <url>
      <loc>http://www.haoqihan.top/奇技淫巧/4.jupyter的使用/</loc>
+     <lastmod>2018-12-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://www.haoqihan.top/奇技淫巧/5.mkdocs的使用/</loc>
      <lastmod>2018-12-23</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -7,7 +7,7 @@ repo_url: https://github.com/haoqihan/learning/
 # 主题
 # theme: readthedocs
 theme: windmill
-pages:
+nav:
     - python笔记:
         - python基础:
             - python基础信息: '1.python笔记/1.python基础/1.python的基本信息.md'
@@ -73,6 +73,7 @@ pages:
     - 算法笔记:
         - 基本10大算法: '5.算法笔记\基本10大算法.md'
         - 数据结构: '5.算法笔记\数据结构.md'
+        - 设计模式: '5.算法笔记\设计模式.md'
     - 爬虫笔记:
         - 爬虫的基本原理: '6.爬虫笔记\1.爬虫的基本原理.md'
         - re模块的使用: '6.爬虫笔记\2.re模块的使用.md'
