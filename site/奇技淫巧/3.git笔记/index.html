@@ -438,6 +438,21 @@
     <a class="current" href="./">3.git笔记</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#_1">管理工作目录</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_2">三种工作状态的切换</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_3">分支管理</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_4">标签管理</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_5">远程仓库建立连接</a></li>
+    
+
     </ul>
                 </li>
                 <li class="">
@@ -486,7 +501,56 @@
           <div role="main">
             <div class="section">
               
-                
+                <h3 id="_1">管理工作目录</h3>
+<p>git  init   初始化</p>
+<p>git  status  查看工作树状态</p>
+<p>git  log  --oneline    查看提交记录</p>
+<p>git reflog     查看之前所有的操作记录</p>
+<h3 id="_2">三种工作状态的切换</h3>
+<p>git   add   .   工作区到暂存区</p>
+<p>git commit -m   "理由" 暂存</p>
+<p>git checkout    .   丢弃工作区内容</p>
+<p>git reset   .   从暂存区回退到工作区</p>
+<p>git reset  --hard <commit_id>   版本回退并删除</p>
+<p>git reset  --sort   <commit_id>   把内容存到暂存区</p>
+<p>git reset <commit_id> 把内容回退到工作区 </p>
+<h3 id="_3">分支管理</h3>
+<p>git branch  name    创建分支</p>
+<p>git branch  查看分支</p>
+<p>git branch  -d  name    删除分支</p>
+<p>git checkout    name    切换分支</p>
+<p>git merge   name    把name分支合并到当前分支</p>
+<h3 id="_4">标签管理</h3>
+<p>git tag name    commit_id   给指定的版本加标签</p>
+<p>git tag 查看所有标签</p>
+<p>git tag -d  name    删除标签</p>
+<h3 id="_5">远程仓库建立连接</h3>
+<p>-- ssh</p>
+<ol>
+<li>本地生成公钥私钥,在主用户的根目录下 </li>
+<li>把公钥放入github中 </li>
+</ol>
+<p>建立连接</p>
+<ol>
+<li>git remote add '远程仓库的别名' 远程仓库的地址 </li>
+</ol>
+<p>查看所有的仓库</p>
+<ul>
+<li>git remote</li>
+</ul>
+<p>向远程仓库提交代码</p>
+<ul>
+<li>git push -u 远程仓库别名 分支名 </li>
+<li>注意 -u 第一次提交代码的时候本地分支跟远程仓库的分支建立起连接</li>
+</ul>
+<p>从远程仓库拉代码 </p>
+<ul>
+<li>git pull  远程仓库别名  分支名</li>
+</ul>
+<p>克隆项目</p>
+<ul>
+<li>git   clone   地址</li>
+</ul>
               
             </div>
           </div>

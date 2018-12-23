@@ -521,14 +521,14 @@
 <li>Matplotlib库由各种可视化类构成,内部结构复杂,受Matlab启发</li>
 <li>matplotlib.pyplot是绘制各类可视化图形的命令子库,相当于快捷方式</li>
 </ul>
-<pre><code>import matplotlib.pyplot as plt
+<pre><code class="python">import matplotlib.pyplot as plt
 plt.plot([1,2,3,2,4,3])
 plt.ylabel('grade')
 plt.savefig('test',dpi=600)  # png文件:将输出图像存储为文件,默认PNG格式,可以通过修改dpi修改输出质量
 plt.show()
 </code></pre>
 
-<pre><code>import matplotlib.pyplot as plt
+<pre><code class="python">import matplotlib.pyplot as plt
 plt.plot([0,2,4,6,8],[3,1,4,5,2]) # 会按照x和y轴绘制
 plt.ylabel('grade')
 plt.axis([-1,10,0,6])  # 设置x轴和y轴的长度
@@ -540,7 +540,7 @@ plt.show()
 <li>plt.subplot(nrows,ncols,plot_number) # 行 列 在哪个区域</li>
 <li>plt.subplot(3,2,4)</li>
 </ul>
-<pre><code>import numpy as np
+<pre><code class="python">import numpy as np
 import matplotlib.pyplot as plt
 def f(t):
     return np.exp(-t) * np.cos(2*np.pi*t)
@@ -862,7 +862,7 @@ plt.show()
 </code></pre>
 
 <p><strong>plt.annotate(s,xy=arrow_crd,xytext=text_crd,arrowprops=dict)</strong></p>
-<pre><code>import numpy as np
+<pre><code class="python">import numpy as np
 import matplotlib.pyplot as plt
 a = np.arange(0.0,5.0,0.02)
 plt.plot(a,np.cos(2*np.pi*a),'r--')
@@ -983,7 +983,7 @@ plt.show()
 </code></pre>
 
 <h3 id="pyplot_5">pyplot直方图的绘制</h3>
-<pre><code>import numpy as np
+<pre><code class="python">import numpy as np
 import matplotlib.pyplot as plt
 
 np.random.seed(0)
@@ -996,7 +996,7 @@ plt.show()
 </code></pre>
 
 <h3 id="_1">面对对象绘制极坐标</h3>
-<pre><code>import numpy as np
+<pre><code class="python">import numpy as np
 import matplotlib .pyplot as plt
 
 N = 10
@@ -1014,7 +1014,7 @@ plt.show()
 </code></pre>
 
 <h3 id="_2">面对对象绘制散点图</h3>
-<pre><code>import numpy as np
+<pre><code class="python">import numpy as np
 import matplotlib.pyplot as plt
 
 fig , ax = plt.subplots()
