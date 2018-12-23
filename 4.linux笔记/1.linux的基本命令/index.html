@@ -63,7 +63,7 @@
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">python基本信息</a>
+    <a class="" href="../../1.python笔记/1.python基础/1.python的基本信息/">1.python的基本信息</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -311,19 +311,26 @@
     <a class="current" href="./">1.linux的基本命令</a>
     <ul class="subnav">
             
+    <li class="toctree-l3"><a href="#linux">linux快捷键</a></li>
+    
+
     </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../2.linux各种文件的安装/">2.linux各种文件的安装</a>
+    <a class="" href="../2基础命令进阶/">2基础命令进阶</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../3.nginx的使用/">3.nginx的使用</a>
+    <a class="" href="../3linux各种文件的安装/">3linux各种文件的安装</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../4.nginx的使用/">4.nginx的使用</a>
                 </li>
                 <li class="">
                     
@@ -386,6 +393,17 @@
                 <li class="">
                     
     <a class="" href="../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.面试总结</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../8.面试总结/1.面试总结/">1.面试总结</a>
                 </li>
     </ul>
 	    </li>
@@ -486,7 +504,330 @@
           <div role="main">
             <div class="section">
               
-                
+                <p><strong>IP相关</strong></p>
+<ul>
+<li>ip addr</li>
+<li>ifconfig</li>
+</ul>
+<p><strong>关闭防火墙</strong></p>
+<ul>
+<li>systemctl stop    / start / restart  firewalld   关闭/开启/重启 防火墙</li>
+<li>systemctl  disable  firewalld  永久关闭防火墙 </li>
+</ul>
+<p><strong>修改网络配置</strong></p>
+<ul>
+<li>systemctl restart network  重启服务 </li>
+</ul>
+<p><strong>linux的目录结构</strong> </p>
+<ul>
+<li>根目录</li>
+</ul>
+<p><img alt="" src="../../img/linux目录结构.jpg" /></p>
+<ul>
+<li>linux的文件系统<ul>
+<li>Ext3 : 是一款日志文件系统，能够在系统异常宕机时避免文件系统资料丢失，并能 自动修复数据的不一致与错误。 </li>
+<li>Etx4:Etx3的进阶版本,作为 RHEL 6 系统中的默认文件管理系统，它支持的存储容 量高达 1EB(1EB=1,073,741,824GB)，且能够有无限多的子目录。另外，Ext4 文件系统能够批量分配 block 块，从而极大地提高了读写效率。 </li>
+<li>XFS     是一种高性能的日志文件系统，而且是 RHEL 7 中默认的文件管理系统，它的优势在发生意外宕机后尤其明显，即可以快速地恢复可能被破坏的文件，而且强大的 日志功能只用花费极低的计算和存储性能。并且它最大可支持的存储容量为 18EB， 这几乎满足了所有需求。 </li>
+</ul>
+</li>
+<li>查看linux的文件系统 <ul>
+<li>cat /etc/fstab </li>
+</ul>
+</li>
+</ul>
+<p><strong>创建文件夹</strong></p>
+<ul>
+<li>mkdir -p 文件名</li>
+</ul>
+<p><strong>查看目录</strong></p>
+<ul>
+<li>ls /目录名</li>
+<li>stat  文件名:查看详细信息</li>
+</ul>
+<p><strong>创建文本</strong></p>
+<ul>
+<li>touch 文件名</li>
+</ul>
+<p><strong>改变当前的位置</strong></p>
+<ul>
+<li>cd /目录名 </li>
+<li>cd  ~ :家目录</li>
+<li>cd    - :返回上一次的地址</li>
+</ul>
+<p><strong>打印当前目录</strong></p>
+<ul>
+<li>pwd</li>
+</ul>
+<p><strong>查看文本</strong></p>
+<ul>
+<li>cat -n 文件 :带行号</li>
+<li>cat &gt;&gt; 文件 &lt;&lt; EOF ....  EOF </li>
+<li>more 查看文件百分比 </li>
+<li>head 查看前10行 </li>
+<li>tail  查看后10行 </li>
+<li>tail -f 动态监听文件 </li>
+</ul>
+<h3 id="linux"><strong>linux快捷键</strong></h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tab键</td>
+<td>自动补全代码</td>
+</tr>
+<tr>
+<td>ctrl + l</td>
+<td>清理终端显示</td>
+</tr>
+<tr>
+<td>clear / cls</td>
+<td>清理终端显示</td>
+</tr>
+<tr>
+<td>ctrl + c</td>
+<td>终止操作</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>echo命令</strong></p>
+<ul>
+<li>echo  $PATH :打印环境变量</li>
+</ul>
+<p><strong>特殊符号</strong></p>
+<ul>
+<li>"&gt;&gt;"  追加重定向</li>
+<li>"&gt;"  清空重定向</li>
+<li>"*"  通配符</li>
+</ul>
+<p><strong>复制</strong></p>
+<ul>
+<li>cp -r 递归,复制目录以及目录的子孙后代</li>
+<li>cp -p 复制文件,且保持文件属性不变</li>
+<li>cp -a :相当于-pdr</li>
+</ul>
+<p><strong>移动</strong></p>
+<ul>
+<li>mv</li>
+</ul>
+<p><strong>删除</strong></p>
+<ul>
+<li>rm -f 不需要提示,强制删除</li>
+<li>rm -rf :全删</li>
+</ul>
+<p><strong>xargs命令</strong></p>
+<ul>
+<li>xargs命令是给其他命令传递参数的一个过滤器，擅长将标准输入数据转换成命令行参数，xargs能够处理管道或者stdin并将其转换成特定命令的参数。 xargs默认命令是echo，空格是默认定界符</li>
+</ul>
+<p><strong>查找命令</strong> </p>
+<ul>
+<li>find 在哪里(目录) -type f -name '*.txt'</li>
+<li>找到所有txt文件</li>
+<li>find / -name *.txt</li>
+</ul>
+<p><strong>管道命令</strong> </p>
+<ul>
+<li>Linux提供的管道符“|”讲两条命令隔开，管道符左边命令的输出会作为管道符右边命令的输入。</li>
+<li>命令格式:命令A|命令B</li>
+</ul>
+<p><strong>grep(过滤)</strong></p>
+<ul>
+<li>文本搜素 grep 'xxx' 文件</li>
+<li>-i:忽略大小写</li>
+<li>-n:输出行号</li>
+<li>-v:反向选择</li>
+</ul>
+<p><strong>sed(流编辑器)</strong></p>
+<ul>
+<li>用法<ul>
+<li>文本替换<ul>
+<li>sed -i 's/old/new/g' 文件:把这文件里的全部old替换为new</li>
+</ul>
+</li>
+<li>删除空白行<ul>
+<li>sed -i '/^$/d' 文件名 :把这个文件里全部的空行删除</li>
+</ul>
+</li>
+<li>删除5-10行内容<ul>
+<li>sed -i '5,10d' 文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>akw</strong></p>
+<ul>
+<li>语法:<ul>
+<li>awk [option] 'script' var = value filename</li>
+<li>awk [options] -f scriptfile var=value filename</li>
+</ul>
+</li>
+<li>常用选项<ul>
+<li>-F fs fs指定输入分隔符，fs可以是字符串或正则表达式，如-F:</li>
+<li>-v var=value 赋值一个用户定义变量，将外部变量传递给awk</li>
+<li>-f scripfile 从脚本文件中读取awk命令</li>
+<li>-m[fr] val 对val值设置内在限制，-mf选项限制分配给val的最大块数目；-mr选项限制记录的最大数目。这两个功能是Bell实验室版awk的扩展功能，在标准awk中不适用。</li>
+</ul>
+</li>
+<li>实例<ul>
+<li># NR &gt; 行号</li>
+<li>awk 'NR==20,NR==30' /tmp/oldboy.txt</li>
+</ul>
+</li>
+</ul>
+<p><strong>which命令</strong></p>
+<ul>
+<li>which命令用于查找并显示给定命令的绝对路径，环境变量PATH中保存了查找命令时需要遍历的目录。</li>
+<li>which指令会在环境变量$PATH设置的目录里查找符合条件的文件。</li>
+<li>也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</li>
+<li>which pwd</li>
+<li>which python</li>
+</ul>
+<p><strong>别名alias</strong></p>
+<ul>
+<li>设置别名 alias rm = 'echo "别用rm"'</li>
+<li>取消设置:unalias rm</li>
+</ul>
+<p><strong>seq(类似于for循环)</strong></p>
+<ul>
+<li>seq -f '%03g' 起始值 终止值</li>
+</ul>
+<p><strong>scp远程复制文件</strong></p>
+<ul>
+<li>语法:<ul>
+<li>scp 【可选参数】 本地源文件 远程文件标记</li>
+</ul>
+</li>
+<li>参数<ul>
+<li>-r :递归复制整个目录</li>
+<li>-v:详细方式输出</li>
+<li>-q:不显示传输进度条</li>
+<li>-C：允许压缩</li>
+</ul>
+</li>
+<li>事例<ul>
+<li>传输本地文件到远程地址<ul>
+<li>scp 本地文件 远程用户名@远程ip:远程文件夹/</li>
+</ul>
+</li>
+<li>复制远程文件到本地<ul>
+<li>scp root@192.168.1.155:/home/oldboy.txt /tmp/oldboy.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>du命令</strong></p>
+<ul>
+<li>显示目录和文件大小</li>
+<li>实例:<ul>
+<li>du -sh 文件名</li>
+</ul>
+</li>
+</ul>
+<p><strong>top</strong></p>
+<ul>
+<li>
+<p>top命令用于动态地件事进程活动与系统负载等信息</p>
+<ul>
+<li>
+<p><img alt="" src="../../img/top图.jpg" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>第一行 (uptime)</p>
+<ul>
+<li>系统时间 主机运行时间 用户连接数(who) 系统1，5，15分钟的平均负载</li>
+</ul>
+</li>
+<li>
+<p>第二行:进程信息</p>
+<ul>
+<li>进程总数 正在运行的进程数 睡眠的进程数 停止的进程数 僵尸进程数</li>
+</ul>
+</li>
+<li>
+<p>第三行:cpu信息</p>
+<ul>
+<li>1.5 us：用户空间所占CPU百分比</li>
+<li>0.9 sy：内核空间占用CPU百分比</li>
+<li>0.0 ni：用户进程空间内改变过优先级的进程占用CPU百分比</li>
+<li>97.5 id：空闲CPU百分比</li>
+<li>0.2 wa：等待输入输出的CPU时间百分比</li>
+<li>0.0 hi：硬件CPU中断占用百分比</li>
+<li>0.0 si：软中断占用百分比</li>
+<li>0.0 st：虚拟机占用百分比</li>
+</ul>
+</li>
+<li>
+<p>第四行：内存信息（与第五行的信息类似与free命令）</p>
+<ul>
+<li>8053444 total：物理内存总量</li>
+<li>7779224 used：已使用的内存总量</li>
+<li>274220 free：空闲的内存总量（free+used=total）</li>
+<li>359212 buffers：用作内核缓存的内存量</li>
+</ul>
+</li>
+<li>
+<p>第五行：swap信息</p>
+<ul>
+<li>8265724 total：交换分区总量</li>
+<li>33840 used：已使用的交换分区总量</li>
+<li>8231884 free：空闲交换区总量</li>
+<li>4358088 cached Mem：缓冲的交换区总量，内存中的内容被换出到交换区，然后又被换入到内存，但是使用过的交换区没有被覆盖，交换区的这些内容已存在于内存中的交换区的大小，相应的内存再次被换出时可不必再对交换区写入。</li>
+</ul>
+</li>
+</ul>
+<p><strong>chattr</strong></p>
+<ul>
+<li>给文件加锁,只能写数据,无法删除<ul>
+<li>chattr +a 文件:给文件加锁</li>
+<li>chattr -a 文件:给文件取消锁</li>
+</ul>
+</li>
+</ul>
+<p><strong>lsattr</strong></p>
+<ul>
+<li>查看文件的隐藏属性</li>
+<li>lsattr 文件名</li>
+</ul>
+<p><strong>linux时间同步</strong></p>
+<ul>
+<li>date +"%Y-%m-%d %T" 显示当前时间</li>
+<li>同步系统时间和硬件时间，可以用hwclock命令<ul>
+<li>//以系统时间为基准，修改硬件时间<ul>
+<li>[root@oldboy_python ~ 10:29:07]#hwclock-w</li>
+</ul>
+</li>
+<li>//以硬件时间为基准，修改系统时间<ul>
+<li>[root@oldboy_python ~ 10:29:21]#hwclock-s</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ntp时间服务器</strong></p>
+<ul>
+<li>ntpdate -u ntp. aliyun. com:更新时间</li>
+</ul>
+<p><strong>wget命令</strong></p>
+<ul>
+<li>wget 参数 下载地址</li>
+</ul>
+<p><strong>开关机命令</strong></p>
+<ul>
+<li>reboot 命令用于重启机器</li>
+<li>poweroff 用于关闭系统</li>
+</ul>
               
             </div>
           </div>
@@ -494,7 +835,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../2.linux各种文件的安装/" class="btn btn-neutral float-right" title="2.linux各种文件的安装">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../2基础命令进阶/" class="btn btn-neutral float-right" title="2基础命令进阶">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../3.数据库笔记/4.memcached数据库/" class="btn btn-neutral" title="4.memcached数据库"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -528,7 +869,7 @@
         <span><a href="../../3.数据库笔记/4.memcached数据库/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../2.linux各种文件的安装/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../2基础命令进阶/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

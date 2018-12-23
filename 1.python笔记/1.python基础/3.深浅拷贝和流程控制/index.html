@@ -63,7 +63,7 @@
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../1.python的基本信息/">python基本信息</a>
+    <a class="" href="../1.python的基本信息/">1.python的基本信息</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -74,6 +74,12 @@
     <a class="current" href="./">3.深浅拷贝和流程控制</a>
     <ul class="subnav">
             
+    <li class="toctree-l4"><a href="#_1">深浅拷贝</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_2">流程控制</a></li>
+    
+
     </ul>
                 </li>
                 <li class="toctree-l3">
@@ -315,15 +321,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../4.linux笔记/2.linux各种文件的安装/">2.linux各种文件的安装</a>
+    <a class="" href="../../../4.linux笔记/2基础命令进阶/">2基础命令进阶</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../4.linux笔记/3.nginx的使用/">3.nginx的使用</a>
+    <a class="" href="../../../4.linux笔记/3linux各种文件的安装/">3linux各种文件的安装</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../../../4.linux笔记/4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.linux笔记/4.nginx的使用/">4.nginx的使用</a>
                 </li>
                 <li class="">
                     
@@ -386,6 +396,17 @@
                 <li class="">
                     
     <a class="" href="../../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.面试总结</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../8.面试总结/1.面试总结/">1.面试总结</a>
                 </li>
     </ul>
 	    </li>
@@ -490,7 +511,52 @@
           <div role="main">
             <div class="section">
               
-                
+                <h3 id="_1">深浅拷贝</h3>
+<p><strong>三种拷贝</strong></p>
+<p><strong>第一种</strong>:赋值运算s1 = s2,那么他们两个指向的是同一个内存地址,所以完全一样 </p>
+<p><strong>第二种 </strong>浅拷贝copy </p>
+<ul>
+<li>s1 = s2.copy()</li>
+<li>对于浅copy来说，第一层创建的是新的内存地址，</li>
+<li>而从第二层开始，指向的都是同一个内存地址，</li>
+<li>所以，对于第二层以及更深的层数来说，保持一致性。</li>
+</ul>
+<p><strong>第三种</strong>:<strong>深拷贝deepcopy</strong> </p>
+<ul>
+<li><strong>import copy</strong></li>
+<li><strong>str2 =copy.deepcopy(str1)</strong></li>
+</ul>
+<h3 id="_2">流程控制</h3>
+<p><strong>if的使用</strong></p>
+<pre><code>if　条件：
+　　　代码块
+elif　条件：
+　　　　代码块
+else：上面条件都不满足要执行的代码
+</code></pre>
+
+<p><strong>while循环</strong> </p>
+<pre><code>标准格式:
+while 条件:
+       循环体
+else:
+   执行完要执行的内容
+</code></pre>
+
+<p><strong>for循环</strong> </p>
+<pre><code>标准格式:
+for　i　in　可迭代对象：
+　　　循环体
+else：
+　　　循环执行完毕要执行的代码
+</code></pre>
+
+<p><strong>补充</strong></p>
+<ul>
+<li><strong>range</strong>（）：里面有三个参数：起始位置，结束位置，步长</li>
+<li><strong>break</strong>（）：结束这个循环</li>
+<li><strong>continue</strong>（）：停止本次循环，继续下一次循环</li>
+</ul>
               
             </div>
           </div>

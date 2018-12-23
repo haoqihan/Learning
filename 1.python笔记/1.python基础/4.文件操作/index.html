@@ -63,7 +63,7 @@
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../1.python的基本信息/">python基本信息</a>
+    <a class="" href="../1.python的基本信息/">1.python的基本信息</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -315,15 +315,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../4.linux笔记/2.linux各种文件的安装/">2.linux各种文件的安装</a>
+    <a class="" href="../../../4.linux笔记/2基础命令进阶/">2基础命令进阶</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../4.linux笔记/3.nginx的使用/">3.nginx的使用</a>
+    <a class="" href="../../../4.linux笔记/3linux各种文件的安装/">3linux各种文件的安装</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../../../4.linux笔记/4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.linux笔记/4.nginx的使用/">4.nginx的使用</a>
                 </li>
                 <li class="">
                     
@@ -386,6 +390,17 @@
                 <li class="">
                     
     <a class="" href="../../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.面试总结</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../8.面试总结/1.面试总结/">1.面试总结</a>
                 </li>
     </ul>
 	    </li>
@@ -490,7 +505,59 @@
           <div role="main">
             <div class="section">
               
-                
+                <p><strong>计算机操作的基本流程</strong></p>
+<ul>
+<li>计算机系统分为:计算机系统分为:计算机硬件,操作系统,应用程序三部分 </li>
+</ul>
+<p><strong>文件编码</strong></p>
+<p>fp = open(...)是由操作系统打开文件，那么如果我们没有为open指定编码，那么打开文件的默认编码很明显是操作系统说了算了，操作系统会用自己的默认编码去打开文件，在windows下是gbk，在linux下是utf-8。 </p>
+<p><strong>文件的打开模式</strong></p>
+<ul>
+<li><strong>第一种</strong>:open('文件路径',mode(模式)):默认是r,encoding='utf-8':指定打开的编码格式) as 文件句柄 </li>
+<li><strong>第二种:</strong>with   open('文件路径',mode(模式)= 'r',encoding='编码格式')  as 文件句柄 </li>
+<li>文件句柄.flush():刷新文件 </li>
+<li>文件句柄.close():关闭文件 </li>
+</ul>
+<p><strong>r:只读模式</strong> </p>
+<ul>
+<li>r+:读写 可以先写</li>
+<li>rb:读取字节</li>
+<li>r+b:读写字节</li>
+</ul>
+<p><strong>w:只写模式</strong> </p>
+<ul>
+<li>w+:写读 也可以先读,但是读不出来任何内容</li>
+<li>wb:写字节</li>
+<li>w+b:写读字节</li>
+</ul>
+<p><strong>a:追加模式</strong> </p>
+<ul>
+<li>a+:追加写读 也可以先读,但是也读不出任何内容</li>
+<li>ab:追加字节</li>
+<li>a+b:追加写读字节</li>
+</ul>
+<p><strong>文件的操作方法</strong></p>
+<p><strong>1.常用操作方法</strong></p>
+<ul>
+<li>文件句柄.<strong>readable</strong>():判断文件是否可以读</li>
+<li>文件句柄.<strong>read</strong>():读取文件</li>
+<li>文件句柄. <strong>readline</strong>():读取一行文件</li>
+<li>文件句柄.<strong>readlines</strong>():读取所有内容,并保存到列表</li>
+<li>文件句柄.<strong>readinto</strong>():读取到缓冲区,不要用,将被遗弃</li>
+<li>文件句柄<strong>writeable</strong>():判断是否可写</li>
+<li>文件句柄.<strong>write</strong>():写入文件内容</li>
+<li>文件句柄.<strong>next</strong>():读取下一行内容,没有就报错</li>
+<li>文件句柄.<strong>seek</strong>():0是开头,1是当前,0,2是结尾</li>
+<li>文件句柄.<strong>tell</strong>():获取指针位置</li>
+<li>文件句柄.<strong>truncate</strong>():截断文件</li>
+<li>../:返回上一层</li>
+</ul>
+<p><strong>文件的修改</strong> </p>
+<p>文件的数据是存放于硬盘上的，因而只存在覆盖、不存在修改这么一说，我们平时看到的修改文件，都是模拟出来的效果，具体的说有两种实现方式： </p>
+<ul>
+<li><strong>第一种</strong> :将硬盘存放的该文件的内容全部加载到内存，在内存中是可以修改的，修改完毕后，再由内存覆盖到硬盘 </li>
+<li><strong>第二种:</strong> 将硬盘存放的该文件的内容一行一行地读入内存，修改完毕就写入新文件，最后用新文件覆盖源文件 </li>
+</ul>
               
             </div>
           </div>

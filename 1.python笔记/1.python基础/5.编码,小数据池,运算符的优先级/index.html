@@ -63,7 +63,7 @@
     <ul class="subnav">
                 <li class="toctree-l3">
                     
-    <a class="" href="../1.python的基本信息/">python基本信息</a>
+    <a class="" href="../1.python的基本信息/">1.python的基本信息</a>
                 </li>
                 <li class="toctree-l3">
                     
@@ -82,6 +82,15 @@
     <a class="current" href="./">5.编码,小数据池,运算符的优先级</a>
     <ul class="subnav">
             
+    <li class="toctree-l4"><a href="#_1">编码</a></li>
+    
+
+    <li class="toctree-l4"><a href="#pychram">小数据池==编辑器的情况是这样的,pychram就会不一样==</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_2">运算符的优先级</a></li>
+    
+
     </ul>
                 </li>
                 <li class="toctree-l3">
@@ -315,15 +324,19 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../4.linux笔记/2.linux各种文件的安装/">2.linux各种文件的安装</a>
+    <a class="" href="../../../4.linux笔记/2基础命令进阶/">2基础命令进阶</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../../4.linux笔记/3.nginx的使用/">3.nginx的使用</a>
+    <a class="" href="../../../4.linux笔记/3linux各种文件的安装/">3linux各种文件的安装</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../../../4.linux笔记/4.docker的使用/">4.docker的使用</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../4.linux笔记/4.nginx的使用/">4.nginx的使用</a>
                 </li>
                 <li class="">
                     
@@ -386,6 +399,17 @@
                 <li class="">
                     
     <a class="" href="../../../6.爬虫笔记/scrapy框架/">Scrapy框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">8.面试总结</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../8.面试总结/1.面试总结/">1.面试总结</a>
                 </li>
     </ul>
 	    </li>
@@ -490,7 +514,64 @@
           <div role="main">
             <div class="section">
               
-                
+                <h3 id="_1">编码</h3>
+<p><strong>编码的种类</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ascii</td>
+<td>不能改变,最早的编码,8bit,1byte</td>
+</tr>
+<tr>
+<td>GBK</td>
+<td>里面的内容占16bit,2byte</td>
+</tr>
+<tr>
+<td>unicde</td>
+<td>万国码,占32bit,4byte,优点:包含了所有的编码类型,缺点:浪费数据传输和数据存储</td>
+</tr>
+<tr>
+<td>utf-8</td>
+<td>长度可变:英文:8bit    1byte中文:24bit    3byte</td>
+</tr>
+</tbody>
+</table>
+<p><strong>字符与字节之间的转换</strong></p>
+<ul>
+<li>encode(编码名):把文字变成byte类型的 默认是utf-8格式的</li>
+<li>decode(编码):把字节类型转换成文字</li>
+</ul>
+<h3 id="pychram">小数据池==编辑器的情况是这样的,pychram就会不一样==</h3>
+<ul>
+<li>int类型：两个变量的值如果先拿相同，值在－５－＞２５６之间的内存地址是一样的</li>
+<li>str：如果值是一样的那就是同一个内存地址</li>
+<li>is：判断的是内存地址</li>
+<li>id（变量）：返回变量的内存地址</li>
+</ul>
+<h3 id="_2">运算符的优先级</h3>
+<p><strong>运算符优先级 从高到低:</strong> </p>
+<p><img alt="" src="....\img\运算符优先级.jpg" /></p>
+<p><strong>算数运算符</strong> </p>
+<p><img alt="" src="....\img\算数运算符.jpg" /></p>
+<p><strong>比较运算符</strong> </p>
+<p><img alt="" src="....\img\比较运算符.jpg" /></p>
+<p><strong>赋值运算符</strong></p>
+<p><img alt="" src="....\img\赋值运算符.jpg" /></p>
+<p><strong>位运算</strong></p>
+<p><img alt="" src="....\img\位运算1.jpg" /></p>
+<p><img alt="" src="....\img\位运算2.jpg" /></p>
+<p><strong>逻辑运算符</strong></p>
+<p><img alt="" src="....\img\逻辑运算符.jpg" /></p>
+<p><strong>成员操作符</strong> </p>
+<p><img alt="" src="....\img\成员运算.jpg" /></p>
+<p><strong>身份运算符</strong> </p>
+<p><img alt="" src="....\img\身份运算符.jpg" /></p>
               
             </div>
           </div>
