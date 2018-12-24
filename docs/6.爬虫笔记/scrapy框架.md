@@ -70,7 +70,7 @@ def parse(self, response):
 
 **五大核心组件工作流程**
 
-![](..\img\五大核心组件.png)
+![](../img/五大核心组件.png)
 
 - **引擎(scrapy)**
 
@@ -156,7 +156,7 @@ def start_requests(self):
 
 **Downloader Middlewares**(下载中间件)
 
-![](..\img\核心组件详解.png)
+![](../img/核心组件详解.png)
 
 Downloader Middlewares(下载中间件) 位于scrapy引擎和下载器之间的一层组件。 
 
