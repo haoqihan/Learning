@@ -32,6 +32,12 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "try:\u5f02\u5e38\u5904\u7406", url: "#_top", children: [
+          ]},
+          {title: "\u5f02\u5e38\u62a5\u9519\u603b\u7ed3", url: "#_1", children: [
+          ]},
+          {title: "\u65e5\u5e38\u62a5\u9519\u603b\u7ed3", url: "#_2", children: [
+          ]},
         ];
 
     </script>
@@ -73,7 +79,110 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    
+    <h3 id="try">try:异常处理</h3>
+<p><strong>1.单支</strong></p>
+<pre><code class="python">try:
+    a = int(input('请输入数字'))
+except ValueError:
+    print('单支报错')
+</code></pre>
+
+<p><strong>2.多支</strong></p>
+<pre><code class="python">try:
+    a = int(input('请输入数字'))
+except ValueError:
+    print('请输入数字')
+except NameError:
+    print('请给变量名赋予值')
+</code></pre>
+
+<p><strong>3.万能,任何错误都可以捕捉(特别除外)</strong></p>
+<pre><code class="python"> s1 = 'dasdads'
+try:
+    int(s1)
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p><strong>4.万能+多支:万能需要放最后</strong></p>
+<pre><code class="python">s1 = 'asdadad'
+try:
+    int(s1)
+except IndexError as e:
+    print(e)
+except KeyError as e:
+    print(e)
+except ValueError as e:
+    print(e)
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p><strong>5.异常的其他机构'</strong></p>
+<pre><code class="python">s1 = 'asdadad'
+try:
+    int(s1)
+except IndexError as e:
+    print(e)
+except KeyError as e:
+    print(e)
+except ValueError as e:
+    print(e)
+except Exception as e:
+    print(e)
+else:
+    print('try里面的代码没有问题就执行我')
+finally:
+    print('不管有什么错误,我都一定会执行的')
+</code></pre>
+
+<p><strong>6.主动触发</strong></p>
+<pre><code class="python">try:
+    raise TypeError('类型错误')
+except Exception as e:
+    print(e)
+</code></pre>
+
+<p><strong>7.自定义异常</strong></p>
+<pre><code class="python">class EvaException(BaseException):
+    def __init__(self,msg):
+        self.msg = msg
+    def __str__(self):
+        return self.msg
+try:
+    raise EvaException('类型错误')
+except EvaException as e:
+    print(e)
+</code></pre>
+
+<p><strong>8.断言</strong>:只要<strong>assert</strong>后面的条件不满足,就会报错,下面的一切代码都不会执行 </p>
+<pre><code class="python">print('asdadasdasd')
+assert 1==2
+print('asdadads')
+</code></pre>
+
+<p><strong>9.try..except的方式比较if的方式的好处</strong> </p>
+<ul>
+<li>1.把错误处理和真正的工作分开来</li>
+<li>2.代码更容易组织了,更清晰,复杂的工作任务更容易实现</li>
+<li>3.更安全了,不至于由于一些小的疏忽而使程序意外崩溃了</li>
+</ul>
+<h3 id="_1">异常报错总结</h3>
+<ul>
+<li>1.<strong>AttributeError</strong> 试图访问一个对象没有的树形，比如foo.x，但是foo没有属性x</li>
+<li>2.<strong>IOError</strong> 输入/输出异常；基本上是无法打开文件</li>
+<li>3.<strong>ImportError</strong> 无法引入模块或包；基本上是路径问题或名称错误</li>
+<li>4.<strong>IndentationError</strong> 语法错误（的子类） ；代码没有正确对齐</li>
+<li>5.<strong>IndexError</strong> 下标索引超出序列边界，比如当x只有三个元素，却试图访问x[5]</li>
+<li>6.<strong>KeyError</strong> 试图访问字典里不存在的键</li>
+<li>7.<strong>KeyboardInterrupt</strong> Ctrl+C被按下</li>
+<li>8.<strong>NameError</strong> 使用一个还未被赋予对象的变量</li>
+<li>9.<strong>SyntaxError</strong> Python代码非法，代码不能编译(个人认为这是语法错误，写错了）</li>
+<li>10.<strong>TypeError</strong> 传入对象类型与要求的不符合</li>
+<li>11.<strong>UnboundLocalError</strong> 试图访问一个还未被设置的局部变量，基本上是由于另有一个同名的全局变量， 导致你以为正在访问它</li>
+<li>12.<strong>ValueError</strong> 传入一个调用者不期望的值，即使值的类型是正确的</li>
+</ul>
+<h3 id="_2">日常报错总结</h3>
 
   <br>
     

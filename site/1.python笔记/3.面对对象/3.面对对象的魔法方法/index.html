@@ -62,10 +62,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-default pull-left">
+      <a href="1.python笔记/3.面对对象/1.面对对象基本知识/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-link">
-        面对对象的基本使用
+        Previous</a><a href="1.python笔记/3.面对对象/1.面对对象基本知识/" class="btn btn-xs btn-link">
+        面对对象基础知识
       </a>
     </div>
     
@@ -73,7 +73,171 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    
+    <ul>
+<li>基本魔法方法:<ul>
+<li>1.<strong> new</strong>(cls[,...])<ul>
+<li>a.<strong> new</strong> 是在一个对象实例化的时候所调用的第一个方法.</li>
+<li>b.它的第一个参数是这个类,其他的参数是用来直接传递给__init__方法.</li>
+<li>c.<strong> new</strong> 决定是否使用该__init__方法,因为__new__可以调用其他类的构造方法或者直接返回别的实例化对象来作为本类的实例, 如果__new__没有返回实例对象,则__init__不会被调用.</li>
+<li>d.<strong> new</strong> 主要是用于继承一个不可变的类型,不如一个tuple或者string</li>
+</ul>
+</li>
+<li>2.<strong> init</strong>(self[,...]) 构造器,当一个实例被创建的时候调用的初始化方法</li>
+<li>3.<strong> del</strong>(self) 析构器,当一个实例被销毁的时候调用的方法</li>
+<li>4.<strong> call</strong> (self[,args...]) 允许一个类的实例像函数一样被调用: x(a,b) 调用 x. <strong> call </strong>(a,b)</li>
+<li>5.<strong> len</strong>(self) 定义当被 len() 调用时的行为</li>
+<li>6.<strong> repr</strong>(self) 定义当被 repr() 调用时的行为</li>
+<li>7.<strong> str</strong>(self) 定义当被 str() 调用时的行为</li>
+<li>8.<strong> bytes</strong>(self) 定义当被 bytes() 调用时的行为</li>
+<li>9.<strong> hash</strong>(self) 定义当被 hash() 调用时的行为</li>
+<li>10.<strong> bool</strong>(self) 定义当被 bool() 调用时的行为,应该返回的是True或者False</li>
+<li>11.<strong> format</strong>(self,format_spec) 定义当被 format() 调用时的行为</li>
+</ul>
+</li>
+<li>有关属性<ul>
+<li>12.<strong> getattr</strong>(self,name) 定义当用户试图获取一个不存在的属性时</li>
+<li>13.<strong> getattribute</strong>(self,name) 定义当该类的属性被访问时的行为</li>
+<li>14.<strong> setattr</strong>(self,name,value) 定义当一个属性被设置时的行为</li>
+<li>15.<strong> delattr</strong>(self,name) 定义当一个属性被删除时的行为</li>
+<li>16.<strong> dir</strong>(self,name) 定义当 dir() 被调用时的行为</li>
+<li>17.<strong> get</strong>(self,instance,owner) 定义当描述符的值被取得时的行为</li>
+<li>18.<strong> set</strong>(self,instance,value) 定义当描述符的值被改变时的行为</li>
+<li>19.<strong> delete</strong>(self,instance) 定义当描述符的值被删除时的行为</li>
+</ul>
+</li>
+<li>比较操作符<ul>
+<li>20.<strong> lt </strong> (self,other) 定义小于号的行为: x&lt;y 调用 x.<strong> lt</strong>(y)</li>
+<li>21.<strong> le </strong>(self,other) 定义小于等于号的行为: x&lt;=y 调用 x.<strong> le</strong>(y)</li>
+<li>22.<strong> eq </strong> (self,other) 定义等于号的行为: x==y 调用 x.<strong> eq</strong>(y)</li>
+<li>23.<strong> ne </strong> (self,other) 定义不等号的行为: x!=y 调用 x.<strong> ne</strong>(y)</li>
+<li>24.<strong> gt </strong> (self,other) 定义大于号的行为: x&gt;y 调用 x.<strong> gt </strong> (y)</li>
+<li>25.<strong> ge </strong> (self,other) 定义大于等于号的行为: x&gt;=y 调用 x.<strong> ge </strong>(y)</li>
+</ul>
+</li>
+<li>算法运算符<ul>
+<li>26.<strong> add </strong>(self,other) 定义加法的行为: +</li>
+<li>27.<strong> sub </strong>(self,other) 定义减法的算法: -</li>
+<li>28.<strong> mul </strong>(self,other) 定义乘法的行为: *</li>
+<li>
+<ol>
+<li><strong> ruediv </strong>(self,other) 定义真除法的行为: /</li>
+</ol>
+</li>
+<li>30.<strong> floordiv </strong>(self,other) 定义整数除法(地板除)的行为: //</li>
+<li>31.<strong> mod </strong>(self,other) 定义取模算法的行为: %</li>
+<li>32.<strong> divmod </strong>(self,other) 定义当被 divmod() 调用时的行为</li>
+<li>33.<strong> pow </strong>(self,other[,modulo]) 定义当被 power() 调用或**运算时的行为</li>
+<li>34.<strong> lshift</strong>(self,other) 定义按位左移的行为:&lt;&lt;</li>
+<li>35.<strong> rshift</strong>(self,other) 定义按位右移的行为:&gt;&gt;</li>
+<li>36.<strong> add</strong>(self,other) 定义按位与操作的行为:&amp;</li>
+<li>37.<strong> xor</strong>(self,other) 定义按位异或操作的行为:^</li>
+<li>38.<strong> or</strong>(self,other) 定义按位或操作的行为:|</li>
+</ul>
+</li>
+<li>反运算<ul>
+<li>39.<strong> radd</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>40.<strong> rsub</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>41.<strong> rmul</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>42.<strong> rtruediv</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>43.<strong> rfloordiv</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>44.<strong> rmod</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>45.<strong> rdivmod</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>46.<strong> rpow</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>47.<strong> rlshift</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>48.<strong> rrshift</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>49.<strong> rxor</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+<li>50.<strong> ror</strong>(self,other) 与上方相同,当左操作数不支持相应的操作时被调用</li>
+</ul>
+</li>
+<li>增量赋值运算<ul>
+<li>51.<strong> iadd</strong>(self, other) 定义赋值加法的行为：+=</li>
+<li>52.<strong> isub</strong>(self, other) 定义赋值减法的行为：-=</li>
+<li>53.<strong> imul</strong>(self, other) 定义赋值乘法的行为：*=</li>
+<li>54.<strong> itruediv</strong>(self, other) 定义赋值真除法的行为：/=</li>
+<li>55.<strong> ifloordiv</strong>(self, other) 定义赋值整数除法的行为：//=</li>
+<li>56.<strong> imod</strong>(self, other) 定义赋值取模算法的行为：%=</li>
+<li>57.<strong> ipow</strong>(self, other[, modulo]) 定义赋值幂运算的行为：**=</li>
+<li>58.<strong> ilshift</strong>(self, other) 定义赋值按位左移位的行为：&lt;&lt;=</li>
+<li>59.<strong> irshift</strong>(self, other) 定义赋值按位右移位的行为：&gt;&gt;=</li>
+<li>60.<strong> iand</strong>(self, other) 定义赋值按位与操作的行为：&amp;=</li>
+<li>61.<strong> ixor</strong>(self, other) 定义赋值按位异或操作的行为：^=</li>
+<li>62.<strong> ior</strong>(self, other) 定义赋值按位或操作的行为：|=</li>
+</ul>
+</li>
+<li>一元操作符<ul>
+<li>63.<strong> neg</strong>(self) 定义正号的行为：+x</li>
+<li>64.<strong> pos</strong>(self) 定义负号的行为：-x</li>
+<li>65.<strong> abs</strong>(self) 定义当被 abs() 调用时的行为</li>
+<li>66.<strong> invert</strong>(self) 定义按位求反的行为：~x</li>
+</ul>
+</li>
+<li>类型转换<ul>
+<li>67.<strong> complex</strong>(self) 定义当被 complex() 调用时的行为（需要返回恰当的值）</li>
+<li>68.<strong> int</strong>(self) 定义当被 int() 调用时的行为（需要返回恰当的值）</li>
+<li>69.<strong> float</strong>(self) 定义当被 float() 调用时的行为（需要返回恰当的值）</li>
+<li>70.<strong> round</strong>(self[, n]) 定义当被 round() 调用时的行为（需要返回恰当的值）</li>
+<li>71.<strong> index</strong>(self)<ul>
+<li>
+<ol>
+<li>当对象是被应用在切片表达式中时，实现整形强制转换#</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>如果你定义了一个可能在切片时用到的定制的数值型,你应该定义 <strong>index</strong></li>
+</ol>
+</li>
+<li>
+<ol>
+<li>如果 <strong>index</strong> 被定义，则 <strong>int</strong> 也需要被定义，且返回相同的值</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>上下文管理（with 语句）<ul>
+<li>72.<strong> enter</strong>(self)<ul>
+<li>
+<ol>
+<li>定义当使用 with 语句时的初始化行为</li>
+</ol>
+</li>
+<li>
+<ol>
+<li><strong> enter</strong> 的返回值被 with 语句的目标或者 as 后的名字绑定</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>73.<strong> exit</strong>(self, exc_type, exc_value, traceback)<ul>
+<li>
+<ol>
+<li>定义当一个代码块被执行或者终止后上下文管理器应该做什么</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>一般被用来处理异常，清除工作或者做一些代码块执行完毕之后的日常工作</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>容器类型<ul>
+<li>74.<strong> len</strong>(self) 定义当被 len() 调用时的行为（返回容器中元素的个数）</li>
+<li>75.<strong> getitem</strong>(self, key) 定义获取容器中指定元素的行为，相当于 self[key]</li>
+<li>76.<strong> setitem</strong>(self, key, value) 定义设置容器中指定元素的行为，相当于 self[key] = value</li>
+<li>77.<strong> delitem</strong>(self, key) 定义删除容器中指定元素的行为，相当于 del self[key]</li>
+<li>78.<strong> iter</strong>(self) 定义当迭代容器中的元素的行为</li>
+<li>79.<strong> reversed</strong>(self) 定义当被 reversed() 调用时的行为</li>
+<li>80.<strong> contains</strong>(self, item) 定义当使用成员测试运算符（in 或 not in）时的行为</li>
+</ul>
+</li>
+</ul>
+<p><strong>__ slots __来对添加的属性进行限制。</strong> </p>
+<p><strong>_slots__定义的属性仅对当前实例其作用，对继承的子类不起作用。</strong> </p>
 
   <br>
     
@@ -91,10 +255,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-default pull-left">
+      <a href="1.python笔记/3.面对对象/1.面对对象基本知识/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-link">
-        面对对象的基本使用
+        Previous</a><a href="1.python笔记/3.面对对象/1.面对对象基本知识/" class="btn btn-xs btn-link">
+        面对对象基础知识
       </a>
     </div>
     

@@ -32,6 +32,22 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "\u9762\u5bf9\u5bf9\u8c61\u7684\u5b9a\u4e49", url: "#_top", children: [
+          ]},
+          {title: "\u9762\u5bf9\u5bf9\u8c61VS\u9762\u5bf9\u8fc7\u7a0b", url: "#vs", children: [
+          ]},
+          {title: "\u7c7b\u7684\u76f8\u5173\u77e5\u8bc6", url: "#_2", children: [
+          ]},
+          {title: "\u7c7b\u7684\u6574\u4f53\u5206\u7c7b", url: "#_3", children: [
+          ]},
+          {title: "\u7c7b\u540d\u79f0\u7a7a\u95f4\u548c\u5bf9\u8c61\u540d\u79f0\u7a7a\u95f4", url: "#_4", children: [
+          ]},
+          {title: "\u7c7b\u7684\u4e09\u5927\u7279\u6027", url: "#_5", children: [
+          ]},
+          {title: "\u63a5\u53e3\u7c7b\u548c\u62bd\u8c61\u7c7b", url: "#_6", children: [
+          ]},
+          {title: "\u53cd\u5c04", url: "#_7", children: [
+          ]},
         ];
 
     </script>
@@ -52,12 +68,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-default pull-right">
+      <a href="1.python笔记/3.面对对象/3.面对对象的魔法方法/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-link">
-        面对对象的基本使用
+      <a href="1.python笔记/3.面对对象/3.面对对象的魔法方法/" class="btn btn-xs btn-link">
+        面对对象的魔法方法
       </a>
     </div>
     
@@ -73,7 +89,235 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>111111</p>
+    <h3 id="_1">面对对象的定义</h3>
+<p><strong>class 类名</strong> (类名首字母大写) </p>
+<p><strong>类:</strong>具有相同属性和技能的一类事物 </p>
+<p><strong>对象:</strong>类的具体表现 </p>
+<p><strong>实例化</strong></p>
+<ul>
+<li>由一个类创建一个对象的过程 </li>
+<li>详细过程 <ul>
+<li>1,类名() 执行 <strong> new </strong> 方法,先从自己的类中寻找,如果没有找到,则从父类(直到object类)寻找,然后从object的 __ new __产生一个对象空间,返回给类名(). </li>
+<li>2,对象空间一旦产生并返回.则自动执行__ init __方法,给这个对象空间封装属性. </li>
+<li>最终你得到是封装好属性的对象空间. </li>
+</ul>
+</li>
+</ul>
+<p><strong>基础操作</strong></p>
+<p><strong>类</strong></p>
+<ul>
+<li><strong>类名.属性:</strong>可以对类里的属性进行增删改查 </li>
+<li><strong>类名.方法名</strong>(self:self可以随意参数):调用类里面的方法 </li>
+</ul>
+<p><strong>对象(也可以作为一个方法的参数)</strong></p>
+<ul>
+<li><strong>对象名.属性</strong>:可以对自己空间里的属性进行增删改查,不能对类里面的静态属性进行删改 </li>
+<li><strong>对象名.方法</strong>:可以调用类里面的方法 </li>
+</ul>
+<h3 id="vs">面对对象VS面对过程</h3>
+<p><strong>面对过程</strong></p>
+<ul>
+<li><strong>优点</strong>：极大的降低了写程序的复杂度，只需要顺着要执行的步骤，堆叠代码即可 </li>
+<li><strong>缺点</strong>：一套流水线或者流程就是用来解决一个问题，代码牵一发而动全身。 </li>
+</ul>
+<p><strong>面对对象</strong></p>
+<ul>
+<li><strong>优点：</strong>解决了程序的扩展性。对某一个对象单独修改，会立刻反映到整个体系中，如对游戏中一个人物参数的特征和技能修改都很容易 </li>
+<li><strong>缺点</strong>：可控性差，无法向面向过程的程序设计流水线式的可以很精准的预测问题的处理流程与结果，面向对象的程序一旦开始就由对象之间的交互解决问题，即便是上帝也无法预测最终结果。于是我们经常看到一个游戏人某一参数的修改极有可能导致阴霸的技能出现，一刀砍死3个人，这个游戏就失去平衡。 </li>
+</ul>
+<h3 id="_2">类的相关知识</h3>
+<p><strong>声明类</strong>:class 类名（类名的首字母需要大写） </p>
+<p><strong>类的属性,方法和实例化</strong></p>
+<ul>
+<li><strong>属性</strong>：类名.静态字段：这个静态字段就是属性 </li>
+<li><strong>方法</strong>：类名.函数名：这个函数名就是方法 </li>
+<li><strong>实例化</strong>：类名加括号就是实例化，会自动触发__init__函数的运行，可以用它来为每个实例定制自己的特征 </li>
+</ul>
+<p><strong>类的基本属性</strong></p>
+<ul>
+<li>类名.<strong> dict </strong>:查出来的是一个字典，key是属性，value为值 </li>
+<li>类名.<strong> name </strong># 类的名字(字符串)</li>
+<li>类名.<strong> doc </strong># 类的文档字符串</li>
+<li>类名.<strong> base </strong># 类的第一个父类</li>
+<li>类名.<strong> bases </strong># 类所有父类构成的元组</li>
+<li>类名.<strong> dict </strong># 类的字典属性</li>
+<li>类名.<strong> module </strong># 类定义所在的模块</li>
+<li>类名.<strong> class </strong># 实例对应的类(仅新式类中)</li>
+</ul>
+<h3 id="_3"><strong>类的整体分类</strong></h3>
+<p><strong>查看对象或类中所有的方法和属性</strong> </p>
+<ul>
+<li>类名.<strong> dect </strong></li>
+<li>对象名.<strong> dect </strong></li>
+</ul>
+<p><strong>第一部分:静态字段</strong> </p>
+<ul>
+<li>1.公有静态字段</li>
+<li>2.私有静态字段</li>
+</ul>
+<p><strong>第二部分 属性,方法(函数)</strong> </p>
+<ul>
+<li>
+<p><strong>普通方法</strong>(def func(self)) </p>
+</li>
+<li>
+<p><strong>私有方法</strong>(def __func(self)) </p>
+</li>
+<li>
+<p><strong>类方法</strong></p>
+<ul>
+<li>@classmethod类方法装饰器  <ul>
+<li>类名调用类方法,自动将类的空间传给类中的cls </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>静态方法</strong></p>
+<ul>
+<li>@staticmethod静态方法装饰器 <ul>
+<li>在类中定义一个静态方法,无需传入你的类空间,对象空间,可以当成普通函数使用 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>属性方法</strong></p>
+<ul>
+<li>@pyperty 把一个方法变成属性 <ul>
+<li>将方法伪装成属性,虽然在代码层面没有任何高深之处,但是可以让其看起来更合理一些 </li>
+<li><strong>改</strong><ul>
+<li>@函数名.setter</li>
+<li>只要触发 '=' 条件时就会执行它下面的函数</li>
+</ul>
+</li>
+<li><strong>删</strong><ul>
+<li>@函数名.deleter</li>
+<li>当触发删除条件,运行这个下面的函数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>为什么要设置私有成员</strong></p>
+<ul>
+<li>有些变量,方法,属性,只在类内部进行使用即可,不便于(不允许)类外部或派生类中使用 </li>
+</ul>
+<h3 id="_4">类名称空间和对象名称空间</h3>
+<p><strong>类里可以定义两种属性</strong></p>
+<ul>
+<li><strong>静态属性</strong>:就是直接在类中定义的变量 </li>
+<li><strong>动态属性</strong>:定义在类中的方法 </li>
+</ul>
+<p><strong>类名称空间</strong>:只要定义了一个类,那么里面所有的内容会全部储存在空间里,其中类的数据是共享给所有对象的 </p>
+<p><strong>对象名称空间</strong>:它的第一步数先建立一个空的空间,然后里面的第一个内容,其实是类对象指针,然后才是其他的内容一步一步的传入的 </p>
+<h3 id="_5">类的三大特性</h3>
+<ul>
+<li><strong>封装</strong><ul>
+<li><strong>封装</strong>就是将一些属性或者方法(有用的信息)放置在一个空间中,最好不要改变 </li>
+<li>给对象封装属性</li>
+<li>给类封装属性</li>
+<li><strong>私有成员</strong>:私有静态字段,私有方法,私有属性:__变量 <ul>
+<li><strong>私有成员</strong>:类只要加载到内存,她就会将所有的私有成员变成:_类名__变量名 </li>
+<li><strong>何处调用</strong>:只能在类内部调用,<strong>不能</strong>在它的<strong>外部</strong>或它的<strong>派生类</strong>中调用 </li>
+</ul>
+</li>
+<li><strong>组合</strong><ul>
+<li><strong>组合</strong>:给一个类的对象,封装一个属性,这个属性是另一个类的对象 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>继承</strong><ul>
+<li><strong>子类:又叫派生类</strong></li>
+<li><strong>定义</strong><ul>
+<li>继承是一种创建新类的方式,子类继承父类的一切,最大的特点:1.节省代码,2.与其他类发生关联 </li>
+</ul>
+</li>
+<li><strong>如何查看它的父类</strong><ul>
+<li><strong>查看一个</strong><ul>
+<li>类命.<strong> base </strong>:会显示一个 </li>
+</ul>
+</li>
+<li><strong>查看全部</strong><ul>
+<li>类名.<strong> bases </strong>:显示全部 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>新式类与经典类的区别 <ul>
+<li>python3之后都是新式类,只要父类是object的都是新式类</li>
+<li>新式类是的查询方式是广度优先,经典类是深度优先</li>
+</ul>
+</li>
+<li><strong>单继承</strong><ul>
+<li>只执行父类(子类和对象必须没有此变量或方法)</li>
+<li>在子类中既执行本类又执行父类的方法<ul>
+<li>1.Animal.<strong> init </strong>(self,name,age,sex)# 第一种 如何在子类中执行父类方法</li>
+<li>2.super().<strong> init </strong>(name, age, sex) # 第二种 如何在子类中执行父类方法</li>
+<li>super() = super(Animal,self)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>多继承</strong><ul>
+<li><strong>新式类:</strong>用的查找方式是广度优先<ul>
+<li><strong>广度算法:</strong>用最少的次数走完每一个节点,且只走一次</li>
+</ul>
+</li>
+<li><strong>经典类</strong>:深度优先,一条路走到黑</li>
+</ul>
+</li>
+<li>查看继承顺序的方法是:<strong>类名.mro()</strong> </li>
+</ul>
+</li>
+<li><strong>多态</strong><ul>
+<li><strong>多态</strong>就是同一操作（方法）作用于不同的对象时，可以有不同的解释，产生不同的执行结果 </li>
+</ul>
+</li>
+</ul>
+<h3 id="_6">接口类和抽象类</h3>
+<p><strong>接口类</strong></p>
+<pre><code class="python">from abc import abstractmethod,ABCMeta   这里是为了实现接口类调用的模块
+class Payment(metaclass=ABCMeta):   在这里声明metaclass=ABCMeta
+    @abstractmethod                  然后这里一个语法糖调用abstractmethod,就声明这个类是接口类
+    def pay(self,money):pass
+</code></pre>
+
+<p>抽象类</p>
+<pre><code class="python">import abc 利用abc模块实现抽象类
+class All_file(metaclass=abc.ABCMeta):
+    all_type='file'
+    @abc.abstractmethod 定义抽象方法，无需实现功能
+    def read(self):
+        '子类必须定义读功能'
+        with open('filaname') as f:
+            pass
+</code></pre>
+
+<pre><code class="python">class Txt(All_file): 子类继承抽象类，但是必须定义read和write方法
+    def read(self):
+        print('文本数据的读取方法')
+wenbenwenjian=Txt()
+print(wenbenwenjian.read())
+</code></pre>
+
+<h3 id="_7">反射</h3>
+<ul>
+<li><strong>机制:</strong>反射就是 通过字符串的形式,导入模块;通过字符串的形式,去模块寻找指定函数,并执行利用字符串的形式去对象(模块)中操作(增删改查),一种基于字符串的事件驱动</li>
+<li><strong>getattr(</strong>1.对象,2.'函数或静态名(要字符串类型的)',3.没有这个函数或静态名要返回的值)<ul>
+<li>得到这个对象里的属性内容</li>
+</ul>
+</li>
+<li><strong>hasattr():</strong>判断这个对象的函数名是否存在,<ul>
+<li>判断此对象中有没有此属性有返回True,没有返回False</li>
+</ul>
+</li>
+<li><strong>setattr()</strong>:对这个对象设置属性</li>
+<li><strong>delattr()</strong>:删除属性</li>
+</ul>
 
   <br>
     
@@ -81,12 +325,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-default pull-right">
+      <a href="1.python笔记/3.面对对象/3.面对对象的魔法方法/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="1.python笔记/3.面对对象/2.面对对象的基本使用/" class="btn btn-xs btn-link">
-        面对对象的基本使用
+      <a href="1.python笔记/3.面对对象/3.面对对象的魔法方法/" class="btn btn-xs btn-link">
+        面对对象的魔法方法
       </a>
     </div>
     
