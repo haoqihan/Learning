@@ -535,8 +535,8 @@ print(keyword.kwlist)
 <td>函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表。</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td><font colo r=red><strong>reduce</strong>()</font></td>
+<td>函数会对参数序列中的元素进行累积</td>
 </tr>
 </tbody>
 </table>
@@ -601,7 +601,7 @@ print(age(4))
 </code></pre>
 
 <h3 id="_7">偏函数</h3>
-<pre><code>from functools import partial 
+<pre><code class="python">from functools import partial 
 def xx(n,x):
     print(n,x)
 aa = partial(xx,11)

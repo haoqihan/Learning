@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://www.haoqihan.top/8.面试总结/2.面试题复习/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>2.面试题复习 - 学习笔记</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "PEP8\u89c4\u8303", url: "#_top", children: [
+          ]},
+          {title: "\u7b80\u8ff0\u4e00\u4e0b\u4ec0\u4e48\u4e09\u5927\u5668", url: "#_1", children: [
+          ]},
+          {title: "\u4ec0\u4e48\u662f\u9762\u5bf9\u5bf9\u8c61\u548c\u4ed6\u7684\u4e09\u5927\u7279\u5f81", url: "#_2", children: [
+          ]},
+          {title: "os\u548csys\u7684\u533a\u522b", url: "#ossys", children: [
+          ]},
+          {title: "Python\u7684\u5783\u573e\u56de\u6536\u673a\u5236", url: "#python", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h3 id="pep8">PEP8规范</h3>
+<p>1.缩进:每次缩进使用4个空格</p>
+<p>2.每一行的最大长度为79个字符</p>
+<p>3.顶层函数与类之间使用两个空行,函数与函数之间空一行</p>
+<p>4.import导入:顺序 标准库导入----&gt;第三方库-----&gt;本地库,每组导入空一行</p>
+<p>5.永远不要使用小写的l和大写的O</p>
+<h3 id="_1">简述一下什么三大器</h3>
+<p><strong>装饰器:</strong>在不改变原有代码的基础上增加新的功能</p>
+<p><strong>迭代器:</strong>内部实现了__ iter__ 和 __ next__方法的一个 对象,迭代器的优点是:节省内存,惰性机制和只能向前,不能反复</p>
+<p><strong>生成器</strong>:一个函数内部有yield方法的,它就是一个生成器,但是他的本质就是一个迭代器</p>
+<h3 id="_2">什么是面对对象和他的三大特征</h3>
+<p><strong>面对对象</strong>:把一些相关的属性和方法放在一起,作为一个互相依存的一个整体</p>
+<p><strong>封装:</strong>讲一个对象的数据集合到一个对象中,方便使用和调取</p>
+<p><strong>继承:</strong>在原有的基础上进行扩展,减少了代码的冗余性</p>
+<p><strong>多态:</strong>在python中是默认多态的,多态其实就是同一对象,多种状态,</p>
+<h3 id="ossys">os和sys的区别</h3>
+<p>os是方便python与操作系统互相交互的一个模块</p>
+<p>sys是方便与python解释器交互操作的一个模块</p>
+<h3 id="python">Python的垃圾回收机制</h3>
+<p><strong>1.引用计数</strong></p>
+<ul>
+<li>当一个对象被引用一次的话就会引用计数加一,如果这个对象引用计数为0的话那这个对象就该被清除了</li>
+</ul>
+<p><strong>2.标记清除机制</strong></p>
+<ul>
+<li>等到没有空闲内存的时候,遍历以对象为节点,把所有访问到的对象都打上标记,把没有打上标记的都给清除出去</li>
+</ul>
+<p><strong>3.分代计数</strong></p>
+<ul>
+<li>将系统中的所有内存块根据存活时间分为不同集合每个集合就成为一个代,垃圾回收的频率会根据存活时间的增大而减小</li>
+</ul>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/8.面试总结/2.面试题复习.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
