@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="http://www.haoqihan.top/1.python笔记/6.django基础/9.缓存/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>9.缓存 - 学习笔记</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "1.\u7f13\u5b58\u7b80\u4ecb", url: "#_top", children: [
+          ]},
+          {title: "2.Django\u63d0\u4f9b\u4e866\u79cd\u7f13\u5b58\u65b9\u5f0f", url: "#2django6", children: [
+          ]},
+          {title: "3.\u5404\u79cd\u7f13\u5b58\u914d\u7f6e", url: "#3", children: [
+              {title: "1.\u5f00\u53d1\u8c03\u8bd5(\u6b64\u6a21\u5f0f\u4e3a\u5f00\u53d1\u8c03\u8bd5\u4f7f\u7528,\u5b9e\u9645\u4e0a\u4e0d\u6267\u884c\u4efb\u4f55\u64cd\u4f5c )", url: "#1_1" },
+              {title: "2.\u5185\u5b58\u7f13\u5b58(\u5c06\u7f13\u5b58\u5185\u5bb9\u4fdd\u5b58\u5230\u5185\u5b58\u533a\u57df\u4e2d)", url: "#2" },
+              {title: "3.\u6587\u4ef6\u7f13\u5b58(\u628a\u7f13\u5b58\u6570\u636e\u5b58\u50a8\u5728\u6587\u4ef6\u4e2d)", url: "#3_1" },
+              {title: "4.\u6570\u636e\u5e93\u7f13\u5b58(\u628a\u7f13\u5b58\u6570\u636e\u5b58\u50a8\u5728\u6570\u636e\u5e93\u4e2d )", url: "#4" },
+              {title: "5.\u00a0Memcache\u7f13\u5b58(\u4f7f\u7528python-memcached\u6a21\u5757\u8fde\u63a5memcache)", url: "#5-memcachepython-memcachedmemcache" },
+              {title: "6.Memcache\u7f13\u5b58(\u4f7f\u7528pylibmc\u6a21\u5757\u8fde\u63a5memcache)", url: "#6memcachepylibmcmemcache" },
+              {title: "7.Redis\u7f13\u5b58(\u4f9d\u8d56\uff1apip3 install django-redis )", url: "#7redispip3-install-django-redis" },
+          ]},
+          {title: "4.Django\u4e2d\u7684\u7f13\u5b58\u5e94\u7528", url: "#4django", children: [
+              {title: "1.\u5168\u7ad9\u4f7f\u7528", url: "#1_2" },
+              {title: "2.\u5355\u72ec\u89c6\u56fe\u7f13\u5b58", url: "#2_1" },
+              {title: "3.\u5c40\u90e8\u89c6\u56fe\u4f7f\u7528", url: "#3_2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h3 id="1">1.缓存简介</h3>
+<p>在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.</p>
+<p>当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力.</p>
+<p>缓存是将一些常用的数据保存内存或者memcache中,在一定的时间内有人来访问这些数据时,则不再去执行数据库及渲染等操作,而是直接从内存或memcache的缓存中去取得数据,然后返回给用户.</p>
+<h3 id="2django6">2.Django提供了6种缓存方式</h3>
+<ul>
+<li>开发调试缓存</li>
+<li>内存缓存</li>
+<li>文件缓存</li>
+<li>Memcache缓存(使用python-memcached模块)</li>
+<li>Memcache缓存(使用pylibmc模块)</li>
+</ul>
+<h3 id="3">3.各种缓存配置</h3>
+<h4 id="1_1">1.开发调试(此模式为开发调试使用,实际上不执行任何操作 )</h4>
+<p>settings.py 文件配置</p>
+<pre><code class="python">CACHES = {
+ 'default': {
+  'BACKEND': 'django.core.cache.backends.dummy.DummyCache',  # 缓存后台使用的引擎
+  'TIMEOUT': 300,            # 缓存超时时间（默认300秒，None表示永不过期，0表示立即过期）
+  'OPTIONS':{
+   'MAX_ENTRIES': 300,          # 最大缓存记录的数量（默认300）
+   'CULL_FREQUENCY': 3,          # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+  },
+ }
+}
+</code></pre>
+
+<h4 id="2">2.内存缓存(将缓存内容保存到内存区域中)</h4>
+<p>settings.py文件</p>
+<pre><code class="python">CACHES = {
+ 'default': {
+  'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',  # 指定缓存使用的引擎
+  'LOCATION': 'unique-snowflake',         # 写在内存中的变量的唯一值 
+  'TIMEOUT':300,             # 缓存超时时间(默认为300秒,None表示永不过期)
+  'OPTIONS':{
+   'MAX_ENTRIES': 300,           # 最大缓存记录的数量（默认300）
+   'CULL_FREQUENCY': 3,          # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+  }  
+ }
+}
+</code></pre>
+
+<h4 id="3_1">3.文件缓存(把缓存数据存储在文件中)</h4>
+<p>settings.py文件配置</p>
+<pre><code class="python">CACHES = {
+ 'default': {
+  'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache', #指定缓存使用的引擎
+  'LOCATION': '/var/tmp/django_cache',        #指定缓存的路径
+  'TIMEOUT':300,              #缓存超时时间(默认为300秒,None表示永不过期)
+  'OPTIONS':{
+   'MAX_ENTRIES': 300,            # 最大缓存记录的数量（默认300）
+   'CULL_FREQUENCY': 3,           # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+  }
+ }   
+}
+</code></pre>
+
+<h4 id="4">4.数据库缓存(把缓存数据存储在数据库中 )</h4>
+<pre><code class="python">CACHES = {
+ 'default': {
+  'BACKEND': 'django.core.cache.backends.db.DatabaseCache',  # 指定缓存使用的引擎
+  'LOCATION': 'cache_table',          # 数据库表    
+  'OPTIONS':{
+   'MAX_ENTRIES': 300,           # 最大缓存记录的数量（默认300）
+   'CULL_FREQUENCY': 3,          # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+  }  
+ }   
+}
+
+创建完毕:python manage.py createcachetable
+</code></pre>
+
+<h4 id="5-memcachepython-memcachedmemcache">5. Memcache缓存(使用python-memcached模块连接memcache)</h4>
+<p>Memcached是Django原生支持的缓存系统.要使用Memcached,需要下载Memcached的支持库python-memcached或pylibmc. </p>
+<p>settings.py</p>
+<pre><code class="python">CACHES = {
+ 'default': {
+  'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache', # 指定缓存使用的引擎
+  'LOCATION': '192.168.10.100:11211',         # 指定Memcache缓存服务器的IP地址和端口
+  'OPTIONS':{
+   'MAX_ENTRIES': 300,            # 最大缓存记录的数量（默认300）
+   'CULL_FREQUENCY': 3,           # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+  }
+ }
+}
+</code></pre>
+
+<p>LOCATION也可以设置为</p>
+<pre><code class="python">'LOCATION': 'unix:/tmp/memcached.sock',   # 指定局域网内的主机名加socket套接字为Memcache缓存服务器
+'LOCATION': [         # 指定一台或多台其他主机ip地址加端口为Memcache缓存服务器
+ '192.168.10.100:11211',
+ '192.168.10.101:11211',
+ '192.168.10.102:11211',
+]
+</code></pre>
+
+<h4 id="6memcachepylibmcmemcache">6.Memcache缓存(使用pylibmc模块连接memcache)</h4>
+<pre><code class="python">settings.py文件配置
+ CACHES = {
+  'default': {
+   'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',  # 指定缓存使用的引擎
+   'LOCATION':'192.168.10.100:11211',         # 指定本机的11211端口为Memcache缓存服务器
+   'OPTIONS':{
+    'MAX_ENTRIES': 300,            # 最大缓存记录的数量（默认300）
+    'CULL_FREQUENCY': 3,           # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+   },  
+  }
+ }
+</code></pre>
+
+<p>LOCATION也可以配置成如下: </p>
+<pre><code class="python">'LOCATION': '/tmp/memcached.sock',  # 指定某个路径为缓存目录
+'LOCATION': [       # 分布式缓存,在多台服务器上运行Memcached进程,程序会把多台服务器当作一个单独的缓存,而不会在每台服务器上复制缓存值
+ '192.168.10.100:11211',
+ '192.168.10.101:11211',
+ '192.168.10.102:11211',
+]
+</code></pre>
+
+<p>Memcached是基于内存的缓存,数据存储在内存中.所以如果服务器死机的话,数据就会丢失,所以Memcached一般与其他缓存配合使用 </p>
+<h4 id="7redispip3-install-django-redis">7.Redis缓存(依赖：pip3 install django-redis )</h4>
+<p>settings.py中</p>
+<pre><code class="python">CACHES = {
+    &quot;default&quot;: {
+        &quot;BACKEND&quot;: &quot;django_redis.cache.RedisCache&quot;,
+        &quot;LOCATION&quot;: &quot;redis://127.0.0.1:6379&quot;,
+        &quot;OPTIONS&quot;: {
+            &quot;CLIENT_CLASS&quot;: &quot;django_redis.client.DefaultClient&quot;,
+            &quot;CONNECTION_POOL_KWARGS&quot;: {&quot;max_connections&quot;: 100}
+            # &quot;PASSWORD&quot;: &quot;密码&quot;,
+        }
+    }
+}
+</code></pre>
+
+<p>视图中操作</p>
+<pre><code class="python">from django_redis import get_redis_connection
+conn = get_redis_connection(&quot;default&quot;)
+</code></pre>
+
+<h3 id="4django">4.Django中的缓存应用</h3>
+<p>Django提供了不同粒度的缓存,可以缓存某个页面,可以只缓存一个页面的某个部分,甚至可以缓存整个网站.</p>
+<h4 id="1_2">1.全站使用</h4>
+<pre><code class="python">使用中间件，经过一系列的认证等操作，如果内容在缓存中存在，则使用FetchFromCacheMiddleware获取内容并返回给用户，当返回给用户之前，判断缓存中是否已经存在，如果不存在则UpdateCacheMiddleware会将缓存保存至缓存，从而实现全站缓存
+
+    MIDDLEWARE = [
+        'django.middleware.cache.UpdateCacheMiddleware',
+        # 其他中间件...
+        'django.middleware.cache.FetchFromCacheMiddleware',
+    ]
+
+    CACHE_MIDDLEWARE_ALIAS = &quot;&quot;
+    CACHE_MIDDLEWARE_SECONDS = &quot;&quot;
+    CACHE_MIDDLEWARE_KEY_PREFIX = &quot;&quot;
+</code></pre>
+
+<h4 id="2_1">2.单独视图缓存</h4>
+<pre><code class="python">方式一：
+from django.views.decorators.cache import cache_page
+
+@cache_page(60 * 15)
+def my_view(request):
+            ...
+
+方式二：
+ from django.views.decorators.cache import cache_page
+
+urlpatterns = [
+    url(r'^foo/([0-9]{1,2})/$', cache_page(60 * 15)(my_view)),
+        ]
+</code></pre>
+
+<h4 id="3_2">3.局部视图使用</h4>
+<pre><code class="python"> a. 引入TemplateTag
+
+{% load cache %}
+
+b. 使用缓存
+
+{% cache 5000 缓存key %}
+       缓存内容
+{% endcache %}
+</code></pre>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/haoqihan/learning/edit/master/docs/1.python笔记/6.django基础/9.缓存.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
